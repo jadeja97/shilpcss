@@ -35,6 +35,9 @@ console.log(`Publishing Shilp CSS with tag: ${tag}`);
 execSync(`pnpm build`, { stdio: "inherit" });
 
 // publish the package with the determined tag
-execSync(`pnpm publish --tag ${tag} --access public --provenance true`, {
-	stdio: "inherit",
-});
+execSync(
+	`pnpm publish --tag ${tag} --access public --provenance true --no-git-checks`,
+	{
+		stdio: "inherit",
+	},
+);
