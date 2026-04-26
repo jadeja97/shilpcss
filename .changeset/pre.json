@@ -5,5 +5,7 @@
     "shilpcss-docs": "1.0.0-alpha.6",
     "shilpcss": "1.0.0-alpha.0"
   },
-  "changesets": []
+  "changesets": [
+    "blue-coats-make"
+  ]
 }

@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.0.0-alpha.1
+
+### Patch Changes
+
+- [#37](https://github.com/JadejaHQ/shilpcss/pull/37) [`e68a7d5`](https://github.com/JadejaHQ/shilpcss/commit/e68a7d5611f7126d5d2b4fb37698cef75c5da1a2) Thanks [@jadeja97](https://github.com/jadeja97)! - fix: issues in properties config
+
 ## 1.0.0-alpha.0
 
 शुभारम्भः

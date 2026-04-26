@@ -1,7 +1,7 @@
 {
 	"name": "shilpcss",
 	"description": "an Intent-first, CSS-centric, styling engine and framework",
-	"version": "1.0.0-alpha.0",
+	"version": "1.0.0-alpha.1",
 	"type": "module",
 	"exports": {
 		"./styles/*": "./dist/styles/*.css",
