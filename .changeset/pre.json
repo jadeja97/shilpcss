@@ -6,6 +6,7 @@
     "shilpcss": "1.0.0-alpha.0"
   },
   "changesets": [
-    "blue-coats-make"
+    "blue-coats-make",
+    "happy-games-drum"
   ]
 }

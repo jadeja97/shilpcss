@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.0.0-alpha.2
+
+### Patch Changes
+
+- [#39](https://github.com/JadejaHQ/shilpcss/pull/39) [`d8d715a`](https://github.com/JadejaHQ/shilpcss/commit/d8d715aff0c861b1771adf0a60aa07a75878d8aa) Thanks [@jadeja97](https://github.com/jadeja97)! - fix: add ignore git checks flags for release
+
 ## 1.0.0-alpha.1
 
 ### Patch Changes
