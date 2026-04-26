@@ -21,10 +21,10 @@ const utilities = {
 	// logical
 	bl: "border-block-style: <v><i>;",
 	bls: "border-block-start-style: <v><i>;",
-	bls: "border-block-start-style: <v><i>;",
+	ble: "border-block-end-style: <v><i>;",
 	bi: "border-inline-style: <v><i>;",
 	bis: "border-inline-start-style: <v><i>;",
-	bis: "border-inline-start-style: <v><i>;",
+	bie: "border-inline-end-style: <v><i>;",
 
 	//// divider - can be created with childs or self mixin
 };

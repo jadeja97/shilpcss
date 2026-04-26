@@ -201,7 +201,7 @@ const adjust = {
 		},
 
 		x: {
-			property: "--skw: skewX(<n><v>)<i>;",
+			property: "--skw-x: skewX(<n><v>)<i>;",
 			themeKey: "angles",
 			values: {},
 		},
