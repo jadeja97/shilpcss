@@ -1,6 +1,13 @@
 # Changelog
 
-# 1.0.0-alpha.3
+## 1.0.0-alpha.4
+
+## Patch Changes
+
+- fix: update workflow for npm auth error
+- feat: added `workflow_dispatch` trigger for manual action
+
+## 1.0.0-alpha.3
 
 ## Patch Changes
 
