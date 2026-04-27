@@ -1,5 +1,5 @@
 # Purpose: Verify repository builds
-# Trigger: pull_request (not from 'changeset-release/*')
+# Trigger: pull_request
 
 name: CI
 
@@ -24,15 +24,11 @@ jobs:
   #
   #
   check_build:
-    # skip if the head branch starts with "changeset-release"
     # skip if closed PR is "closed without merging (dismissed)"
     if: >
-      !startsWith(github.head_ref, 'changeset-release') && (
-        github.event.action != 'closed' ||
-        (
-          github.event.action == 'closed' &&
-          github.event.pull_request.merged == true
-        )
+      github.event.action != 'closed' || (
+        github.event.action == 'closed' &&
+        github.event.pull_request.merged == true
       )
 
     name: Check if build is succeeding
@@ -96,29 +92,3 @@ jobs:
       id-token: write # authenticate with OIDC for secure deployments
       contents: read # checkout code
       pages: write # deploy to GitHub Pages
-
-  #
-  #
-  #
-  package:
-    # runs after `check_build` job
-    needs: check_build
-
-    # `check_build` job must succeed
-    # base branch is "main"
-    # PR is merged
-    if: >
-      needs.check_build.result == 'success' && (
-        github.base_ref == 'main' &&
-        github.event.pull_request.merged == true
-      )
-
-    # call the `create-release-pr` workflow
-    # this is not individual workflow call
-    # this will run as a job of this workflow
-    uses: ./.github/workflows/create-release-pr.yml
-
-    # permissions for the workflow need to be granted here as it is running as a job
-    permissions: # provide permission to `create-release-pr.yml`
-      contents: write # checkout code
-      pull-requests: write # create release PR

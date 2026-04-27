@@ -92,8 +92,7 @@
 
 **Shilp CSS Docs**
 
-All notable changes to this project is documented in this file (using
-changeset).
+All notable changes to this project is documented in this file.
 
 The format is loosely based on
 [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), and

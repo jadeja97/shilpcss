@@ -44,6 +44,8 @@ jobs:
         )
       )
 
+    name: Check Version
+
     runs-on: ubuntu-latest
 
     # share data with dependent jobs

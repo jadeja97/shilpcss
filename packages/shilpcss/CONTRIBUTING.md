@@ -75,27 +75,11 @@ it.
      git checkout -b <branch-name> dev
      ```
 5. Make your code changes in the new branch.
-6. Create a changeset before committing.
-   - **Stable release**:
-     - ```bash
-        pnpm release
-       ```
-   - **Prerelease (alpha, beta, rc)** — ensure the correct mode is set first:
-     - ```bash
-       pnpm pre:alpha   # or pre:beta / pre:rc
-       pnpm release
-       ```
-   - **Return to stable releases**:
-     - ```bash
-       pnpm pre:exit
-       pnpm release
-       ```
-7. Ensure your code adheres to the project's coding style and conventions.
+6. Ensure your code adheres to the project's coding style and conventions.
    - NOTE: ⚠️ linter and formatter is not configured yet.
-8. Commit the generated `.changeset` file along with your changes.
-9. Push the branch to your forked repository.
-10. Submit a pull request from your forked branch to the main repository (_`dev`
-    branch_).
+7. Push the branch to your forked repository.
+8. Submit a pull request from your forked branch to the main repository (_`dev`
+   branch_).
 
 <br>
 

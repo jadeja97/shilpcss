@@ -1,7 +1,7 @@
 {
 	"name": "shilpcss-monorepo",
 	"description": "Shilp CSS monorepo",
-	"version": "1.0.0-alpha.4",
+	"version": "1.0.0-alpha.5",
 	"private": true,
 	"type": "module",
 	"scripts": {
@@ -10,18 +10,10 @@
 		"dev": "turbo run dev",
 		"docs:dev": "pnpm i && pnpm dev --filter=shilpcss-docs",
 		"docs:build": "pnpm i && pnpm build --filter=shilpcss-docs",
-		"lib:build": "pnpm i && pnpm build --filter=shilpcss",
-		"publish-it": "turbo run publish-it",
-		"pre:alpha": "pnpm changeset pre enter alpha",
-		"pre:beta": "pnpm changeset pre enter beta",
-		"pre:rc": "pnpm changeset pre enter rc",
-		"pre:exit": "pnpm changeset pre exit",
-		"release": "pnpm changeset",
-		"release:version": "pnpm changeset version"
+		"pkg:build": "pnpm i && pnpm build --filter=shilpcss",
+		"publish-it": "turbo run publish-it"
 	},
 	"devDependencies": {
-		"@changesets/changelog-github": "^0.6.0",
-		"@changesets/cli": "^2.31.0",
 		"turbo": "^2.9.3"
 	},
 	"homepage": "https://shilpcss.com/",

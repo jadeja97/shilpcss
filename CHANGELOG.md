@@ -1,15 +1,24 @@
 # Changelog
 
+## 1.0.0-alpha.5
+
+### Patch Changes
+
+- add name property to `docs.yml`'s `chekc_version` job
+- remove `create-release-pr.yml` and `release.yml`
+  - update `ci.yml` for this change
+- remove `changeset` and related files and content
+
 ## 1.0.0-alpha.4
 
-## Patch Changes
+### Patch Changes
 
 - fix: update workflow for npm auth error
 - feat: added `workflow_dispatch` trigger for manual action
 
 ## 1.0.0-alpha.3
 
-## Patch Changes
+### Patch Changes
 
 - Refactor actions workflows
   - Refactor job execution conditions (earlier it was producing race conditions)
