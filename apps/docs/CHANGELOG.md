@@ -1,5 +1,21 @@
 # Changelog
 
+## 1.0.0-alpha.7
+
+### Minor Changes
+
+- refactor: improve search results accuracy
+  - add `front-matter` npm package
+  - make meta title, description and keywords to be indexed for search
+    - add top priority for results
+  - replace search result lable to `metaTitle`
+    - set sensible line height
+
+### Patch Changes
+
+- fix: missing properties config (#33)
+  - update `@border` and `@adjust` docs accordingly
+
 ## 1.0.0-alpha.6
 
 ### Minor Changes

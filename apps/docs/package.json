@@ -1,7 +1,7 @@
 {
 	"name": "shilpcss-docs",
 	"description": "Shilp CSS documentation",
-	"version": "1.0.0-alpha.6",
+	"version": "1.0.0-alpha.7",
 	"type": "module",
 	"private": true,
 	"scripts": {
@@ -29,6 +29,7 @@
 		"@types/react": "^19.2.14",
 		"babel-plugin-react-compiler": "^1.0.0",
 		"browserslist": "^4.28.2",
+		"front-matter": "^4.0.2",
 		"github-slugger": "^2.0.0",
 		"lightningcss": "^1.32.0",
 		"purgecss": "^8.0.0",

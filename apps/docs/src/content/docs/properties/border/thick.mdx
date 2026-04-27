@@ -19,8 +19,10 @@ Usage:
 - `@border thick-y-*;`
 - `@border thick-bl-*;`
 - `@border thick-bls-*;`
+- `@border thick-ble-*;`
 - `@border thick-bi-*;`
 - `@border thick-bis-*;`
+- `@border thick-bie-*;`
 
 <Alert variant="info">
 
@@ -102,6 +104,12 @@ const shilpConfig = {
 					themeKey: "thickness",
 					values: {},
 				},
+				ble: {
+					property: "border-block-end-width: <v><i>;",
+					resolve: "spacing",
+					themeKey: "thickness",
+					values: {},
+				},
 				bi: {
 					property: "border-inline-width: <v><i>;",
 					resolve: "spacing",
@@ -110,6 +118,12 @@ const shilpConfig = {
 				},
 				bis: {
 					property: "border-inline-start-width: <v><i>;",
+					resolve: "spacing",
+					themeKey: "thickness",
+					values: {},
+				},
+				bie: {
+					property: "border-inline-end-width: <v><i>;",
 					resolve: "spacing",
 					themeKey: "thickness",
 					values: {},

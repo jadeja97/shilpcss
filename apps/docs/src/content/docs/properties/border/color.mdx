@@ -19,8 +19,10 @@ Usage:
 - `@border color-y-*;`
 - `@border color-bl-*;`
 - `@border color-bls-*;`
+- `@border color-ble-*;`
 - `@border color-bi-*;`
 - `@border color-bis-*;`
+- `@border color-bie-*;`
 
 <Alert variant="info">
 
@@ -111,6 +113,13 @@ const shilpConfig = {
 					variant: true,
 					values: {},
 				},
+				ble: {
+					property: "border-block-end-color: <v><i>;",
+					resolve: "color",
+					themeKey: "colors",
+					variant: true,
+					values: {},
+				},
 				bi: {
 					property: "border-inline-color: <v><i>;",
 					resolve: "color",
@@ -120,6 +129,13 @@ const shilpConfig = {
 				},
 				bis: {
 					property: "border-inline-start-color: <v><i>;",
+					resolve: "color",
+					themeKey: "colors",
+					variant: true,
+					values: {},
+				},
+				bie: {
+					property: "border-inline-end-color: <v><i>;",
 					resolve: "color",
 					themeKey: "colors",
 					variant: true,

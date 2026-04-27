@@ -16,6 +16,20 @@ export const SEARCH_INDEX_KEY = "search-index";
 export const SEARCH_INDEX_PATH = `/${SEARCH_INDEX_KEY}-v-${DEV ? "dev" : packageJSON.version}.json`;
 
 // index fields
-export const SEARCH_INDEX_FIELDS = ["title", "label", "url", "content"];
+export const SEARCH_INDEX_FIELDS = [
+	"title",
+	"label",
+	"url",
+	"content",
+	"metaTitle",
+	"metaDescription",
+	"metaKeywords",
+];
 // return fields
-export const SEARCH_INDEX_RETURN_FIELDS = ["title", "label", "url"];
+export const SEARCH_INDEX_RETURN_FIELDS = [
+	"title",
+	"label",
+	"url",
+	"metaTitle",
+	"metaDescription",
+];

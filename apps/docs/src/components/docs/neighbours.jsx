@@ -16,7 +16,7 @@ const Neighbours = ({ prev, next }) => (
 				href={prev.url}
 				title={prev.title}
 			>
-				<ChevronLeftIcon /> {prev.title}
+				<ChevronLeftIcon /> {prev.title || prev.label}
 			</Link>
 		)}
 
@@ -26,7 +26,7 @@ const Neighbours = ({ prev, next }) => (
 				href={next.url}
 				title={next.title}
 			>
-				{next.title} <ChevronRightIcon />
+				{next.title || next.label} <ChevronRightIcon />
 			</Link>
 		)}
 	</div>

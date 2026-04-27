@@ -89,6 +89,7 @@ const SearchInput = ({ ready, search, handleSearch }) => {
 				name="search"
 				ref={inputRef}
 				placeholder="Search docs..."
+				autoComplete="off"
 				disabled={!ready}
 				value={search}
 				onChange={(e) => handleSearch(e.target.value)}
@@ -128,7 +129,9 @@ const Result = ({ result = {} }) => (
 						<li key={result.id}>
 							<DialogClose isWrapper hideFocus>
 								<Link href={result.url} title={result.title}>
-									<span className="link__label">{result.label}</span>
+									<span className="link__label">
+										{result.metaTitle || result.label}
+									</span>
 									<span className="link__url">{result.url}</span>
 									<span className="link__confidence">
 										Confidence: {result.score.toFixed(2)}%

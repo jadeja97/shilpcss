@@ -90,6 +90,9 @@ const useSearch = () => {
 					prefix: 3,
 					fuzzy: 0.2,
 					boost: {
+						metaTitle: 4,
+						metaDescription: 4,
+						metaKeywords: 4,
 						title: 3,
 						url: 3,
 						label: 2,

@@ -2,6 +2,8 @@ import { existsSync, readFileSync } from "node:fs";
 import { join, relative, resolve, sep } from "node:path";
 import { cwd } from "node:process";
 
+import frontMatter from "front-matter";
+
 import Singleton from "@/lib/singleton";
 import Search from "@/lib/search";
 
@@ -259,8 +261,13 @@ class Content {
 
 			if (fileContent) {
 				//
+				const { attributes = {}, body } = frontMatter(fileContent);
+
 				Object.assign(fullMeta, {
-					content: fileContent,
+					metaTitle: attributes.title,
+					metaDescription: attributes.metaDescription,
+					metaKeywords: attributes.keywords,
+					content: body,
 				});
 			}
 			//

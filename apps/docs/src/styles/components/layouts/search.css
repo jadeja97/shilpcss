@@ -104,7 +104,7 @@
 		@space p-3 gap-3;
 		@layout is-flex;
 		@flex flow-col;
-		@text align-x-left;
+		@text align-x-left h-base;
 		@border thick rounded-lg;
 		@size w-full;
 		@bg color-base-100;
