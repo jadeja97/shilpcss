@@ -167,7 +167,7 @@ jobs:
     # `build_and_upload` job must succeed
     # build must succeed
     # artifacts must be uploaded
-    if: needs.build.result == 'success'
+    if: needs.build_and_upload.result == 'success'
 
     name: Deploy docs to github pages
 
