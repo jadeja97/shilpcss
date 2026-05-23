@@ -1,24 +1,17 @@
 ---
 title: "Why Shilp CSS? The Case for Intent-Based Styling"
 description:
-  "Understand why intent-based CSS styling scales better than utility-first
-  approaches and reduces hidden coupling in large design systems."
-keywords:
-  [
-    "utility-first CSS",
-    "design systems",
-    "CSS scalability",
-    "intent-based styling",
-  ]
+  "Understand why intent-based CSS styling scales better than utility-first approaches and reduces
+  hidden coupling in large design systems."
+keywords: ["utility-first CSS", "design systems", "CSS scalability", "intent-based styling"]
 ---
 
 # Why Shilp CSS?
 
-Web Developers (_except some_) and Generative AI loves **utility-first
-styling**.
+Web Developers (_except some_) and Generative AI loves **utility-first styling**.
 
-This is also known as styling with **Atomic Classes**. Design straight into
-markup. Local. Fast. Cool.
+This is also known as styling with **Atomic Classes**. Design straight into markup. Local. Fast.
+Cool.
 
 Utility-first architecture solved real problems.
 
@@ -30,8 +23,7 @@ Utility-first architecture solved real problems.
 6. Smaller mental overheads
 7. and it goes on...
 
-With all these wins, the real question remains: **does utility-first idea scales
-as system grow?**
+With all these wins, the real question remains: **does utility-first idea scales as system grow?**
 
 ---
 
@@ -39,19 +31,18 @@ as system grow?**
 
 ## Utility-first Idea at Scale
 
-As utility-first idea moved design decisions into markup, **shipping bacame
-faster**. But, at the same time, it also **changed the way we design**.
+As utility-first idea moved design decisions into markup, **shipping bacame faster**. But, at the
+same time, it also **changed the way we design**.
 
-At small scale, this feels incredibly fast. As project grows, patterns start to
-emerge.
+At small scale, this feels incredibly fast. As project grows, patterns start to emerge.
 
 1. Markup mixes structure with presentation
 2. The same UI is rewritten over and over with tiny differences
 3. Refactoring forces changes in files that shouldn’t know about styles
 4. Design decisions bleed into logic
 5. It creates hidden coupling
-6. Specifically in JSX-like structures, markup, design, and logic often live in
-   a single file, which can **quickly becomes messy if not carefully organized**
+6. Specifically in JSX-like structures, markup, design, and logic often live in a single file, which
+   can **quickly becomes messy if not carefully organized**
 7. and it goes on...
 
 ### Hidden Coupling
@@ -64,22 +55,20 @@ That exact atomic classes combination gets copied into:
 - Toast messages
 - and what not...
 
-You didn’t plan it. But, accidentally created a design primitive that has **NO
-name, NO owner and NO single place to change**.
+You didn’t plan it. But, accidentally created a design primitive that has **NO name, NO owner and NO
+single place to change**.
 
-Yet all those places are connected. You just can’t see it or control it. That is
-**Hidden Coupling**.
+Yet all those places are connected. You just can’t see it or control it. That is **Hidden
+Coupling**.
 
 ### Fragile Refactors
 
-A request comes in: "_Buttons should have tighter spacing, but labels should
-not._"
+A request comes in: "_Buttons should have tighter spacing, but labels should not._"
 
 You searched for `gap-2` and **found dozens of matches**.
 
-Some are buttons, Some are layouts, and some just lack accountability (_all
-thanks to manager’s time pressure_). Now, only you can tell the difference, by
-reading the intent from strings.
+Some are buttons, Some are layouts, and some just lack accountability (_all thanks to manager’s time
+pressure_). Now, only you can tell the difference, by reading the intent from strings.
 
 Small changes, unpredictable affected areas.
 
@@ -91,8 +80,7 @@ Nothing is broken. But, the system becomes harder to reason over time.
 
 ## Components
 
-To overcome utility-first architecture's limits at scale, we can build
-components.
+To overcome utility-first architecture's limits at scale, we can build components.
 
 Good teams create components, centralize decisions and **Introduce Naming**.
 
@@ -105,8 +93,8 @@ But, notice what changed?
 
 Now, components are doing the real work, not utility-first styling.
 
-Utility-first idea becomes an implementation detail and styling is still
-authored as **long, anonymous strings**.
+Utility-first idea becomes an implementation detail and styling is still authored as **long,
+anonymous strings**.
 
 <Alert title="Just Asking">
 
@@ -122,8 +110,8 @@ _Have you ever inspected an element in DevTools?_
 
 It is reliable. _But, ..._
 
-Atomic classes are great for prototyping and for small to medium apps,
-especially for **disciplined teams** (_assuming they exist XD_).
+Atomic classes are great for prototyping and for small to medium apps, especially for **disciplined
+teams** (_assuming they exist XD_).
 
 Its limits starts to show when:
 
@@ -145,15 +133,15 @@ _Have you ever inspected an element in DevTools?_
 
 _Shilp CSS is an **Intent-first, CSS-centric** styling engine and framework._
 
-It does not try to replace the utility-first approach, but to move the write-up,
-**from markup to CSS file with clear intent**.
+It does not try to replace the utility-first approach, but to move the write-up, **from markup to
+CSS file with clear intent**.
 
 ### Key Idea
 
-1. **Intent Based Styling**: Compose styles in CSS with clear intent and apply
-   them using named classes.
-2. **Thoughtful Defaults**: Shilp CSS shipped with carefully selected default
-   styles to simplify common patterns, without hard-coding them.
+1. **Intent Based Styling**: Compose styles in CSS with clear intent and apply them using named
+   classes.
+2. **Thoughtful Defaults**: Shilp CSS shipped with carefully selected default styles to simplify
+   common patterns, without hard-coding them.
 
 ### Benefits
 
@@ -164,8 +152,7 @@ With Shilp CSS:
 3. Utilities are grouped by intent instead of scattered
 4. System stays understandable as it age
 5. Refactors have clear affected areas (_well, mostly_)
-6. The more you work with Shilp CSS, the more familiar it becomes and muscle
-   memory takes over
+6. The more you work with Shilp CSS, the more familiar it becomes and muscle memory takes over
 
 </section>
 
@@ -173,8 +160,7 @@ With Shilp CSS:
 
 ## The Trade-offs
 
-_Shilp CSS chooses longevity over velocity_ and **It trades speed for clarity
-and ownership.**
+_Shilp CSS chooses longevity over velocity_ and **It trades speed for clarity and ownership.**
 
 That means:
 
@@ -193,8 +179,8 @@ In return you get:
 Some code is meant to be lived with. Shilp CSS is built for exactly that.
 
 <Alert variant="warning">
-	If you agree with the tradeoff, continue. <br /> If not, you’ll know early,
-	and that’s intentional.
+  If you agree with the tradeoff, continue. <br /> If not, you’ll know early, and that’s
+  intentional.
 </Alert>
 
 </section>
@@ -211,29 +197,28 @@ _Example uses pseudo code_
 
 ### Tailwind CSS
 
-_[Tailwind CSS](https://tailwindcss.com) is most popular utility-first css
-framework._
+_[Tailwind CSS](https://tailwindcss.com) is most popular utility-first css framework._
 
 <br />
 
 ```html title="Header"
 <div
-	class="sticky z-40 backdrop-blur color-surface/80 border-b shrink-0 h-[var(--header,0px)] top-[var(--banner,0px)]"
+  class="sticky z-40 backdrop-blur color-surface/80 border-b shrink-0 h-[var(--header,0px)] top-[var(--banner,0px)]"
 >
-	<header class="container flex items-center justify-between h-full">
-		...
-		<nav>
-			...
-			<a
-				href="#"
-				class="inline [font-size:var(--text-h3)] font-display font-medium tracking-wider hover:underline hover:underline-offset-4 hover:decoration-primary"
-			>
-				...
-			</a>
-			...
-		</nav>
-		...
-	</header>
+  <header class="container flex items-center justify-between h-full">
+    ...
+    <nav>
+      ...
+      <a
+        href="#"
+        class="inline [font-size:var(--text-h3)] font-display font-medium tracking-wider hover:underline hover:underline-offset-4 hover:decoration-primary"
+      >
+        ...
+      </a>
+      ...
+    </nav>
+    ...
+  </header>
 </div>
 ```
 
@@ -241,51 +226,51 @@ framework._
 
 ```html title="Header Markup"
 <div class="header__wrapper">
-	<header class="container">
-		...
-		<nav>
-			...
-			<a> ... </a>
-			...
-		</nav>
-		...
-	</header>
+  <header class="container">
+    ...
+    <nav>
+      ...
+      <a> ... </a>
+      ...
+    </nav>
+    ...
+  </header>
 </div>
 ```
 
 ```css title="Header Style"
 .header__wrapper {
-	@layout layer-4;
-	@filter backdrop-blur;
-	@bg color-surface/80;
-	@border thick-bottom;
-	@flex shrink-0;
-	@position is-sticky;
+  @layout layer-4;
+  @filter backdrop-blur;
+  @bg color-surface/80;
+  @border thick-bottom;
+  @flex shrink-0;
+  @position is-sticky;
 
-	height: var(--header, 0px);
-	top: var(--banner, 0px);
+  height: var(--header, 0px);
+  top: var(--banner, 0px);
 
-	header {
-		@layout is-flex;
-		@flex items-center justify-between;
-		@size h-full;
+  header {
+    @layout is-flex;
+    @flex items-center justify-between;
+    @size h-full;
 
-		@childs match-direct("a") {
-			@layout is-inline;
-			@text size-h3 family-display thick-500 gap-lg;
+    @childs match-direct("a") {
+      @layout is-inline;
+      @text size-h3 family-display thick-500 gap-lg;
 
-			@state hover {
-				@text line-is-under line-offset-4 line-color-primary;
-			}
-		}
-	}
+      @state hover {
+        @text line-is-under line-offset-4 line-color-primary;
+      }
+    }
+  }
 }
 ```
 
 <Alert variant="info">
-	If this feels like too much, too complex, or “_why this when Tailwind CSS
-	already exists?_” <br /> Well, it’s similar in spirit. But, once you start
-	using it, **muscle memory kicks in** and things flow naturally from there.
+  If this feels like too much, too complex, or “_why this when Tailwind CSS already exists?_” <br />{" "}
+  Well, it’s similar in spirit. But, once you start using it, **muscle memory kicks in** and things
+  flow naturally from there.
 </Alert>
 
 </section>

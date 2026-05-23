@@ -1,9 +1,7 @@
 ---
 title: "@motion Mixin - Prefers Reduced Motion"
-description:
-  "Use @motion mixin for respecting user motion preferences in animation styles."
-keywords:
-  ["@motion", "prefers-reduced-motion", "accessibility", "animation", "motion"]
+description: "Use @motion mixin for respecting user motion preferences in animation styles."
+keywords: ["@motion", "prefers-reduced-motion", "accessibility", "animation", "motion"]
 ---
 
 # @motion Mixin
@@ -21,8 +19,8 @@ Usage:
 
 <Alert variant="info">
 
-This page contains only the **mixins configuration reference**. Complete
-documentation and usage examples will be added progressively in future updates.
+This page contains only the **mixins configuration reference**. Complete documentation and usage
+examples will be added progressively in future updates.
 
 </Alert>
 
@@ -33,17 +31,18 @@ documentation and usage examples will be added progressively in future updates.
 ## Reference
 
 ```js title="shilp.config.js"
+/** @type {import('shilpcss/types').ShilpConfig} */
 const shilpConfig = {
-	target: "react",
+  target: "react",
 
-	mixins: {
-		motion: {
-			variants: {
-				safe: "@media (prefers-reduced-motion: no-preference)",
-				reduce: "@media (prefers-reduced-motion: reduce)",
-			},
-		},
-	},
+  mixins: {
+    motion: {
+      variants: {
+        safe: "@media (prefers-reduced-motion: no-preference)",
+        reduce: "@media (prefers-reduced-motion: reduce)",
+      },
+    },
+  },
 };
 
 export default shilpConfig;

@@ -22,8 +22,8 @@ Usage:
 
 <Alert variant="info">
 
-This page contains only the **mixins configuration reference**. Complete
-documentation and usage examples will be added progressively in future updates.
+This page contains only the **mixins configuration reference**. Complete documentation and usage
+examples will be added progressively in future updates.
 
 </Alert>
 
@@ -34,23 +34,24 @@ documentation and usage examples will be added progressively in future updates.
 ## Reference
 
 ```js title="shilp.config.js"
+/** @type {import('shilpcss/types').ShilpConfig} */
 const shilpConfig = {
-	target: "react",
+  target: "react",
 
-	mixins: {
-		data: {
-			variants: {
-				disabled: `&[data-disabled]`,
-				open: `&[data-open]`,
-				closed: `&[data-closed]`,
+  mixins: {
+    data: {
+      variants: {
+        disabled: `&[data-disabled]`,
+        open: `&[data-open]`,
+        closed: `&[data-closed]`,
 
-				/* functions */
-				// @data is("disabled=false"); --> &[data-disabled=false]
-				is: "&[data-<1>]",
-				state: "&[data-state=<1>]",
-			},
-		},
-	},
+        /* functions */
+        // @data is("disabled=false"); --> &[data-disabled=false]
+        is: "&[data-<1>]",
+        state: "&[data-state=<1>]",
+      },
+    },
+  },
 };
 
 export default shilpConfig;

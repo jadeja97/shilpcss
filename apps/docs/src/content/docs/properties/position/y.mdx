@@ -1,15 +1,13 @@
 ---
 title: "Vertical Offset | @position"
 description:
-  "Set positioned element's top and bottom (vertical) side distance or offset
-  from the parent."
+  "Set positioned element's top and bottom (vertical) side distance or offset from the parent."
 keywords: ["position", "y", "vertical", "offset"]
 ---
 
 # Vertical Offset
 
-Set positioned element's top and bottom (vertical) side distance or offset from
-the parent.
+Set positioned element's top and bottom (vertical) side distance or offset from the parent.
 
 Usage:
 
@@ -17,8 +15,8 @@ Usage:
 
 <Alert variant="info">
 
-This page contains only the **property configuration reference**. Complete
-documentation and usage examples will be added progressively in future updates.
+This page contains only the **property configuration reference**. Complete documentation and usage
+examples will be added progressively in future updates.
 
 </Alert>
 
@@ -29,22 +27,23 @@ documentation and usage examples will be added progressively in future updates.
 ## Reference
 
 ```js title="shilp.config.js"
+/** @type {import('shilpcss/types').ShilpConfig} */
 const shilpConfig = {
-	source: "react",
+  source: "react",
 
-	properties: {
-		position: {
-			y: {
-				property: `
+  properties: {
+    position: {
+      y: {
+        property: `
           top: <n><v><i>;
           bottom: <n><v><i>;
         `,
-				resolve: "spacing",
-				themeKey: "spacing",
-				values: {},
-			},
-		},
-	},
+        resolve: "spacing",
+        themeKey: "spacing",
+        values: {},
+      },
+    },
+  },
 };
 
 export default shilpConfig;

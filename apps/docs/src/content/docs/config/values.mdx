@@ -1,15 +1,8 @@
 ---
 title: "Values Configuration and Resolvers"
 description:
-  "Configure primitive values in Shilp CSS. Value datasets, resolvers, and
-  custom value processing."
-keywords:
-  [
-    "values configuration",
-    "value resolvers",
-    "primitive values",
-    "custom resolvers",
-  ]
+  "Configure primitive values in Shilp CSS. Value datasets, resolvers, and custom value processing."
+keywords: ["values configuration", "value resolvers", "primitive values", "custom resolvers"]
 ---
 
 # Values
@@ -22,13 +15,12 @@ At the lowest level, everything is just a value.
 - `1.5`: fraction (number)
 - `200ms`: time
 
-These are primitive values and finally becomes:
-`property: value <optional !important flag>;`
+These are primitive values and finally becomes: `property: value <optional !important flag>;`
 
 Shilp CSS simply organizes them.
 
-if intent decides _where_, utility decides _what_, property decides _how_, then
-**values decides what the actual data is**.
+if intent decides _where_, utility decides _what_, property decides _how_, then **values decides
+what the actual data is**.
 
 ---
 
@@ -40,12 +32,11 @@ From the [Properties Config](/docs/config/properties) Page, we know:
 
 - What a property config is
 - How property and value tokens are resolved
-- How `global values`, `propertyConfig.themeKey`, and `propertyConfig.values`
-  are merged
+- How `global values`, `propertyConfig.themeKey`, and `propertyConfig.values` are merged
 - What `special: true` changes
 
-Values are resolved after property config is found and each property decides how
-its values are resolved using `propertyConfig.resolve`.
+Values are resolved after property config is found and each property decides how its values are
+resolved using `propertyConfig.resolve`.
 
 </section>
 
@@ -68,8 +59,7 @@ All the built-in value resolvers are defined at `shilpConfig.valueResolvers`.
 
 <Alert variant="info">
 
-You can also use custom resolvers by defining it inside
-`shilpConfig.extend.valueResolvers` object.
+You can also use custom resolvers by defining it inside `shilpConfig.extend.valueResolvers` object.
 
 See: [Custom Resolver](/docs/config/values#custom-resolver)
 
@@ -79,8 +69,7 @@ See: [Custom Resolver](/docs/config/values#custom-resolver)
 
 For every property:
 
-- If `propertyConfig.resolve` is defined → use resolver from
-  `shilpConfig.valueResolvers`
+- If `propertyConfig.resolve` is defined → use resolver from `shilpConfig.valueResolvers`
 - If nothing provided → use `shilpConfig.valueResolvers.default` resolver
 - If invalid resolver provided → error will be thrown
 
@@ -100,8 +89,8 @@ Algorithm:
 6. With sub-sequent value tokens, continue until final non-object value is found
 7. If nothing found → throw error
 
-In simple words, Value resolver finds a value from `propertyConfig.values` using
-**value tokens** and thows error if not found a correct path.
+In simple words, Value resolver finds a value from `propertyConfig.values` using **value tokens**
+and thows error if not found a correct path.
 
 That’s it. Everything else in resolvers builds on top of this logic.
 
@@ -133,9 +122,8 @@ It:
 
 #### Special Case
 
-For [Inline Theme Function](/docs/config/theme#inline-theme-function) with
-**color value**, If value not found by core logic, it will try `values[500]`
-once for current nesting level.
+For [Inline Theme Function](/docs/config/theme#inline-theme-function) with **color value**, If value
+not found by core logic, it will try `values[500]` once for current nesting level.
 
 ### Raw Color Resolver
 
@@ -149,11 +137,11 @@ const propertyConfig = {
 
 It uses the standard value-finding logic, but with slightly different fallback.
 
-Instead of only checking `values[token]` and then `values.DEFAULT`, it also
-checks `values[500]` at current nesting level.
+Instead of only checking `values[token]` and then `values.DEFAULT`, it also checks `values[500]` at
+current nesting level.
 
-In simple words, if token not found and no `DEFAULT` at current nesting level,
-it will check `500` key.
+In simple words, if token not found and no `DEFAULT` at current nesting level, it will check `500`
+key.
 
 It returns **raw color** value as-is (not wrapped in `oklch()`).
 
@@ -208,8 +196,7 @@ Steps:
      - Converted to opacity (`variant / 100`)
      - Return `oklch(rawColor / opacity)`
 
-For example, `@text color-orange-600/80;` will becomes
-`color: oklch(64.6% 0.222 41.116 / 0.8);`.
+For example, `@text color-orange-600/80;` will becomes `color: oklch(64.6% 0.222 41.116 / 0.8);`.
 
 ### Spacing Resolver
 
@@ -235,11 +222,10 @@ Steps:
 
 <Alert variant="info">
 
-Here, considering standard `font-size` on `html` is `16px`. This will becomes
-`16px = 1rem`
+Here, considering standard `font-size` on `html` is `16px`. This will becomes `16px = 1rem`
 
-Values provided to property config are in `px` unit and built-in values dataset
-contains `px` unit mostly.
+Values provided to property config are in `px` unit and built-in values dataset contains `px` unit
+mostly.
 
 </Alert>
 
@@ -255,39 +241,40 @@ Does not support variant.
 
 ## Custom Resolver
 
-You can also use custom value resolvers by defining it inside
-`shilpConfig.extend.valueResolvers` object.
+You can also use custom value resolvers by defining it inside `shilpConfig.extend.valueResolvers`
+object.
 
 Use this for advanced use-cases.
 
 <Alert variant="info">
 
-There is no nested objects structure like `shilpConfig.values`. just plain
-`key-value` pairs at the root level.
+There is no nested objects structure like `shilpConfig.values`. just plain `key-value` pairs at the
+root level.
 
 </Alert>
 
 ```js title="Custom value resolver 'ipsum'"
+/** @type {import('shilpcss/types').ShilpConfig} */
 const shilpConfig = {
-	source: "react",
+  source: "react",
 
-	extend: {
-		properties: {
-			space: {
-				// margin
-				m: {
-					resolve: "ipsum",
-				},
-			},
-		},
+  extend: {
+    properties: {
+      space: {
+        // margin
+        m: {
+          resolve: "ipsum",
+        },
+      },
+    },
 
-		valueResolvers: {
-			ipsum: (options) => {
-				// custom value resolver logic
-				return resolvedValue;
-			},
-		},
-	},
+    valueResolvers: {
+      ipsum: (options) => {
+        // custom value resolver logic
+        return resolvedValue;
+      },
+    },
+  },
 };
 
 export default shilpConfig;
@@ -295,8 +282,7 @@ export default shilpConfig;
 
 ### Available Options
 
-Custom resolver function receives a single argument (`object`) with following
-options:
+Custom resolver function receives a single argument (`object`) with following options:
 
 | Option                      | Type     | Description                        |
 | --------------------------- | -------- | ---------------------------------- |
@@ -310,8 +296,8 @@ options:
 
 <Alert variant="info">
 
-Here, either `options.propertyConfig` (for intent) or
-`options.inlineThemeConfig` (for inline theme function) will be available.
+Here, either `options.propertyConfig` (for intent) or `options.inlineThemeConfig` (for inline theme
+function) will be available.
 
 This will help to identify the resolver invocation purpose.
 
@@ -346,8 +332,7 @@ At the beginning of processing:
    - This is not recommended. Avoid this
 3. Extend configs are deep merged
    - `shilpConfig.extend.values` deep merged with `shilpConfig.values`
-   - `shilpConfig.extend.valueResolvers` deep merged with
-     `shilpConfig.valueResolves`
+   - `shilpConfig.extend.valueResolvers` deep merged with `shilpConfig.valueResolves`
 
 Now full **values dataset** and **value resovlers** are available.
 
@@ -370,8 +355,7 @@ Further processing is handled by the
 
 All built-in values datasets are documented separately.
 
-You can explore the [full list](/docs/values) in the **VALUES** section of the
-documentation.
+You can explore the [full list](/docs/values) in the **VALUES** section of the documentation.
 
 Each dataset has its own page: `/docs/values/<dataset-name>`
 

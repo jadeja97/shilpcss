@@ -1,7 +1,6 @@
 ---
 title: "Place Grid Items | @grid"
-description:
-  "Set grid items alignment along block-axis and inline-axis combined."
+description: "Set grid items alignment along block-axis and inline-axis combined."
 keywords: ["grid", "place", "align", "layout"]
 ---
 
@@ -17,8 +16,8 @@ Usage:
 
 <Alert variant="info">
 
-This page contains only the **property configuration reference**. Complete
-documentation and usage examples will be added progressively in future updates.
+This page contains only the **property configuration reference**. Complete documentation and usage
+examples will be added progressively in future updates.
 
 </Alert>
 
@@ -29,47 +28,48 @@ documentation and usage examples will be added progressively in future updates.
 ## Reference
 
 ```js title="shilp.config.js"
+/** @type {import('shilpcss/types').ShilpConfig} */
 const shilpConfig = {
-	source: "react",
+  source: "react",
 
-	properties: {
-		grid: {
-			place: {
-				DEFAULT: {
-					property: "place-content: <v><i>;",
-					values: {
-						start: "start",
-						center: "center",
-						end: "end",
-						stretch: "stretch",
-						between: "space-between",
-						around: "space-around",
-						evenly: "space-evenly",
-					},
-				},
+  properties: {
+    grid: {
+      place: {
+        DEFAULT: {
+          property: "place-content: <v><i>;",
+          values: {
+            start: "start",
+            center: "center",
+            end: "end",
+            stretch: "stretch",
+            between: "space-between",
+            around: "space-around",
+            evenly: "space-evenly",
+          },
+        },
 
-				items: {
-					property: "place-items: <v><i>;",
-					values: {
-						start: "start",
-						center: "center",
-						end: "end",
-						stretch: "stretch",
-					},
-				},
+        items: {
+          property: "place-items: <v><i>;",
+          values: {
+            start: "start",
+            center: "center",
+            end: "end",
+            stretch: "stretch",
+          },
+        },
 
-				self: {
-					property: "place-self: <v><i>;",
-					values: {
-						start: "start",
-						center: "center",
-						end: "end",
-						stretch: "stretch",
-					},
-				},
-			},
-		},
-	},
+        self: {
+          property: "place-self: <v><i>;",
+          values: {
+            start: "start",
+            center: "center",
+            end: "end",
+            stretch: "stretch",
+          },
+        },
+      },
+    },
+  },
 };
 
 export default shilpConfig;

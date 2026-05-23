@@ -15,8 +15,8 @@ Usage:
 
 <Alert variant="info">
 
-This page contains only the **property configuration reference**. Complete
-documentation and usage examples will be added progressively in future updates.
+This page contains only the **property configuration reference**. Complete documentation and usage
+examples will be added progressively in future updates.
 
 </Alert>
 
@@ -27,42 +27,43 @@ documentation and usage examples will be added progressively in future updates.
 ## Reference
 
 ```js title="shilp.config.js"
+/** @type {import('shilpcss/types').ShilpConfig} */
 const shilpConfig = {
-	source: "react",
+  source: "react",
 
-	properties: {
-		text: {
-			align: {
-				x: {
-					property: "text-align: <v><i>;",
-					values: {
-						left: "left",
-						right: "right",
-						center: "center",
-						justify: "justify",
-						start: "start",
-						end: "end",
-					},
-				},
+  properties: {
+    text: {
+      align: {
+        x: {
+          property: "text-align: <v><i>;",
+          values: {
+            left: "left",
+            right: "right",
+            center: "center",
+            justify: "justify",
+            start: "start",
+            end: "end",
+          },
+        },
 
-				y: {
-					property: "vertical-align: <v><i>;",
-					values: {
-						baseline: "baseline",
-						top: "top",
-						middle: "middle",
-						bottom: "bottom",
-						to: {
-							top: "text-top",
-							bottom: "text-bottom",
-						},
-						sub: "sub",
-						sup: "sup",
-					},
-				},
-			},
-		},
-	},
+        y: {
+          property: "vertical-align: <v><i>;",
+          values: {
+            baseline: "baseline",
+            top: "top",
+            middle: "middle",
+            bottom: "bottom",
+            to: {
+              top: "text-top",
+              bottom: "text-bottom",
+            },
+            sub: "sub",
+            sup: "sup",
+          },
+        },
+      },
+    },
+  },
 };
 
 export default shilpConfig;

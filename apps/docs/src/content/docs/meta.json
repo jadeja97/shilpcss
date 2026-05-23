@@ -1,48 +1,48 @@
 {
-	"items": [
-		{
-			"type": "folder",
-			"name": "(root)"
-		},
-		{
-			"type": "folder",
-			"name": "(core-concepts)"
-		},
-		{
-			"type": "folder",
-			"name": "config"
-		},
-		{
-			"type": "folder",
-			"name": "life-cycle"
-		},
-		{
-			"type": "folder",
-			"name": "default-styles"
-		},
-		{
-			"type": "folder",
-			"name": "properties"
-		},
-		{
-			"type": "folder",
-			"name": "mixins"
-		},
-		{
-			"type": "folder",
-			"name": "components"
-		},
-		{
-			"type": "folder",
-			"name": "values"
-		},
-		{
-			"type": "folder",
-			"name": "best-practices"
-		},
-		{
-			"type": "folder",
-			"name": "changelog"
-		}
-	]
+  "items": [
+    {
+      "type": "folder",
+      "name": "(root)"
+    },
+    {
+      "type": "folder",
+      "name": "(core-concepts)"
+    },
+    {
+      "type": "folder",
+      "name": "config"
+    },
+    {
+      "type": "folder",
+      "name": "life-cycle"
+    },
+    {
+      "type": "folder",
+      "name": "default-styles"
+    },
+    {
+      "type": "folder",
+      "name": "properties"
+    },
+    {
+      "type": "folder",
+      "name": "mixins"
+    },
+    {
+      "type": "folder",
+      "name": "components"
+    },
+    {
+      "type": "folder",
+      "name": "values"
+    },
+    {
+      "type": "folder",
+      "name": "best-practices"
+    },
+    {
+      "type": "folder",
+      "name": "changelog"
+    }
+  ]
 }

@@ -14,8 +14,8 @@ Usage:
 
 <Alert variant="info">
 
-This page contains only the **property configuration reference**. Complete
-documentation and usage examples will be added progressively in future updates.
+This page contains only the **property configuration reference**. Complete documentation and usage
+examples will be added progressively in future updates.
 
 </Alert>
 
@@ -26,71 +26,72 @@ documentation and usage examples will be added progressively in future updates.
 ## Reference
 
 ```js title="shilp.config.js"
+/** @type {import('shilpcss/types').ShilpConfig} */
 const shilpConfig = {
-	source: "react",
+  source: "react",
 
-	properties: {
-		text: {
-			break: {
-				all: {
-					property: "word-break: <v><i>;",
-					values: {
-						DEFAULT: "break-all",
-					},
-				},
+  properties: {
+    text: {
+      break: {
+        all: {
+          property: "word-break: <v><i>;",
+          values: {
+            DEFAULT: "break-all",
+          },
+        },
 
-				anywhere: {
-					property: "overflow-wrap: <v><i>;",
-					values: {
-						DEFAULT: "anywhere",
-					},
-				},
+        anywhere: {
+          property: "overflow-wrap: <v><i>;",
+          values: {
+            DEFAULT: "anywhere",
+          },
+        },
 
-				hyphen: {
-					property: "hyphens: <v><i>;",
-					values: {
-						DEFAULT: "auto", // suggestion: "&shy;"
-					},
-				},
+        hyphen: {
+          property: "hyphens: <v><i>;",
+          values: {
+            DEFAULT: "auto", // suggestion: "&shy;"
+          },
+        },
 
-				keep: {
-					property: "word-break: <v><i>;",
-					values: {
-						DEFAULT: "keep-all",
-					},
-				},
+        keep: {
+          property: "word-break: <v><i>;",
+          values: {
+            DEFAULT: "keep-all",
+          },
+        },
 
-				normal: {
-					property: "<v>",
-					special: true,
-					values: {
-						DEFAULT: `
+        normal: {
+          property: "<v>",
+          special: true,
+          values: {
+            DEFAULT: `
 							overflow-wrap: normal<i>;
 							word-break: normal<i>;
 						`,
-						unset: `
+            unset: `
 							overflow-wrap: unset<i>;
 							word-break: unset<i>;
 						`,
-					},
-				},
+          },
+        },
 
-				word: {
-					property: "overflow-wrap: <v><i>;",
-					values: {
-						DEFAULT: "word-break",
-					},
-				},
+        word: {
+          property: "overflow-wrap: <v><i>;",
+          values: {
+            DEFAULT: "word-break",
+          },
+        },
 
-				spaces: {
-					property: "white-space: <v><i>;",
-					values: {
-						DEFAULT: "break-spaces",
-					},
-				},
-			},
-		},
-	},
+        spaces: {
+          property: "white-space: <v><i>;",
+          values: {
+            DEFAULT: "break-spaces",
+          },
+        },
+      },
+    },
+  },
 };
 
 export default shilpConfig;

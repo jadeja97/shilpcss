@@ -19,15 +19,15 @@ Usage:
 
 Gradient color mask uses `mask-image` property.
 
-So, if you are using `@mask img-*;` then conflict will be created. You need to
-choose a stratagey to work with both.
+So, if you are using `@mask img-*;` then conflict will be created. You need to choose a stratagey to
+work with both.
 
 </Alert>
 
 <Alert variant="info">
 
-This page contains only the **property configuration reference**. Complete
-documentation and usage examples will be added progressively in future updates.
+This page contains only the **property configuration reference**. Complete documentation and usage
+examples will be added progressively in future updates.
 
 </Alert>
 
@@ -38,34 +38,35 @@ documentation and usage examples will be added progressively in future updates.
 ## Reference
 
 ```js title="shilp.config.js"
+/** @type {import('shilpcss/types').ShilpConfig} */
 const shilpConfig = {
-	source: "react",
+  source: "react",
 
-	properties: {
-		mask: {
-			gradient: {
-				DEFAULT: {
-					property: "mask-image: <v><i>;",
-					values: {},
-				},
+  properties: {
+    mask: {
+      gradient: {
+        DEFAULT: {
+          property: "mask-image: <v><i>;",
+          values: {},
+        },
 
-				linear: {
-					property: "mask-image: linear-gradient(<v>)<i>;",
-					values: {},
-				},
+        linear: {
+          property: "mask-image: linear-gradient(<v>)<i>;",
+          values: {},
+        },
 
-				radial: {
-					property: "mask-image: radial-gradient(<v>)<i>;",
-					values: {},
-				},
+        radial: {
+          property: "mask-image: radial-gradient(<v>)<i>;",
+          values: {},
+        },
 
-				conic: {
-					property: "mask-image: conic-gradient(<v>)<i>;",
-					values: {},
-				},
-			},
-		},
-	},
+        conic: {
+          property: "mask-image: conic-gradient(<v>)<i>;",
+          values: {},
+        },
+      },
+    },
+  },
 };
 
 export default shilpConfig;

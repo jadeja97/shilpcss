@@ -18,8 +18,8 @@ For help, discussion, or any other conversation, see
 ## Contributing
 
 If you're interested in contributing to Shilp CSS, please read our
-[Contributing Guidelines](https://github.com/JadejaHQ/shilpcss/blob/main/CONTRIBUTING.md)
-**before submitting a pull request**.
+[Contributing Guidelines](https://github.com/JadejaHQ/shilpcss/blob/main/CONTRIBUTING.md) **before
+submitting a pull request**.
 
 <br />
 

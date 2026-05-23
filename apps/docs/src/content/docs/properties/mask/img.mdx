@@ -16,15 +16,15 @@ Usage:
 
 Gradient color mask uses `mask-image` property.
 
-So, if you are using `@mask gradient-*;` then conflict will be created. You need
-to choose a stratagey to work with both.
+So, if you are using `@mask gradient-*;` then conflict will be created. You need to choose a
+stratagey to work with both.
 
 </Alert>
 
 <Alert variant="info">
 
-This page contains only the **property configuration reference**. Complete
-documentation and usage examples will be added progressively in future updates.
+This page contains only the **property configuration reference**. Complete documentation and usage
+examples will be added progressively in future updates.
 
 </Alert>
 
@@ -35,19 +35,20 @@ documentation and usage examples will be added progressively in future updates.
 ## Reference
 
 ```js title="shilp.config.js"
+/** @type {import('shilpcss/types').ShilpConfig} */
 const shilpConfig = {
-	source: "react",
+  source: "react",
 
-	properties: {
-		mask: {
-			img: {
-				property: "mask-image: <v><i>;",
-				values: {
-					none: "none",
-				},
-			},
-		},
-	},
+  properties: {
+    mask: {
+      img: {
+        property: "mask-image: <v><i>;",
+        values: {
+          none: "none",
+        },
+      },
+    },
+  },
 };
 
 export default shilpConfig;

@@ -14,8 +14,8 @@ Usage:
 
 <Alert variant="info">
 
-This page contains only the **property configuration reference**. Complete
-documentation and usage examples will be added progressively in future updates.
+This page contains only the **property configuration reference**. Complete documentation and usage
+examples will be added progressively in future updates.
 
 </Alert>
 
@@ -25,31 +25,29 @@ documentation and usage examples will be added progressively in future updates.
 
 ## Font Families
 
-Web fonts may **load late or fail completely** due to network issues, blocking,
-or privacy settings. To ensure text remains readable, every font should have a
-**reliable fallback stack**.
+Web fonts may **load late or fail completely** due to network issues, blocking, or privacy settings.
+To ensure text remains readable, every font should have a **reliable fallback stack**.
 
 Shilp CSS organizes fonts into **three variable groups**.
 
 ### 1. Fallback Fonts
 
-Fallback fonts guarantee that text always renders with system fonts when user
-fonts are not available. These variables contain **system-safe font stacks**.
+Fallback fonts guarantee that text always renders with system fonts when user fonts are not
+available. These variables contain **system-safe font stacks**.
 
 ```css
 html,
 :host {
-	/* */
-	--fallback-font-display:
-		ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+  /* */
+  --fallback-font-display: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
 
-	--fallback-font-body:
-		ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
-		"Segoe UI Symbol", "Noto Color Emoji";
+  --fallback-font-body:
+    ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
+    "Noto Color Emoji";
 
-	--fallback-font-code:
-		ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
-		"Courier New", monospace;
+  --fallback-font-code:
+    ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New",
+    monospace;
 }
 ```
 
@@ -62,10 +60,10 @@ By default they points to fallback fonts:
 ```css
 html,
 :host {
-	/* */
-	--user-font-display: var(--fallback-font-display);
-	--user-font-body: var(--fallback-font-body);
-	--user-font-code: var(--fallback-font-code);
+  /* */
+  --user-font-display: var(--fallback-font-display);
+  --user-font-body: var(--fallback-font-body);
+  --user-font-code: var(--fallback-font-code);
 }
 ```
 
@@ -74,16 +72,15 @@ As per design system, fonts can be set.
 ```css
 html,
 :host {
-	--user-font-display: "Bitter";
-	--user-font-body: "Inter";
-	--user-font-code: "Intel One Mono";
+  --user-font-display: "Bitter";
+  --user-font-body: "Inter";
+  --user-font-code: "Intel One Mono";
 }
 ```
 
 <Alert variant="warning">
 
-Before overriding these variables, make sure the font is properly loaded in your
-project.
+Before overriding these variables, make sure the font is properly loaded in your project.
 
 Otherwise the browser will fall back to the fallback fonts.
 
@@ -103,9 +100,9 @@ The final fonts used by the UI are composed using both variables.
 *,
 *::before,
 *::after {
-	--font-display: var(--user-font-display), var(--fallback-font-display);
-	--font-body: var(--user-font-body), var(--fallback-font-body);
-	--font-code: var(--user-font-code), var(--fallback-font-code);
+  --font-display: var(--user-font-display), var(--fallback-font-display);
+  --font-body: var(--user-font-body), var(--fallback-font-body);
+  --font-code: var(--user-font-code), var(--fallback-font-code);
 }
 ```
 
@@ -115,8 +112,8 @@ Applications should use the composed variables:
 
 ```css
 body {
-	/* @text font-body; */
-	font-family: var(--font-body);
+  /* @text font-body; */
+  font-family: var(--font-body);
 }
 ```
 
@@ -127,21 +124,22 @@ body {
 ## Reference
 
 ```js title="shilp.config.js"
+/** @type {import('shilpcss/types').ShilpConfig} */
 const shilpConfig = {
-	source: "react",
+  source: "react",
 
-	properties: {
-		text: {
-			family: {
-				property: "font-family: <v><i>;",
-				values: {
-					display: "var(--font-display)",
-					body: "var(--font-body)",
-					code: "var(--font-code)",
-				},
-			},
-		},
-	},
+  properties: {
+    text: {
+      family: {
+        property: "font-family: <v><i>;",
+        values: {
+          display: "var(--font-display)",
+          body: "var(--font-body)",
+          code: "var(--font-code)",
+        },
+      },
+    },
+  },
 };
 
 export default shilpConfig;

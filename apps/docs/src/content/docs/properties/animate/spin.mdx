@@ -21,8 +21,8 @@ This must be used with `enter` and `exit` animation to take the effect.
 
 <Alert variant="info">
 
-This page contains only the **property configuration reference**. Complete
-documentation and usage examples will be added progressively in future updates.
+This page contains only the **property configuration reference**. Complete documentation and usage
+examples will be added progressively in future updates.
 
 </Alert>
 
@@ -33,30 +33,31 @@ documentation and usage examples will be added progressively in future updates.
 ## Reference
 
 ```js title="shilp.config.js"
+/** @type {import('shilpcss/types').ShilpConfig} */
 const shilpConfig = {
-	source: "react",
+  source: "react",
 
-	properties: {
-		animate: {
-			spin: {
-				in: {
-					property: "--entr-rtt: <n><v><i>;",
-					themeKey: "angles",
-					values: {
-						DEFAULT: "0deg",
-					},
-				},
+  properties: {
+    animate: {
+      spin: {
+        in: {
+          property: "--entr-rtt: <n><v><i>;",
+          themeKey: "angles",
+          values: {
+            DEFAULT: "0deg",
+          },
+        },
 
-				out: {
-					property: "--ext-rtt: <n><v><i>;",
-					themeKey: "angles",
-					values: {
-						DEFAULT: "0deg",
-					},
-				},
-			},
-		},
-	},
+        out: {
+          property: "--ext-rtt: <n><v><i>;",
+          themeKey: "angles",
+          values: {
+            DEFAULT: "0deg",
+          },
+        },
+      },
+    },
+  },
 };
 
 export default shilpConfig;

@@ -1,20 +1,24 @@
 {
 	"name": "shilpcss-monorepo",
 	"description": "Shilp CSS monorepo",
-	"version": "1.0.0-alpha.5",
+	"version": "1.0.0-alpha.8",
 	"private": true,
 	"type": "module",
 	"scripts": {
-		"preinstall": "pnpm exec turbo telemetry disable",
-		"build": "turbo run build",
+		"prepare": "husky",
 		"dev": "turbo run dev",
-		"docs:dev": "pnpm i && pnpm dev --filter=shilpcss-docs",
-		"docs:build": "pnpm i && pnpm build --filter=shilpcss-docs",
-		"pkg:build": "pnpm i && pnpm build --filter=shilpcss",
-		"publish-it": "turbo run publish-it"
+		"check": "turbo run check",
+		"fix": "turbo run fix",
+		"build": "turbo run build",
+		"pkg:publish": "turbo run publish-it"
 	},
 	"devDependencies": {
-		"turbo": "^2.9.3"
+		"husky": "^9.1.7",
+		"lint-staged": "^17.0.5",
+		"oxfmt": "^0.48.0",
+		"oxlint": "^1.63.0",
+		"oxlint-tsgolint": "^0.22.1",
+		"turbo": "^2.9.14"
 	},
 	"homepage": "https://shilpcss.com/",
 	"bugs": "https://github.com/JadejaHQ/shilpcss/issues",

@@ -1,24 +1,17 @@
 ---
 title: "Browser Compatibility and Baseline Requirements"
 description:
-  "Shilp CSS browser support: Chrome 109+, Safari 16.3+, Edge 109+, Firefox
-  109+. Clear baseline, no legacy fallbacks."
-keywords:
-  [
-    "browser support",
-    "compatibility",
-    "modern browsers",
-    "baseline",
-    "Lightning CSS",
-  ]
+  "Shilp CSS browser support: Chrome 109+, Safari 16.3+, Edge 109+, Firefox 109+. Clear baseline, no
+  legacy fallbacks."
+keywords: ["browser support", "compatibility", "modern browsers", "baseline", "Lightning CSS"]
 ---
 
 # Browser Compatibility
 
 Shilp CSS has a **clear and intentional compatibility baseline**.
 
-It is designed for **modern browsers only**, with no legacy fallbacks, no hidden
-polyfills, and **no bleeding-edge features, while respecting the baseline**.
+It is designed for **modern browsers only**, with no legacy fallbacks, no hidden polyfills, and **no
+bleeding-edge features, while respecting the baseline**.
 
 ---
 
@@ -41,8 +34,8 @@ This includes:
 
 </Alert>
 
-This baseline is enforced using **Lightning CSS** and by carefully choosing
-which selectors (mixins), properties, and values.
+This baseline is enforced using **Lightning CSS** and by carefully choosing which selectors
+(mixins), properties, and values.
 
 </section>
 
@@ -88,8 +81,7 @@ If something is unsupported, it is not included, not partially shimmed.
 
 ## Deliberate Limitations
 
-Some features are intentionally restricted, even if they are partially supported
-across browsers.
+Some features are intentionally restricted, even if they are partially supported across browsers.
 
 Examples:
 
@@ -102,8 +94,7 @@ Examples:
 - Line clamping uses vendor-prefixed approaches
   - Based on what is widely supported today
 
-These are not oversights. They are conscious choices to avoid undefined
-behavior.
+These are not oversights. They are conscious choices to avoid undefined behavior.
 
 </section>
 
@@ -113,9 +104,8 @@ behavior.
 
 You are not locked into the defaults.
 
-If you want to Target newer browser versions, Enable additional CSS features or
-Experiment beyond the baseline, You can do so explicitly via `shilp.config.js`
-file.
+If you want to Target newer browser versions, Enable additional CSS features or Experiment beyond
+the baseline, You can do so explicitly via `shilp.config` file.
 
 The defaults are conservative by design, not by limitation.
 
@@ -132,14 +122,13 @@ The order is:
 - Utilities are expanded into real CSS
 - The bundler produces final CSS output
 - Unused styles are purged
-- **Lightning CSS** then applies Minification, Vendor prefixes and Safe
-  fallbacks
+- **Lightning CSS** then applies Minification, Vendor prefixes and Safe fallbacks
 
-Because **Lightning CSS** may add small fallback rules, the final output can
-include CSS that did not exist before purging.
+Because **Lightning CSS** may add small fallback rules, the final output can include CSS that did
+not exist before purging.
 
-As with any purge system, 100% unused CSS removal is not guaranteed. This is a
-known and accepted tradeoff.
+As with any purge system, 100% unused CSS removal is not guaranteed. This is a known and accepted
+tradeoff.
 
 </section>
 
@@ -147,11 +136,10 @@ known and accepted tradeoff.
 
 ## Legacy Browser Support
 
-If you project requires Legacy browser support, Automatic polyfills or Backward
-compatibility guarantees, Shilp CSS's default config may not be the right fit.
+If you project requires Legacy browser support, Automatic polyfills or Backward compatibility
+guarantees, Shilp CSS's default config may not be the right fit.
 
-In this case, You have to modify `shilp.config.js` file as per your
-requirements.
+In this case, You have to modify `shilp.config` file as per your requirements.
 
 **Know More**: [Config](/docs/config)
 
@@ -165,7 +153,7 @@ Shilp CSS optimizes for:
 
 > Predictable behavior over pre-defined coverage
 
-If you are building for modern browsers and you value clarity over speed, this
-baseline will feel natural.
+If you are building for modern browsers and you value clarity over speed, this baseline will feel
+natural.
 
 </section>

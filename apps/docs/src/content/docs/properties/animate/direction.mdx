@@ -14,8 +14,8 @@ Usage:
 
 <Alert variant="info">
 
-This page contains only the **property configuration reference**. Complete
-documentation and usage examples will be added progressively in future updates.
+This page contains only the **property configuration reference**. Complete documentation and usage
+examples will be added progressively in future updates.
 
 </Alert>
 
@@ -26,22 +26,23 @@ documentation and usage examples will be added progressively in future updates.
 ## Reference
 
 ```js title="shilp.config.js"
+/** @type {import('shilpcss/types').ShilpConfig} */
 const shilpConfig = {
-	source: "react",
+  source: "react",
 
-	properties: {
-		animate: {
-			direction: {
-				property: "animation-direction: <v><i>;",
-				values: {
-					normal: "normal", // from -> to
-					reverse: "reverse", // to -> from
-					boomerang: "alternate-reverse", // from -> to -> from
-					strikeback: "alternate", // to -> from -> to
-				},
-			},
-		},
-	},
+  properties: {
+    animate: {
+      direction: {
+        property: "animation-direction: <v><i>;",
+        values: {
+          normal: "normal", // from -> to
+          reverse: "reverse", // to -> from
+          boomerang: "alternate-reverse", // from -> to -> from
+          strikeback: "alternate", // to -> from -> to
+        },
+      },
+    },
+  },
 };
 
 export default shilpConfig;

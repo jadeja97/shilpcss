@@ -1,90 +1,112 @@
 {
-	"name": "shilpcss",
-	"description": "an Intent-first, CSS-centric, styling engine and framework",
-	"version": "1.0.0-alpha.2",
-	"type": "module",
-	"exports": {
-		"./styles/*": "./dist/styles/*.css",
-		"./lib": "./dist/lib.js",
-		"./bundlers/vite": "./dist/vite.js",
-		"./bundlers/webpack": "./dist/webpack.js"
-	},
-	"scripts": {
-		"build": "vite build",
-		"publish-it": "pnpm publish --tag alpha --access public --no-git-checks"
-	},
-	"devDependencies": {
-		"@types/node": "^24.6.2",
-		"vite": "^8.0.8"
-	},
-	"peerDependencies": {
-		"browserslist": "^4.28.1",
-		"lightningcss": "^1.31.1",
-		"purgecss": "^8.0.0",
-		"sass": "^1.97.3",
-		"vite": "^8.0.8",
-		"webpack": "^5.105.2",
-		"webpack-sources": "^3.3.4"
-	},
-	"keywords": [
-		"shilp",
-		"css",
-		"ui",
-		"frontend",
-		"styling",
-		"engine",
-		"framework",
-		"intent",
-		"config",
-		"traditional",
-		"bundler",
-		"plugin"
-	],
-	"files": [
-		"CHANGELOG.md",
-		"CODE_OF_CONDUCT.md",
-		"CONTRIBUTING.md",
-		"SECURITY.md",
-		"dist"
-	],
-	"homepage": "https://shilpcss.com/",
-	"bugs": "https://github.com/JadejaHQ/shilpcss/issues",
-	"license": "MIT",
-	"author": {
-		"name": "Pradipsinh Jadeja",
-		"email": "224366804+jadeja97@users.noreply.github.com",
-		"url": "https://x.com/jadeja97_"
-	},
-	"contributors": [
-		{
-			"name": "Pradipsinh Jadeja",
-			"email": "224366804+jadeja97@users.noreply.github.com",
-			"url": "https://x.com/jadeja97_"
-		}
-	],
-	"repository": {
-		"type": "git",
-		"url": "https://github.com/JadejaHQ/shilpcss.git",
-		"directory": "packages/shilpcss"
-	},
-	"engines": {
-		"node": ">=24",
-		"pnpm": ">=10",
-		"turbo": ">=2",
-		"npm": "please-use-pnpm",
-		"yarn": "please-use-pnpm",
-		"bun": "please-use-pnpm"
-	},
-	"devEngines": {
-		"runtime": {
-			"name": "node",
-			"version": ">=24",
-			"onFail": "error"
-		},
-		"packageManager": {
-			"name": "pnpm",
-			"version": ">=10",
-			"onFail": "error"
-		}
-	}
+  "name": "shilpcss",
+  "description": "an Intent-first, CSS-centric, styling engine and framework",
+  "version": "1.0.0-alpha.7",
+  "type": "module",
+  "exports": {
+    "./styles/*": "./dist/styles/*.css",
+    "./lib": {
+      "types": "./dist/src/lib/index.d.ts",
+      "import": "./dist/lib.js",
+      "default": "./dist/lib.js",
+      "require": "./dist/lib.js"
+    },
+    "./bundlers/vite": {
+      "types": "./dist/src/bundlers/vite.d.ts",
+      "import": "./dist/vite.js",
+      "default": "./dist/vite.js",
+      "require": "./dist/vite.js"
+    },
+    "./bundlers/webpack": {
+      "types": "./dist/src/bundlers/webpack.d.ts",
+      "import": "./dist/webpack.js",
+      "default": "./dist/webpack.js",
+      "require": "./dist/webpack.js"
+    },
+    "./types": {
+      "types": "./dist/src/types/index.d.ts"
+    }
+  },
+  "scripts": {
+    "check": "tsc && oxfmt --check --disable-nested-config && oxlint --disable-nested-config",
+    "fix": "oxlint --fix --disable-nested-config && oxfmt --disable-nested-config",
+    "build": "vite build",
+    "publish-it": "pnpm publish --tag alpha --access public --no-git-checks"
+  },
+  "devDependencies": {
+    "@types/node": "^24.6.2",
+    "typescript": "^6.0.3",
+    "unplugin-dts": "^1.0.0",
+    "vite": "^8.0.8"
+  },
+  "peerDependencies": {
+    "browserslist": "^4.28.1",
+    "lightningcss": "^1.31.1",
+    "purgecss": "^8.0.0",
+    "sass": "^1.97.3",
+    "vite": "^8.0.8",
+    "webpack": "^5.105.2",
+    "webpack-sources": "^3.3.4"
+  },
+  "keywords": [
+    "shilp",
+    "css",
+    "ui",
+    "frontend",
+    "styling",
+    "engine",
+    "framework",
+    "intent",
+    "config",
+    "traditional",
+    "bundler",
+    "plugin"
+  ],
+  "files": [
+    "CHANGELOG.md",
+    "CODE_OF_CONDUCT.md",
+    "CONTRIBUTING.md",
+    "SECURITY.md",
+    "dist"
+  ],
+  "homepage": "https://shilpcss.com/",
+  "bugs": "https://github.com/JadejaHQ/shilpcss/issues",
+  "license": "MIT",
+  "author": {
+    "name": "Pradipsinh Jadeja",
+    "email": "224366804+jadeja97@users.noreply.github.com",
+    "url": "https://x.com/jadeja97_"
+  },
+  "contributors": [
+    {
+      "name": "Pradipsinh Jadeja",
+      "email": "224366804+jadeja97@users.noreply.github.com",
+      "url": "https://x.com/jadeja97_"
+    }
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/JadejaHQ/shilpcss.git",
+    "directory": "packages/shilpcss"
+  },
+  "engines": {
+    "node": ">=24",
+    "pnpm": ">=10",
+    "turbo": ">=2",
+    "npm": "please-use-pnpm",
+    "yarn": "please-use-pnpm",
+    "bun": "please-use-pnpm"
+  },
+  "devEngines": {
+    "runtime": {
+      "name": "node",
+      "version": ">=24",
+      "onFail": "error"
+    },
+    "packageManager": {
+      "name": "pnpm",
+      "version": ">=10",
+      "onFail": "error"
+    }
+  }
 }

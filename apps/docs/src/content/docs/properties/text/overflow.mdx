@@ -16,8 +16,8 @@ Usage:
 
 <Alert variant="info">
 
-This page contains only the **property configuration reference**. Complete
-documentation and usage examples will be added progressively in future updates.
+This page contains only the **property configuration reference**. Complete documentation and usage
+examples will be added progressively in future updates.
 
 </Alert>
 
@@ -28,39 +28,40 @@ documentation and usage examples will be added progressively in future updates.
 ## Reference
 
 ```js title="shilp.config.js"
+/** @type {import('shilpcss/types').ShilpConfig} */
 const shilpConfig = {
-	source: "react",
+  source: "react",
 
-	properties: {
-		text: {
-			overflow: {
-				DEFAULT: {
-					property: "text-overflow: <v><i>;",
-					values: {
-						ellipsis: "ellipsis",
-						clip: "clip",
-					},
-				},
+  properties: {
+    text: {
+      overflow: {
+        DEFAULT: {
+          property: "text-overflow: <v><i>;",
+          values: {
+            ellipsis: "ellipsis",
+            clip: "clip",
+          },
+        },
 
-				truncate: {
-					property: "<v>",
-					special: true,
-					values: {
-						DEFAULT: `
+        truncate: {
+          property: "<v>",
+          special: true,
+          values: {
+            DEFAULT: `
 							overflow: hidden<i>;
 							text-overflow: ellipsis<i>;
 							white-space: nowrap<i>;
 						`,
-						unset: `
+            unset: `
 							overflow: unset<i>;
 							text-overflow: unset<i>;
 							white-space: unset<i>;
 						`,
-					},
-				},
-			},
-		},
-	},
+          },
+        },
+      },
+    },
+  },
 };
 
 export default shilpConfig;

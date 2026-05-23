@@ -23,7 +23,7 @@ https://shilpcss.com/docs/default-styles/variables
 /* ============================================================================================= */
 
 .purge-ignore-start {
-	all: unset;
+  all: unset;
 }
 
 /* ============================================================================================= */
@@ -35,43 +35,42 @@ https://shilpcss.com/docs/default-styles/variables
 /* Define CSS variables with optional value */
 html,
 :host {
-	/* */
+  /* */
 
-	/* ==============================================================================================
+  /* ==============================================================================================
 		FONT FAMILIES
 	============================================================================================== */
 
-	--fallback-font-display:
-		ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
-	--fallback-font-body:
-		ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
-		"Segoe UI Symbol", "Noto Color Emoji";
-	--fallback-font-code:
-		ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
-		"Courier New", monospace;
+  --fallback-font-display: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+  --fallback-font-body:
+    ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
+    "Noto Color Emoji";
+  --fallback-font-code:
+    ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New",
+    monospace;
 
-	--user-font-display: var(--fallback-font-display);
-	--user-font-body: var(--fallback-font-body);
-	--user-font-code: var(--fallback-font-code);
+  --user-font-display: var(--fallback-font-display);
+  --user-font-body: var(--fallback-font-body);
+  --user-font-code: var(--fallback-font-code);
 
-	/* ==============================================================================================
+  /* ==============================================================================================
 		FONT SIZES
 	============================================================================================== */
 
-	/* NOTE:
+  /* NOTE:
 	  not using rem values here, when zoomed or provided higher values of base font size,
 		this will render the font's very large.
 		if you still want scaling or repsonsiveness, overwrite this with rem counterparts.
 	*/
 
-	--h1: clamp(32px, 5vw, 48px);
-	--h2: clamp(28px, 4vw, 36px);
-	--h3: clamp(22px, 3vw, 28px);
-	--h4: clamp(18px, 2vw, 22px);
-	--h5: 18px;
-	--h6: 16px;
+  --h1: clamp(32px, 5vw, 48px);
+  --h2: clamp(28px, 4vw, 36px);
+  --h3: clamp(22px, 3vw, 28px);
+  --h4: clamp(18px, 2vw, 22px);
+  --h5: 18px;
+  --h6: 16px;
 
-	/* for base font size 16 px = 1 rem
+  /* for base font size 16 px = 1 rem
 	--h1: clamp(2rem, 5vw, 3rem);
 	--h2: clamp(1.75rem, 4vw, 2.25rem);
 	--h3: clamp(1.375rem, 3vw, 1.75rem);
@@ -80,55 +79,55 @@ html,
 	--h6: 1rem;
 	*/
 
-	/* ==============================================================================================
+  /* ==============================================================================================
 		BORDER RADIUS
 	============================================================================================== */
 
-	--radius: 4px; /* absolute value (px) */
+  --radius: 4px; /* absolute value (px) */
 
-	/* ==============================================================================================
+  /* ==============================================================================================
 		SHADOWS
 	============================================================================================== */
 
-	/* Box Shadow */
-	--in-sdw: ; /* inset */
-	--b-sdw: 0 0 #0000;
-	--b-sdw-clr: #0000;
+  /* Box Shadow */
+  --in-sdw: ; /* inset */
+  --b-sdw: 0 0 #0000;
+  --b-sdw-clr: #0000;
 
-	/* Text Shadow */
-	--t-sdw-clr: #0000;
+  /* Text Shadow */
+  --t-sdw-clr: #0000;
 
-	/* Drop Shadow */
-	--d-sdw-clr: #0000;
+  /* Drop Shadow */
+  --d-sdw-clr: #0000;
 
-	/* Backdrop Shadow */
-	--bd-sdw-clr: #0000;
+  /* Backdrop Shadow */
+  --bd-sdw-clr: #0000;
 
-	/* ==============================================================================================
+  /* ==============================================================================================
 		TRANSFORM
 	============================================================================================== */
 
-	/* translate */
-	--mv: ;
-	--mv-x: ;
-	--mv-y: ;
-	--mv-z: ;
-	/* skew */
-	--skw: ;
-	--skw-x: ;
-	--skw-y: ;
-	/* scale */
-	--scl: ;
-	--scl-x: ;
-	--scl-y: ;
-	--scl-z: ;
-	/* rotate */
-	--rtt: ;
-	--rtt-x: ;
-	--rtt-y: ;
-	--rtt-z: ;
-	/* distance / perspective */
-	--dst: ;
+  /* translate */
+  --mv: ;
+  --mv-x: ;
+  --mv-y: ;
+  --mv-z: ;
+  /* skew */
+  --skw: ;
+  --skw-x: ;
+  --skw-y: ;
+  /* scale */
+  --scl: ;
+  --scl-x: ;
+  --scl-y: ;
+  --scl-z: ;
+  /* rotate */
+  --rtt: ;
+  --rtt-x: ;
+  --rtt-y: ;
+  --rtt-z: ;
+  /* distance / perspective */
+  --dst: ;
 }
 
 /* ================================================================================================
@@ -139,79 +138,74 @@ html,
 *,
 *::before,
 *::after,
-input:where([type="file"]):where(
-		::file-selector-button,
-		::-webkit-file-upload-button
-	) {
-	/* */
+input:where([type="file"]):where(::file-selector-button, ::-webkit-file-upload-button) {
+  /* */
 
-	/* ==============================================================================================
+  /* ==============================================================================================
 		FONT FAMILIES
 	============================================================================================== */
 
-	--font-display: var(--user-font-display), var(--fallback-font-display);
-	--font-body: var(--user-font-body), var(--fallback-font-body);
-	--font-code: var(--user-font-code), var(--fallback-font-code);
+  --font-display: var(--user-font-display), var(--fallback-font-display);
+  --font-body: var(--user-font-body), var(--fallback-font-body);
+  --font-code: var(--user-font-code), var(--fallback-font-code);
 
-	/* ==============================================================================================
+  /* ==============================================================================================
 		BOX SHADOW
 	============================================================================================== */
 
-	--bx-sdw: var(--in-sdw) var(--b-sdw);
+  --bx-sdw: var(--in-sdw) var(--b-sdw);
 
-	/* variants */
-	--b-sdw-2xs: 0 1px var(--b-sdw-clr);
-	--b-sdw-xs: 0 1px 2px 0 var(--b-sdw-clr);
-	--b-sdw-sm: 0 1px 3px 0 var(--b-sdw-clr), 0 1px 2px -1px var(--b-sdw-clr);
-	--b-sdw-md: 0 4px 6px -1px var(--b-sdw-clr), 0 2px 4px -2px var(--b-sdw-clr);
-	--b-sdw-lg:
-		0 10px 15px -3px var(--b-sdw-clr), 0 4px 6px -4px var(--b-sdw-clr);
-	--b-sdw-xl:
-		0 20px 25px -5px var(--b-sdw-clr), 0 8px 10px -6px var(--b-sdw-clr);
-	--b-sdw-2xl: 0 25px 50px -12px var(--b-sdw-clr);
+  /* variants */
+  --b-sdw-2xs: 0 1px var(--b-sdw-clr);
+  --b-sdw-xs: 0 1px 2px 0 var(--b-sdw-clr);
+  --b-sdw-sm: 0 1px 3px 0 var(--b-sdw-clr), 0 1px 2px -1px var(--b-sdw-clr);
+  --b-sdw-md: 0 4px 6px -1px var(--b-sdw-clr), 0 2px 4px -2px var(--b-sdw-clr);
+  --b-sdw-lg: 0 10px 15px -3px var(--b-sdw-clr), 0 4px 6px -4px var(--b-sdw-clr);
+  --b-sdw-xl: 0 20px 25px -5px var(--b-sdw-clr), 0 8px 10px -6px var(--b-sdw-clr);
+  --b-sdw-2xl: 0 25px 50px -12px var(--b-sdw-clr);
 
-	/* ==============================================================================================
+  /* ==============================================================================================
 		TEXT SHADOW
 	============================================================================================== */
 
-	/* variants */
-	--t-sdw-2xs: 0 1px 0 var(--t-sdw-clr);
-	--t-sdw-xs: 0 1px 1px var(--t-sdw-clr);
-	--t-sdw-sm: 0 1px 0 var(--t-sdw-clr), 0 1px 1px var(--t-sdw-clr);
-	--t-sdw-md: 0 1px 1px var(--t-sdw-clr), 0 1px 2px var(--t-sdw-clr);
-	--t-sdw-lg: 0 1px 2px var(--t-sdw-clr), 0 3px 2px var(--t-sdw-clr);
+  /* variants */
+  --t-sdw-2xs: 0 1px 0 var(--t-sdw-clr);
+  --t-sdw-xs: 0 1px 1px var(--t-sdw-clr);
+  --t-sdw-sm: 0 1px 0 var(--t-sdw-clr), 0 1px 1px var(--t-sdw-clr);
+  --t-sdw-md: 0 1px 1px var(--t-sdw-clr), 0 1px 2px var(--t-sdw-clr);
+  --t-sdw-lg: 0 1px 2px var(--t-sdw-clr), 0 3px 2px var(--t-sdw-clr);
 
-	/* ==============================================================================================
+  /* ==============================================================================================
 		DROP SHADOW
 	============================================================================================== */
 
-	/* variants */
-	--d-sdw-xs: 0 1px 1px var(--d-sdw-clr);
-	--d-sdw-sm: 0 1px 2px var(--d-sdw-clr);
-	--d-sdw-md: 0 3px 3px var(--d-sdw-clr);
-	--d-sdw-lg: 0 4px 4px var(--d-sdw-clr);
-	--d-sdw-xl: 0 9px 7px var(--d-sdw-clr);
-	--d-sdw-2xl: 0 25px 25px var(--d-sdw-clr);
+  /* variants */
+  --d-sdw-xs: 0 1px 1px var(--d-sdw-clr);
+  --d-sdw-sm: 0 1px 2px var(--d-sdw-clr);
+  --d-sdw-md: 0 3px 3px var(--d-sdw-clr);
+  --d-sdw-lg: 0 4px 4px var(--d-sdw-clr);
+  --d-sdw-xl: 0 9px 7px var(--d-sdw-clr);
+  --d-sdw-2xl: 0 25px 25px var(--d-sdw-clr);
 
-	/* ==============================================================================================
+  /* ==============================================================================================
 		BACKDROP SHADOWS
 	============================================================================================== */
 
-	/* variants */
-	--bd-sdw-xs: 0 1px 1px var(--bd-sdw-clr);
-	--bd-sdw-sm: 0 1px 2px var(--bd-sdw-clr);
-	--bd-sdw-md: 0 3px 3px var(--bd-sdw-clr);
-	--bd-sdw-lg: 0 4px 4px var(--bd-sdw-clr);
-	--bd-sdw-xl: 0 9px 7px var(--bd-sdw-clr);
-	--bd-sdw-2xl: 0 25px 25px var(--bd-sdw-clr);
+  /* variants */
+  --bd-sdw-xs: 0 1px 1px var(--bd-sdw-clr);
+  --bd-sdw-sm: 0 1px 2px var(--bd-sdw-clr);
+  --bd-sdw-md: 0 3px 3px var(--bd-sdw-clr);
+  --bd-sdw-lg: 0 4px 4px var(--bd-sdw-clr);
+  --bd-sdw-xl: 0 9px 7px var(--bd-sdw-clr);
+  --bd-sdw-2xl: 0 25px 25px var(--bd-sdw-clr);
 
-	/* ==============================================================================================
+  /* ==============================================================================================
 		TRANSFORM
 	============================================================================================== */
 
-	--trsfm: var(--mv) var(--skw) var(--scl) var(--rtt) var(--mv-x) var(--mv-y)
-		var(--mv-z) var(--skw-x) var(--skw-y) var(--scl-x) var(--scl-y) var(--scl-z)
-		var(--rtt-x) var(--rtt-y) var(--rtt-z) var(--dst);
+  --trsfm: var(--mv) var(--skw) var(--scl) var(--rtt) var(--mv-x) var(--mv-y) var(--mv-z)
+    var(--skw-x) var(--skw-y) var(--scl-x) var(--scl-y) var(--scl-z) var(--rtt-x) var(--rtt-y)
+    var(--rtt-z) var(--dst);
 }
 
 /* ================================================================================================
@@ -240,5 +234,5 @@ input:where([type="file"]):where(
 /* ============================================================================================= */
 
 .purge-ignore-end {
-	all: unset;
+  all: unset;
 }

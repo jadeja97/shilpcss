@@ -1,7 +1,6 @@
 ---
 title: "Background Image | @bg"
-description:
-  "Set background images with position, size, origin and other styles."
+description: "Set background images with position, size, origin and other styles."
 keywords: ["background", "image", "background-image", "url"]
 ---
 
@@ -21,15 +20,15 @@ Usage:
 
 Gradient color also uses `background-image` property.
 
-So, if you are using `@bg gradient-*;` then conflict will be created. You need
-to choose a stratagey to work with both.
+So, if you are using `@bg gradient-*;` then conflict will be created. You need to choose a stratagey
+to work with both.
 
 </Alert>
 
 <Alert variant="info">
 
-This page contains only the **property configuration reference**. Complete
-documentation and usage examples will be added progressively in future updates.
+This page contains only the **property configuration reference**. Complete documentation and usage
+examples will be added progressively in future updates.
 
 </Alert>
 
@@ -40,91 +39,92 @@ documentation and usage examples will be added progressively in future updates.
 ## Reference
 
 ```js title="shilp.config.js"
+/** @type {import('shilpcss/types').ShilpConfig} */
 const shilpConfig = {
-	source: "react",
+  source: "react",
 
-	properties: {
-		bg: {
-			img: {
-				DEFAULT: {
-					property: "background-image: <v><i>;",
-					values: {
-						none: "none",
-					},
-				},
+  properties: {
+    bg: {
+      img: {
+        DEFAULT: {
+          property: "background-image: <v><i>;",
+          values: {
+            none: "none",
+          },
+        },
 
-				origin: {
-					property: "background-origin: <v><i>;",
-					values: {
-						border: "border-box",
-						padding: "padding-box",
-						content: "content-box",
-					},
-				},
+        origin: {
+          property: "background-origin: <v><i>;",
+          values: {
+            border: "border-box",
+            padding: "padding-box",
+            content: "content-box",
+          },
+        },
 
-				position: {
-					DEFAULT: {
-						property: "background-position: <v><i>;",
-						values: {
-							// background-position: x [spacing] [y] [spacing];
-							center: "center",
-							right: "right",
-							left: "left",
-							top: {
-								DEFAULT: "top",
-								left: "left top",
-								right: "right top",
-							},
-							bottom: {
-								DEFAULT: "bottom",
-								left: "left bottom",
-								right: "right bottom",
-							},
-						},
-					},
+        position: {
+          DEFAULT: {
+            property: "background-position: <v><i>;",
+            values: {
+              // background-position: x [spacing] [y] [spacing];
+              center: "center",
+              right: "right",
+              left: "left",
+              top: {
+                DEFAULT: "top",
+                left: "left top",
+                right: "right top",
+              },
+              bottom: {
+                DEFAULT: "bottom",
+                left: "left bottom",
+                right: "right bottom",
+              },
+            },
+          },
 
-					x: {
-						property: "background-position-x: <v><i>;",
-						values: {
-							// background-position-x: v [spacing];
-						},
-					},
+          x: {
+            property: "background-position-x: <v><i>;",
+            values: {
+              // background-position-x: v [spacing];
+            },
+          },
 
-					y: {
-						property: "background-position-y: <v><i>;",
-						values: {
-							// background-position-y: v [spacing];
-						},
-					},
-				},
+          y: {
+            property: "background-position-y: <v><i>;",
+            values: {
+              // background-position-y: v [spacing];
+            },
+          },
+        },
 
-				repeat: {
-					property: "background-repeat: <v><i>;",
-					values: {
-						// background-repeat: v | x y;
-						DEFAULT: "repeat",
-						none: "no-repeat",
-						x: "repeat-x",
-						y: "repeat-y",
-						space: "space",
-						round: "round",
-					},
-				},
+        repeat: {
+          property: "background-repeat: <v><i>;",
+          values: {
+            // background-repeat: v | x y;
+            DEFAULT: "repeat",
+            none: "no-repeat",
+            x: "repeat-x",
+            y: "repeat-y",
+            space: "space",
+            round: "round",
+          },
+        },
 
-				size: {
-					property: "background-size: <v><i>;",
-					resolve: "spacing",
-					themeKey: "spacing",
-					values: {
-						// background-size: v | x y;
-						auto: "auto",
-						contain: "contain",
-						cover: "cover",
-					},
-				},
-			},
-		},
-	},
+        size: {
+          property: "background-size: <v><i>;",
+          resolve: "spacing",
+          themeKey: "spacing",
+          values: {
+            // background-size: v | x y;
+            auto: "auto",
+            contain: "contain",
+            cover: "cover",
+          },
+        },
+      },
+    },
+  },
 };
 
 export default shilpConfig;

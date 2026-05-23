@@ -14,8 +14,8 @@ Usage:
 
 <Alert variant="info">
 
-This page contains only the **property configuration reference**. Complete
-documentation and usage examples will be added progressively in future updates.
+This page contains only the **property configuration reference**. Complete documentation and usage
+examples will be added progressively in future updates.
 
 </Alert>
 
@@ -26,35 +26,36 @@ documentation and usage examples will be added progressively in future updates.
 ## Reference
 
 ```js title="shilp.config.js"
+/** @type {import('shilpcss/types').ShilpConfig} */
 const shilpConfig = {
-	source: "react",
+  source: "react",
 
-	properties: {
-		text: {
-			nums: {
-				property: "font-variant-numeric: <v><i>;",
-				values: {
-					// font-variant-numeric: [ordinal] [slashed zero] [figure] [spacing] [fractional];
-					normal: "normal", // reset
-					ordinal: "ordinal",
-					slashed: {
-						zero: "slashed-zero",
-					},
-					// figure
-					lining: "lining-nums",
-					old: {
-						style: "oldstyle-nums",
-					},
-					// spacing
-					proportional: "proportional-nums",
-					tabular: "tabular-nums",
-					// fractional
-					diagonal: "diagonal-fractions",
-					stacked: "stacked-fractions",
-				},
-			},
-		},
-	},
+  properties: {
+    text: {
+      nums: {
+        property: "font-variant-numeric: <v><i>;",
+        values: {
+          // font-variant-numeric: [ordinal] [slashed zero] [figure] [spacing] [fractional];
+          normal: "normal", // reset
+          ordinal: "ordinal",
+          slashed: {
+            zero: "slashed-zero",
+          },
+          // figure
+          lining: "lining-nums",
+          old: {
+            style: "oldstyle-nums",
+          },
+          // spacing
+          proportional: "proportional-nums",
+          tabular: "tabular-nums",
+          // fractional
+          diagonal: "diagonal-fractions",
+          stacked: "stacked-fractions",
+        },
+      },
+    },
+  },
 };
 
 export default shilpConfig;

@@ -28,7 +28,7 @@ https://shilpcss.com/docs/default-styles/base
 /* ============================================================================================= */
 
 .purge-ignore-start {
-	all: unset;
+  all: unset;
 }
 
 /* ============================================================================================= */
@@ -41,11 +41,8 @@ https://shilpcss.com/docs/default-styles/base
 *,
 *::before,
 *::after,
-input:where([type="file"]):where(
-		::file-selector-button,
-		::-webkit-file-upload-button
-	) {
-	border-color: oklch(var(--border));
+input:where([type="file"]):where(::file-selector-button, ::-webkit-file-upload-button) {
+  border-color: oklch(var(--border));
 }
 
 /* ================================================================================================
@@ -57,9 +54,9 @@ input:where([type="file"]):where(
 2. set default font family.
 */
 body {
-	background-color: oklch(var(--bg)); /* 1 */
-	color: oklch(var(--fg)); /* 1 */
-	font-family: var(--font-body); /* 2 */
+  background-color: oklch(var(--bg)); /* 1 */
+  color: oklch(var(--fg)); /* 1 */
+  font-family: var(--font-body); /* 2 */
 }
 
 /* ================================================================================================
@@ -68,8 +65,8 @@ body {
 
 /* set default colors. */
 ::selection {
-	background-color: oklch(var(--primary));
-	color: oklch(var(--primary-fg));
+  background-color: oklch(var(--primary));
+  color: oklch(var(--primary-fg));
 }
 
 /* ================================================================================================
@@ -81,11 +78,8 @@ a,
 button,
 :where([role="button"]),
 :where(input, button):where([type="button"], [type="reset"], [type="submit"]),
-input:where([type="file"]):where(
-		::file-selector-button,
-		::-webkit-file-upload-button
-	) {
-	line-height: 1;
+input:where([type="file"]):where(::file-selector-button, ::-webkit-file-upload-button) {
+  line-height: 1;
 }
 
 /* ================================================================================================
@@ -101,40 +95,40 @@ h3,
 h4,
 h5,
 h6 {
-	font-family: var(--font-display); /* 1 */
-	line-height: 1.5; /* 2 */
+  font-family: var(--font-display); /* 1 */
+  line-height: 1.5; /* 2 */
 }
 
 /* set sensible font weights */
 h1,
 h2 {
-	font-weight: 600;
+  font-weight: 600;
 }
 h3,
 h4,
 h5,
 h6 {
-	font-weight: 500;
+  font-weight: 500;
 }
 
 /* set font dynamic sizes */
 h1 {
-	font-size: var(--h1);
+  font-size: var(--h1);
 }
 h2 {
-	font-size: var(--h2);
+  font-size: var(--h2);
 }
 h3 {
-	font-size: var(--h3);
+  font-size: var(--h3);
 }
 h4 {
-	font-size: var(--h4);
+  font-size: var(--h4);
 }
 h5 {
-	font-size: var(--h5);
+  font-size: var(--h5);
 }
 h6 {
-	font-size: var(--h6);
+  font-size: var(--h6);
 }
 
 /* ================================================================================================
@@ -145,11 +139,11 @@ code,
 kbd,
 samp,
 pre {
-	font-family: var(--font-code);
+  font-family: var(--font-code);
 }
 
 /* ============================================================================================= */
 
 .purge-ignore-end {
-	all: unset;
+  all: unset;
 }

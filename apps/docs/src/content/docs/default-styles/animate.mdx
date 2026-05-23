@@ -1,7 +1,6 @@
 ---
 title: "Animation Keyframes Stylesheet"
-description:
-  "Animation keyframes stylesheet. Default animation effects for Shilp CSS."
+description: "Animation keyframes stylesheet. Default animation effects for Shilp CSS."
 keywords: ["animate.css", "animations", "keyframes", "animation effects"]
 ---
 
@@ -9,8 +8,8 @@ keywords: ["animate.css", "animations", "keyframes", "animation effects"]
 
 `animate.css` defines the **motion system used by Shilp CSS**.
 
-Like other parts of Shilp CSS, the system relies heavily on **CSS variables** so
-utilities can compose motion instead of replacing it.
+Like other parts of Shilp CSS, the system relies heavily on **CSS variables** so utilities can
+compose motion instead of replacing it.
 
 ---
 
@@ -18,8 +17,7 @@ utilities can compose motion instead of replacing it.
 
 ## What animate.css Provides
 
-This file supplies the motion primitives used by animation and transition
-utilities.
+This file supplies the motion primitives used by animation and transition utilities.
 
 | System              | Purpose                                       |
 | ------------------- | --------------------------------------------- |
@@ -28,8 +26,7 @@ utilities.
 | Enter & exit motion | Composable animation states                   |
 | Animation keyframes | Reusable motion presets                       |
 
-These primitives allow animation utilities to produce consistent motion across
-the UI.
+These primitives allow animation utilities to produce consistent motion across the UI.
 
 </section>
 
@@ -44,8 +41,8 @@ The file defines commonly used easing curves.
 | `@animate flow-ease;`      | `animation-timing-function: theme(flow-ease);`         |
 | `@phase flow-ease-in-out;` | `transition-timing-function: theme(flow-ease-in-out);` |
 
-These values are used by animation and transition utilities so motion across the
-system follows the same curves.
+These values are used by animation and transition utilities so motion across the system follows the
+same curves.
 
 Check available easing curves:
 
@@ -61,8 +58,7 @@ Check available easing curves:
 
 Transitions often apply to multiple properties.
 
-Instead of repeating long lists of properties, this file defines reusable
-groups.
+Instead of repeating long lists of properties, this file defines reusable groups.
 
 | Intent               | Output                                    |
 | -------------------- | ----------------------------------------- |
@@ -84,17 +80,16 @@ Check available properties:
 
 The most important part of this file is the **enter & exit motion composition**.
 
-Instead of defining many animation variants, Shilp CSS composes animations using
-variables.
+Instead of defining many animation variants, Shilp CSS composes animations using variables.
 
-Variables describe the initial and / or final state of an animation. This can be
-composed as **fade**, **slide**, **zoom** for enter and exit individually.
+Variables describe the initial and / or final state of an animation. This can be composed as
+**fade**, **slide**, **zoom** for enter and exit individually.
 
 <Alert variant="info">
 
 The enter and exit keyframes are adapted from
-[`tailwindcss-animate` Package](https://www.npmjs.com/package/tailwindcss-animate)
-to provide a composable animation system.
+[`tailwindcss-animate` Package](https://www.npmjs.com/package/tailwindcss-animate) to provide a
+composable animation system.
 
 </Alert>
 
@@ -140,8 +135,7 @@ See:
 
 You can override any variable in your own styles.
 
-In most cases, customization should happen through **variables**, not style
-rules.
+In most cases, customization should happen through **variables**, not style rules.
 
 Example:
 
@@ -149,13 +143,13 @@ Example:
 /* set default border color to element, if it has border */
 html,
 :host {
-	/* --ease: cubic-bezier(0.7, 0.3, 0.5, 0.8); */
-	--ease: cubic-bezier(0.6, 0.2, 0.3, 0.9);
+  /* --ease: cubic-bezier(0.7, 0.3, 0.5, 0.8); */
+  --ease: cubic-bezier(0.6, 0.2, 0.3, 0.9);
 
-	/* transition property */
-	/* --trnst-pprts:
+  /* transition property */
+  /* --trnst-pprts:
 		var(--trnst-clrs), opacity, box-shadow, transform, var(--trnst-fltrs); */
-	--trnst-pprts: opacity, transform;
+  --trnst-pprts: opacity, transform;
 }
 ```
 
@@ -171,9 +165,8 @@ See: [Modifying Default Styles](/docs/default-styles#modifying-default-styles).
 
 <Alert>
 
-If any part of this file feels difficult to understand, copy the snippet and
-paste it into [ChatGPT](https://chatgpt.com) and ask it to explain the code in
-simple words.
+If any part of this file feels difficult to understand, copy the snippet and paste it into
+[ChatGPT](https://chatgpt.com) and ask it to explain the code in simple words.
 
 </Alert>
 
@@ -206,7 +199,7 @@ https://shilpcss.com/docs/default-styles/animate
 /* ============================================================================================= */
 
 .purge-ignore-start {
-	all: unset;
+  all: unset;
 }
 
 /* ============================================================================================= */
@@ -218,48 +211,46 @@ https://shilpcss.com/docs/default-styles/animate
 /* Define CSS variables with optional value */
 html,
 :host {
-	/* */
+  /* */
 
-	/* ==============================================================================================
+  /* ==============================================================================================
 		TIMING FUNCTIONS
 	============================================================================================== */
 
-	--ease: cubic-bezier(0.7, 0.3, 0.5, 0.8);
-	--ease-in: cubic-bezier(0.4, 0, 1, 1);
-	--ease-out: cubic-bezier(0, 0, 0.2, 1);
-	--ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
-	--ease-warp: cubic-bezier(0.9, 0.15, 0.1, 0.9);
-	--ease-pulse: cubic-bezier(0.4, 0, 0.6, 1);
+  --ease: cubic-bezier(0.7, 0.3, 0.5, 0.8);
+  --ease-in: cubic-bezier(0.4, 0, 1, 1);
+  --ease-out: cubic-bezier(0, 0, 0.2, 1);
+  --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-warp: cubic-bezier(0.9, 0.15, 0.1, 0.9);
+  --ease-pulse: cubic-bezier(0.4, 0, 0.6, 1);
 
-	/* ==============================================================================================
+  /* ==============================================================================================
 		TRANSITION PROPERTIES
 	============================================================================================== */
 
-	/* colors */
-	--trnst-clrs:
-		color, background-color, border-color, text-decoration-color, fill, stroke;
-	/* filters */
-	--trnst-fltrs: filter, -webkit-backdrop-filter, backdrop-filter;
-	/* properties */
-	--trnst-pprts:
-		var(--trnst-clrs), opacity, box-shadow, transform, var(--trnst-fltrs);
+  /* colors */
+  --trnst-clrs: color, background-color, border-color, text-decoration-color, fill, stroke;
+  /* filters */
+  --trnst-fltrs: filter, -webkit-backdrop-filter, backdrop-filter;
+  /* properties */
+  --trnst-pprts: var(--trnst-clrs), opacity, box-shadow, transform, var(--trnst-fltrs);
 
-	/* ==============================================================================================
+  /* ==============================================================================================
 		ANIMATION
 	============================================================================================== */
 
-	/* enter */
-	--entr-opct: ;
-	--entr-scl: ;
-	--entr-rtt: ;
-	--entr-mv-x: ;
-	--entr-mv-y: ;
-	/* exit */
-	--ext-opct: ;
-	--ext-scl: ;
-	--ext-rtt: ;
-	--ext-mv-x: ;
-	--ext-mv-y: ;
+  /* enter */
+  --entr-opct: ;
+  --entr-scl: ;
+  --entr-rtt: ;
+  --entr-mv-x: ;
+  --entr-mv-y: ;
+  /* exit */
+  --ext-opct: ;
+  --ext-scl: ;
+  --ext-rtt: ;
+  --ext-mv-x: ;
+  --ext-mv-y: ;
 }
 
 /* ================================================================================================
@@ -267,27 +258,27 @@ html,
 ================================================================================================ */
 
 @keyframes enter {
-	from {
-		opacity: var(--entr-opct);
-		/* transform: translate3d(var(--entr-trslt-x), var(--entr-trslt-y), 0)
+  from {
+    opacity: var(--entr-opct);
+    /* transform: translate3d(var(--entr-trslt-x), var(--entr-trslt-y), 0)
 			scale3d(var(--entr-scl), var(--entr-scl), var(--entr-scl))
 			rotate(var(--entr-rtt)); */
-		translate: var(--entr-mv-x) var(--entr-mv-y) 0;
-		scale: var(--entr-scl) var(--entr-scl) var(--entr-scl);
-		rotate: var(--entr-rtt);
-	}
+    translate: var(--entr-mv-x) var(--entr-mv-y) 0;
+    scale: var(--entr-scl) var(--entr-scl) var(--entr-scl);
+    rotate: var(--entr-rtt);
+  }
 }
 
 @keyframes exit {
-	to {
-		opacity: var(--ext-opct);
-		/* transform: translate3d(var(--ext-mv-x), var(--ext-mv-y), 0)
+  to {
+    opacity: var(--ext-opct);
+    /* transform: translate3d(var(--ext-mv-x), var(--ext-mv-y), 0)
 			scale3d(var(--ext-scl), var(--ext-scl), var(--ext-scl))
 			rotate(var(--ext-rtt)); */
-		translate: var(--ext-mv-x) var(--ext-mv-y) 0;
-		scale: var(--ext-scl) var(--ext-scl) var(--ext-scl);
-		rotate: var(--ext-rtt);
-	}
+    translate: var(--ext-mv-x) var(--ext-mv-y) 0;
+    scale: var(--ext-scl) var(--ext-scl) var(--ext-scl);
+    rotate: var(--ext-rtt);
+  }
 }
 
 /* ================================================================================================
@@ -295,51 +286,51 @@ html,
 ================================================================================================ */
 
 @keyframes spin {
-	to {
-		transform: rotate(360deg);
-	}
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 @keyframes ping {
-	75%,
-	100% {
-		transform: scale(2);
-		opacity: 0;
-	}
+  75%,
+  100% {
+    transform: scale(2);
+    opacity: 0;
+  }
 }
 
 @keyframes pulse {
-	50% {
-		opacity: 0.5;
-	}
+  50% {
+    opacity: 0.5;
+  }
 }
 
 @keyframes bounce {
-	0%,
-	100% {
-		transform: translateY(-25%);
-		animation-timing-function: cubic-bezier(0.8, 0, 1, 1);
-	}
-	50% {
-		transform: none;
-		animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
-	}
+  0%,
+  100% {
+    transform: translateY(-25%);
+    animation-timing-function: cubic-bezier(0.8, 0, 1, 1);
+  }
+  50% {
+    transform: none;
+    animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
+  }
 }
 
 @keyframes wiggle {
-	0%,
-	100% {
-		transform: rotate(-3deg);
-	}
-	50% {
-		transform: rotate(3deg);
-	}
+  0%,
+  100% {
+    transform: rotate(-3deg);
+  }
+  50% {
+    transform: rotate(3deg);
+  }
 }
 
 /* ============================================================================================= */
 
 .purge-ignore-end {
-	all: unset;
+  all: unset;
 }
 ```
 

@@ -14,8 +14,8 @@ Usage:
 
 <Alert variant="info">
 
-This page contains only the **property configuration reference**. Complete
-documentation and usage examples will be added progressively in future updates.
+This page contains only the **property configuration reference**. Complete documentation and usage
+examples will be added progressively in future updates.
 
 </Alert>
 
@@ -26,51 +26,52 @@ documentation and usage examples will be added progressively in future updates.
 ## Reference
 
 ```js title="shilp.config.js"
+/** @type {import('shilpcss/types').ShilpConfig} */
 const shilpConfig = {
-	source: "react",
+  source: "react",
 
-	properties: {
-		layout: {
-			is: {
-				property: "display: <v><i>;",
-				values: {
-					hidden: "none",
-					block: "block",
-					flex: "flex",
-					grid: "grid",
+  properties: {
+    layout: {
+      is: {
+        property: "display: <v><i>;",
+        values: {
+          hidden: "none",
+          block: "block",
+          flex: "flex",
+          grid: "grid",
 
-					// inline
-					inline: {
-						DEFAULT: "inline",
-						block: "inline-block",
-						flex: "inline-flex",
-						grid: "inline-grid",
-						table: "inline-table",
-					},
+          // inline
+          inline: {
+            DEFAULT: "inline",
+            block: "inline-block",
+            flex: "inline-flex",
+            grid: "inline-grid",
+            table: "inline-table",
+          },
 
-					// table
-					table: {
-						DEFAULT: "table",
-						head: "table-header-group",
-						body: "table-row-group",
-						footer: "table-footer-group",
-						row: "table-row",
-						column: {
-							DEFAULT: "table-column",
-							group: "table-column-group",
-						},
-						cell: "table-cell",
-						caption: "table-caption",
-					},
+          // table
+          table: {
+            DEFAULT: "table",
+            head: "table-header-group",
+            body: "table-row-group",
+            footer: "table-footer-group",
+            row: "table-row",
+            column: {
+              DEFAULT: "table-column",
+              group: "table-column-group",
+            },
+            cell: "table-cell",
+            caption: "table-caption",
+          },
 
-					// list
-					list: {
-						item: "list-item",
-					},
-				},
-			},
-		},
-	},
+          // list
+          list: {
+            item: "list-item",
+          },
+        },
+      },
+    },
+  },
 };
 
 export default shilpConfig;

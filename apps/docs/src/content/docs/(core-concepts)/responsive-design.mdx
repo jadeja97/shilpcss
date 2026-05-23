@@ -1,8 +1,8 @@
 ---
 title: "Responsive Design in Shilp CSS"
 description:
-  "Responsive design with breakpoints. Mobile-first approach, default
-  breakpoints, and @screen mixin."
+  "Responsive design with breakpoints. Mobile-first approach, default breakpoints, and @screen
+  mixin."
 keywords:
   [
     "responsive design",
@@ -18,11 +18,10 @@ keywords:
 
 Design must adapt to screen sizes. There’s no escape.
 
-Users expect layouts to feel correct on small phones, large monitors and
-everything in between.
+Users expect layouts to feel correct on small phones, large monitors and everything in between.
 
-Shilp CSS provides a small, intentional set of breakpoints and a clear,
-mobile-first approach to help you handle this cleanly.
+Shilp CSS provides a small, intentional set of breakpoints and a clear, mobile-first approach to
+help you handle this cleanly.
 
 ---
 
@@ -30,18 +29,18 @@ mobile-first approach to help you handle this cleanly.
 
 ## Pre-requisites
 
-Before anything else, make sure **meta viewport** is present in your **HTML's
-`<head>`**. Without it, responsive layouts will not behave as expected.
+Before anything else, make sure **meta viewport** is present in your **HTML's `<head>`**. Without
+it, responsive layouts will not behave as expected.
 
 ```html title="index.html"
 <!DOCTYPE html>
 <html>
-	<head>
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	</head>
-	<body>
-		...
-	</body>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  </head>
+  <body>
+    ...
+  </body>
 </html>
 ```
 
@@ -91,13 +90,12 @@ Shilp CSS ships with a minimal, practical set of breakpoints.
 
 ## Working With Breakpoints
 
-You can write responsive rules using `@screen <variant> { ... }` and this is
-replaced with `@media (<condition>) { ... }`.
+You can write responsive rules using `@screen <variant> { ... }` and this is replaced with
+`@media (<condition>) { ... }`.
 
 <Alert variant="info">
 
-Shilp CSS does not automatically add `@media screen`. You can wrap it manually
-using:
+Shilp CSS does not automatically add `@media screen`. You can wrap it manually using:
 
 ```css
 @env screen {
@@ -107,11 +105,11 @@ using:
 }
 ```
 
-You don’t need `screen` because `@media` defaults to **all media types**, and in
-practice your styles are meant for screens anyway.
+You don’t need `screen` because `@media` defaults to **all media types**, and in practice your
+styles are meant for screens anyway.
 
-Use print only when you want **separate styles specifically for printing**
-(e.g., hiding UI, adjusting layout for paper).
+Use print only when you want **separate styles specifically for printing** (e.g., hiding UI,
+adjusting layout for paper).
 
 </Alert>
 
@@ -133,14 +131,11 @@ Here, `max-md` means below `md`
 
 ### 3. Width Range
 
-Ranges are important when a style is **valid only within a specific window**,
-not beyond it.
+Ranges are important when a style is **valid only within a specific window**, not beyond it.
 
-`@screen md:mac { ... }` →
-`@media (min-width: 768px) and (max-width: 1439px) { ... }`
+`@screen md:mac { ... }` → `@media (min-width: 768px) and (max-width: 1439px) { ... }`
 
-Here, `max-*` **maximum is not allowed inside range**. it doesn't make semantic
-sense.
+Here, `max-*` **maximum is not allowed inside range**. it doesn't make semantic sense.
 
 </section>
 
@@ -178,9 +173,9 @@ Write the smallest, simplest version first.
 
 ```css title="navigation.css"
 nav {
-	@layout is-flex;
-	@flex flow-col;
-	@space p-4 gap-4;
+  @layout is-flex;
+  @flex flow-col;
+  @space p-4 gap-4;
 }
 ```
 
@@ -194,14 +189,14 @@ Now ask: what changes at `md`?
 
 ```css title="navigation.css"
 nav {
-	@layout is-flex;
-	@flex flow-col;
-	@space p-4 gap-4;
+  @layout is-flex;
+  @flex flow-col;
+  @space p-4 gap-4;
 
-	@screen md {
-		@flex flow-row;
-		@space p-6 gap-6;
-	}
+  @screen md {
+    @flex flow-row;
+    @space p-6 gap-6;
+  }
 }
 ```
 
@@ -213,23 +208,22 @@ If something needs special handling for a range:
 
 ```css title="navigation.css"
 nav {
-	@layout is-flex;
-	@flex flow-col;
-	@space p-4 gap-4;
+  @layout is-flex;
+  @flex flow-col;
+  @space p-4 gap-4;
 
-	@screen md {
-		@flex flow-row;
-		@space p-6 gap-6;
-	}
+  @screen md {
+    @flex flow-row;
+    @space p-6 gap-6;
+  }
 
-	@screen md:xl {
-		@text size-lg;
-	}
+  @screen md:xl {
+    @text size-lg;
+  }
 }
 ```
 
-Avoid adding breakpoints “_just in case_”. Add them only when layout truly
-changes.
+Avoid adding breakpoints “_just in case_”. Add them only when layout truly changes.
 
 <Alert variant="info">
 
@@ -250,8 +244,7 @@ In other way, It can be written as:
 
 But, this is **intentionally avoided**.
 
-Shilp CSS **do not recommend nested breakpoints**. use ranged breakpoints
-instead.
+Shilp CSS **do not recommend nested breakpoints**. use ranged breakpoints instead.
 
 </Alert>
 
@@ -264,8 +257,7 @@ If responsive logic starts growing too large:
 - Make sure there are no nested breakpoints
 - Re-evaluate layout assumptions
 
-Responsive design is not about adding more media queries. It’s about simplifying
-structure.
+Responsive design is not about adding more media queries. It’s about simplifying structure.
 
 <Alert>
 
@@ -289,7 +281,7 @@ Responsive CSS should feel progressive, not reactive.
 
 ## Customization
 
-You can extend or override breakpoints in `shilp.config.js`.
+You can extend or override breakpoints in `shilp.config` file.
 
 <Alert variant="warning">
 
@@ -298,17 +290,18 @@ Values must be **string with px unit**.
 </Alert>
 
 ```js title="shilp.config.js"
+/** @type {import('shilpcss/types').ShilpConfig} */
 const shilpConfig = {
-	source: "react",
+  source: "react",
 
-	extend: {
-		theme: {
-			screens: {
-				xs: "360px", // override: 375px to 360px
-				mid: "1536px", // new breakpoint
-			},
-		},
-	},
+  extend: {
+    theme: {
+      screens: {
+        xs: "360px", // override: 375px to 360px
+        mid: "1536px", // new breakpoint
+      },
+    },
+  },
 };
 
 export default shilpConfig;

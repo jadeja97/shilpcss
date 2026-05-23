@@ -1,23 +1,23 @@
 {
-	"page": true,
-	"name": "index",
-	"label": "@filter",
-	"title": "filter intent",
-	"items": [
-		"blur",
-		"bright",
-		"contrast",
-		"gray",
-		"hue",
-		"invert",
-		"opacity",
-		"saturate",
-		"sepia",
-		"shadow",
-		"preset",
-		{
-			"type": "folder",
-			"name": "backdrop"
-		}
-	]
+  "page": true,
+  "name": "index",
+  "label": "@filter",
+  "title": "filter intent",
+  "items": [
+    "blur",
+    "bright",
+    "contrast",
+    "gray",
+    "hue",
+    "invert",
+    "opacity",
+    "saturate",
+    "sepia",
+    "shadow",
+    "preset",
+    {
+      "type": "folder",
+      "name": "backdrop"
+    }
+  ]
 }

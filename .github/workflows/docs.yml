@@ -16,11 +16,9 @@ on:
         required: false
 
 # permission for the `workflow_call` will be granted from the caller workflow
-# persmission for the `workflow_dispatch` granted here
-permissions:
-  id-token: write # authenticate with OIDC for secure deployments
-  contents: read # checkout code
-  pages: write # deploy to GitHub Pages
+# persmission for the `workflow_dispatch` will be granted at job level
+# removing all permission
+permissions: {}
 
 #
 jobs:
@@ -44,9 +42,13 @@ jobs:
         )
       )
 
-    name: Check Version
+    name: Check version change
 
     runs-on: ubuntu-latest
+
+    # job level permissions
+    permissions:
+      contents: read # for checkout code
 
     # share data with dependent jobs
     outputs:
@@ -92,12 +94,13 @@ jobs:
   #
   #
   #
-  deploy:
+  build_and_upload:
     # runs after `check_version` job
     needs: check_version
 
     # `check_version` job must succeed
-    # docs version must be chagned
+    # |-- if `workflow_dispatch` (manuall trigger)
+    # `-- docs version must be chagned
     if: >
       needs.check_version.result == 'success' && (
         github.event_name == 'workflow_dispatch' || (
@@ -105,13 +108,13 @@ jobs:
         )
       )
 
-    name: Deploy docs to github pages
+    name: Build docs and upload artifacts
 
     runs-on: ubuntu-latest
 
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
+    # job level permissions
+    permissions:
+      contents: read # checkout code
 
     steps:
       # 1
@@ -140,7 +143,7 @@ jobs:
       - name: Install dependencies
         run: pnpm i --frozen-lockfile
 
-      # 5
+      # 5 FYI: `pnpm check` already run at `ci.yml`
       - name: Build docs
         run: pnpm build --filter=shilpcss-docs
 
@@ -154,7 +157,33 @@ jobs:
         with:
           path: apps/docs/dist
 
-      # 8
+  #
+  #
+  #
+  deploy:
+    # runs after `build_and_upload` job
+    needs: build_and_upload
+
+    # `build_and_upload` job must succeed
+    # build must succeed
+    # artifacts must be uploaded
+    if: needs.build.result == 'success'
+
+    name: Deploy docs to github pages
+
+    runs-on: ubuntu-latest
+
+    # job level permissions
+    permissions:
+      id-token: write # authenticate with OIDC for secure deployments
+      pages: write # deploy to GitHub Pages
+
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    steps:
+      #
       - name: Deploy to GitHub Pages
         id: deployment # required so `environment.url` can read `page_url`
         uses: actions/deploy-pages@v5

@@ -14,8 +14,8 @@ Usage:
 
 <Alert variant="info">
 
-This page contains only the **property configuration reference**. Complete
-documentation and usage examples will be added progressively in future updates.
+This page contains only the **property configuration reference**. Complete documentation and usage
+examples will be added progressively in future updates.
 
 </Alert>
 
@@ -26,34 +26,35 @@ documentation and usage examples will be added progressively in future updates.
 ## Reference
 
 ```js title="shilp.config.js"
+/** @type {import('shilpcss/types').ShilpConfig} */
 const shilpConfig = {
-	source: "react",
+  source: "react",
 
-	properties: {
-		live: {
-			events: {
-				property: "pointer-events: <v><i>;",
-				values: {
-					// general
-					auto: "auto",
-					none: "none",
+  properties: {
+    live: {
+      events: {
+        property: "pointer-events: <v><i>;",
+        values: {
+          // general
+          auto: "auto",
+          none: "none",
 
-					// svg only
-					all: "all",
-					painted: "painted",
-					fill: "fill",
-					stroke: "stroke",
-					box: "bounding-box",
-					visible: {
-						DEFAULT: "visible",
-						painted: "visiblePainted",
-						fill: "visibleFill",
-						stroke: "visibleStroke",
-					},
-				},
-			},
-		},
-	},
+          // svg only
+          all: "all",
+          painted: "painted",
+          fill: "fill",
+          stroke: "stroke",
+          box: "bounding-box",
+          visible: {
+            DEFAULT: "visible",
+            painted: "visiblePainted",
+            fill: "visibleFill",
+            stroke: "visibleStroke",
+          },
+        },
+      },
+    },
+  },
 };
 
 export default shilpConfig;

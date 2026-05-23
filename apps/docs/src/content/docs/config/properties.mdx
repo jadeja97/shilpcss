@@ -1,23 +1,17 @@
 ---
 title: "Properties Configuration"
 description:
-  "Configure CSS properties in Shilp CSS. Define utilities, resolve values,
-  manage property variants and special behaviors."
-keywords:
-  [
-    "property configuration",
-    "CSS properties",
-    "utility generation",
-    "property config",
-  ]
+  "Configure CSS properties in Shilp CSS. Define utilities, resolve values, manage property variants
+  and special behaviors."
+keywords: ["property configuration", "CSS properties", "utility generation", "property config"]
 ---
 
 # Properties
 
 A **property** is the layer that converts a utility into real CSS.
 
-if intent decides _where_, utility decides _what_, then **property decides how
-it becomes actual CSS**.
+if intent decides _where_, utility decides _what_, then **property decides how it becomes actual
+CSS**.
 
 Every utility must eventually map to a property configuration.
 
@@ -47,21 +41,22 @@ From the [Utilities Config](/docs/config/utilities) page, we know:
 Example config:
 
 ```js title="shilp.config.js"
+/** @type {import('shilpcss/types').ShilpConfig} */
 const shilpConfig = {
-	source: "react",
+  source: "react",
 
-	properties: {
-		//
-		layout: {
-			is: {
-				property: "display: <v><i>;",
-				values: {
-					flex: "flex",
-					grid: "grid",
-				},
-			},
-		},
-	},
+  properties: {
+    //
+    layout: {
+      is: {
+        property: "display: <v><i>;",
+        values: {
+          flex: "flex",
+          grid: "grid",
+        },
+      },
+    },
+  },
 };
 
 export default shilpConfig;
@@ -77,20 +72,19 @@ For intent `@layout is-flex;`, various parts are identified as:
 
 ```js title="Property Config"
 const propertyConfig = {
-	property: "display: <v><i>;",
-	values: {
-		flex: "flex",
-		grid: "grid",
-	},
+  property: "display: <v><i>;",
+  values: {
+    flex: "flex",
+    grid: "grid",
+  },
 };
 ```
 
-This value tokens are further used to traverse `propertyConfig.values` object to
-find the exact value for `propertyConfig.property`.
+This value tokens are further used to traverse `propertyConfig.values` object to find the exact
+value for `propertyConfig.property`.
 
-Now, if value will be found using **value tokens**, then we can **generate
-actual css property** by replacing `<v>` with values and `<i>` with _important
-flag_.
+Now, if value will be found using **value tokens**, then we can **generate actual css property** by
+replacing `<v>` with values and `<i>` with _important flag_.
 
 </section>
 
@@ -100,12 +94,12 @@ flag_.
 
 ```js title="Property Config"
 const propertyConfig = {
-	property: "<property-name>: <n><v><i>;",
-	resolve: string, // optional
-	themeKey: string, // optional
-	variant: boolean, // optional
-	special: boolean, // optional
-	values: object, // optional if `themeKey` defined
+  property: "<property-name>: <n><v><i>;",
+  resolve: string, // optional
+  themeKey: string, // optional
+  variant: boolean, // optional
+  special: boolean, // optional
+  values: object, // optional if `themeKey` defined
 };
 ```
 
@@ -132,8 +126,7 @@ Rules:
 - `;` at the end is mandatory
 - You can define multiple properties
 - `<v><i>` must resolve consistently
-  - For `@space mx-4;` →
-    `property: "margin-left: <n><v><i>; margin-right: <n><v><i>;"`
+  - For `@space mx-4;` → `property: "margin-left: <n><v><i>; margin-right: <n><v><i>;"`
   - Both left and right receive the same value.
 
 ### values
@@ -152,11 +145,11 @@ Keys become utility suffixes. Values can be nested and become actual CSS values.
 
 #### Global Values
 
-Every CSS property supports global keywords as value: `inherit`, `initial`,
-`unset`, `revert` and `revert-layer`
+Every CSS property supports global keywords as value: `inherit`, `initial`, `unset`, `revert` and
+`revert-layer`
 
-These are stored at `shilpConfig.values.globalValues` and can be accessed
-through `shilpConfig.theme.globalValues`.
+These are stored at `shilpConfig.values.globalValues` and can be accessed through
+`shilpConfig.theme.globalValues`.
 
 During processing:
 
@@ -167,8 +160,8 @@ So, global values are always available.
 
 ### themeKey
 
-It used to inject values from structured dataset (`shilpConfig.theme`). So,
-values are defined once and re-used efficiently.
+It used to inject values from structured dataset (`shilpConfig.theme`). So, values are defined once
+and re-used efficiently.
 
 Updated processing order will be:
 
@@ -179,20 +172,21 @@ Updated processing order will be:
 Example config:
 
 ```js title="shilp.config.js"
+/** @type {import('shilpcss/types').ShilpConfig} */
 const shilpConfig = {
-	source: "react",
+  source: "react",
 
-	properties: {
-		text: {
-			color: {
-				property: "color: <v><i>;",
-				resolve: "color",
-				themeKey: "colors",
-				variant: true,
-				values: {},
-			},
-		},
-	},
+  properties: {
+    text: {
+      color: {
+        property: "color: <v><i>;",
+        resolve: "color",
+        themeKey: "colors",
+        variant: true,
+        values: {},
+      },
+    },
+  },
 };
 
 export default shilpConfig;
@@ -202,27 +196,24 @@ export default shilpConfig;
 
 Invalid `propertyConfig.themeKey` throws error.
 
-See:
-[Theme Config Usage](/docs/config/theme#1-provide-structured-datasets-for-properties).
+See: [Theme Config Usage](/docs/config/theme#1-provide-structured-datasets-for-properties).
 
 </Alert>
 
-This allows utilities like `@text color-orange-600;` without manually defining
-every color by using values directly from the pre-defined structured dataset.
+This allows utilities like `@text color-orange-600;` without manually defining every color by using
+values directly from the pre-defined structured dataset.
 
 ### variant
 
 Variant support must be enabled per property (`variant: true`) explicitely.
 
-This allows utilities like `@text color-orange-600/80;` to be handleded
-separately.
+This allows utilities like `@text color-orange-600/80;` to be handleded separately.
 
 **Know More**: [Utility Variant](/docs/config/utilities#variant)
 
 <Alert variant="danger">
 
-You cannot have different variant behaviour for values within the same property
-configuration.
+You cannot have different variant behaviour for values within the same property configuration.
 
 </Alert>
 
@@ -256,8 +247,7 @@ See: [Value Resolver Methods](/docs/config/values#value-resolver-methods)
 
 <Alert variant="info">
 
-You can also use custom resolvers by defining it inside
-`shilpConfig.extend.valueResolvers` object.
+You can also use custom resolvers by defining it inside `shilpConfig.extend.valueResolvers` object.
 
 See: [Custom Resolver](/docs/config/values#custom-resolver)
 
@@ -265,9 +255,9 @@ See: [Custom Resolver](/docs/config/values#custom-resolver)
 
 <Alert variant="info">
 
-`variant: true` is effective for `resolve: "color"` only (modifies `opacity`).
-Other pre-defined resolvers don't have any logic to handle the variant. Though
-you can use custom resolver function to handle it.
+`variant: true` is effective for `resolve: "color"` only (modifies `opacity`). Other pre-defined
+resolvers don't have any logic to handle the variant. Though you can use custom resolver function to
+handle it.
 
 </Alert>
 
@@ -281,14 +271,14 @@ Example config:
 
 ```js title="Property config (special)"
 const propertyConfig = {
-	property: "<v>",
-	special: true,
-	values: {
-		DEFAULT: `
+  property: "<v>",
+  special: true,
+  values: {
+    DEFAULT: `
 			<property-1>: <value1><i>;
 			<property-2>: <value2><i>;
 		`,
-	},
+  },
 };
 ```
 
@@ -306,8 +296,7 @@ const propertyConfig = {
 If you need `themeKey` and/or `variant` behavior here:
 
 1. Do not rely on pre-defined resolvers
-2. Use custom value resolver `propertyConfig.resolve` with
-   `shilpConfig.extend.valueResolvers`
+2. Use custom value resolver `propertyConfig.resolve` with `shilpConfig.extend.valueResolvers`
 
 See:
 
@@ -331,8 +320,8 @@ An error is thrown if:
 
 Error handling will be improved in future versions.
 
-In some setups (especially Next.js + webpack), this may interupt the development
-environment. If that happens, restart your dev environment.
+In some setups (especially Next.js + webpack), this may interupt the development environment. If
+that happens, restart your dev environment.
 
 </Alert>
 
@@ -342,8 +331,8 @@ environment. If that happens, restart your dev environment.
 
 ## Property Config Patterns
 
-There is no single way to write a property config. Depending on your use case,
-you may structure it differently.
+There is no single way to write a property config. Depending on your use case, you may structure it
+differently.
 
 | Index | Pattern                                                     | Description                                                                                             | Reference                                                                                                       |
 | ----- | ----------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------- |
@@ -365,8 +354,7 @@ you may structure it differently.
 At the beginning of processing:
 
 - Internal default properties are created and loaded at `shilpConfig.properites`
-- Root-level properties `shilpConfig.properties` override them completely (if
-  provided)
+- Root-level properties `shilpConfig.properties` override them completely (if provided)
   - This is not recommended. Avoid this.
 - `shilpConfig.extend.properties` is deep merged to `shilpConfig.properties`
 
@@ -374,8 +362,8 @@ This defines which **properties** are available.
 
 <Alert variant="info">
 
-Properties are the execution layer and convert utilities into CSS. Everything
-passes through here before becoming real CSS.
+Properties are the execution layer and convert utilities into CSS. Everything passes through here
+before becoming real CSS.
 
 </Alert>
 
@@ -403,14 +391,12 @@ At this stage, property processing is done and we get the actual css.
 
 All built-in property configurations are documented separately.
 
-You can explore the [full list](/docs/properties#availabe-intents) in the
-**PROPERTIES** section of the documentation.
+You can explore the [full list](/docs/properties#availabe-intents) in the **PROPERTIES** section of
+the documentation.
 
-Properties are grouped and listed inside each **intent** section of the
-documentation.
+Properties are grouped and listed inside each **intent** section of the documentation.
 
-Each property has its own page:
-`/docs/properties/<intent-name>/<properties-name>`
+Each property has its own page: `/docs/properties/<intent-name>/<properties-name>`
 
 Example:
 

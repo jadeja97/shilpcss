@@ -1,22 +1,20 @@
 ---
 title: "Screen Reader Component for Accessibility"
 description:
-  "Hide content visually while keeping it accessible to screen readers.
-  Essential accessibility pattern for inclusive design."
-keywords:
-  ["accessibility", "screen reader", "accessible", "inclusive design", "ARIA"]
+  "Hide content visually while keeping it accessible to screen readers. Essential accessibility
+  pattern for inclusive design."
+keywords: ["accessibility", "screen reader", "accessible", "inclusive design", "ARIA"]
 ---
 
 # Screen Reader Component
 
-The **screen reader component** provides a simple way to **hide content visually
-while keeping it accessible to assistive technologies**.
+The **screen reader component** provides a simple way to **hide content visually while keeping it
+accessible to assistive technologies**.
 
-The content remains available to **screen readers and other assistive tools**,
-but is not visible on the screen.
+The content remains available to **screen readers and other assistive tools**, but is not visible on
+the screen.
 
-This pattern is commonly used to improve accessibility without affecting visual
-layout.
+This pattern is commonly used to improve accessibility without affecting visual layout.
 
 ---
 
@@ -24,8 +22,8 @@ layout.
 
 ## When to Use
 
-Use `.screen-reader` when content should be **read by assistive technologies but
-not displayed visually**.
+Use `.screen-reader` when content should be **read by assistive technologies but not displayed
+visually**.
 
 | Use Case                     | Example                                        |
 | ---------------------------- | ---------------------------------------------- |
@@ -37,8 +35,8 @@ Example:
 
 ```html
 <button>
-	<svg><!-- icon --></svg>
-	<span class="screen-reader">open menu</span>
+  <svg><!-- icon --></svg>
+  <span class="screen-reader">open menu</span>
 </button>
 ```
 
@@ -73,8 +71,7 @@ References:
 
 ## Restore Visibility
 
-To restore normal visibility, use `.screen-reader--none`. It removes the hiding
-behavior.
+To restore normal visibility, use `.screen-reader--none`. It removes the hiding behavior.
 
 This returns the element to normal layout behavior.
 
@@ -94,26 +91,26 @@ It may distorts the styles.
 /* https://webaim.org/techniques/css/invisiblecontent */
 /* https://v3.tailwindcss.com/docs/screen-readers */
 .screen-reader {
-	position: absolute;
-	width: 1px;
-	height: 1px;
-	padding: 0;
-	margin: -1px;
-	border-width: 0;
-	clip-path: polygon(0 0);
-	white-space: nowrap;
-	overflow: hidden;
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  border-width: 0;
+  clip-path: polygon(0 0);
+  white-space: nowrap;
+  overflow: hidden;
 }
 
 .screen-reader--none {
-	position: static;
-	width: auto;
-	height: auto;
-	padding: 0;
-	margin: 0;
-	overflow: visible;
-	clip-path: none;
-	white-space: normal;
+  position: static;
+  width: auto;
+  height: auto;
+  padding: 0;
+  margin: 0;
+  overflow: visible;
+  clip-path: none;
+  white-space: normal;
 }
 ```
 

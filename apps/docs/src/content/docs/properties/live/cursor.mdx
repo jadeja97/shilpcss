@@ -14,8 +14,8 @@ Usage:
 
 <Alert variant="info">
 
-This page contains only the **property configuration reference**. Complete
-documentation and usage examples will be added progressively in future updates.
+This page contains only the **property configuration reference**. Complete documentation and usage
+examples will be added progressively in future updates.
 
 </Alert>
 
@@ -26,81 +26,82 @@ documentation and usage examples will be added progressively in future updates.
 ## Reference
 
 ```js title="shilp.config.js"
+/** @type {import('shilpcss/types').ShilpConfig} */
 const shilpConfig = {
-	source: "react",
+  source: "react",
 
-	properties: {
-		live: {
-			cursor: {
-				property: "cursor: <v><i>;",
-				values: {
-					// general
-					auto: "auto",
-					default: "default",
-					none: "none",
+  properties: {
+    live: {
+      cursor: {
+        property: "cursor: <v><i>;",
+        values: {
+          // general
+          auto: "auto",
+          default: "default",
+          none: "none",
 
-					// link & status
-					menu: "context-menu",
-					help: "help",
-					pointer: "pointer",
-					wait: "wait",
-					progress: "progress",
+          // link & status
+          menu: "context-menu",
+          help: "help",
+          pointer: "pointer",
+          wait: "wait",
+          progress: "progress",
 
-					// selection
-					cell: "cell",
-					target: "crosshair",
-					text: "text",
-					vertical: "vertical-text",
+          // selection
+          cell: "cell",
+          target: "crosshair",
+          text: "text",
+          vertical: "vertical-text",
 
-					// drag & drop
-					alias: "alias",
-					copy: "copy",
-					move: "move",
-					no: {
-						drop: "no-drop",
-					},
-					not: {
-						allowed: "not-allowed",
-					},
-					grab: "grab",
-					grabbing: "grabbing",
+          // drag & drop
+          alias: "alias",
+          copy: "copy",
+          move: "move",
+          no: {
+            drop: "no-drop",
+          },
+          not: {
+            allowed: "not-allowed",
+          },
+          grab: "grab",
+          grabbing: "grabbing",
 
-					// scroll
-					scroll: "all-scroll",
+          // scroll
+          scroll: "all-scroll",
 
-					// zoom
-					zoom: {
-						in: "zoom-in",
-						out: "zoom-out",
-					},
+          // zoom
+          zoom: {
+            in: "zoom-in",
+            out: "zoom-out",
+          },
 
-					// resize
-					resize: {
-						col: "col-resize",
-						row: "row-resize",
-						top: {
-							DEFAULT: "n-resize",
-							right: "ne-resize",
-							left: "nw-resize",
-						},
-						bottom: {
-							DEFAULT: "s-resize",
-							right: "se-resize",
-							left: "sw-resize",
-						},
-						right: "e-resize",
-						left: "w-resize",
-						y: "ns-resize",
-						x: "ew-resize",
-						diagonal: {
-							forward: "nesw-resize",
-							backward: "nwse-resize",
-						},
-					},
-				},
-			},
-		},
-	},
+          // resize
+          resize: {
+            col: "col-resize",
+            row: "row-resize",
+            top: {
+              DEFAULT: "n-resize",
+              right: "ne-resize",
+              left: "nw-resize",
+            },
+            bottom: {
+              DEFAULT: "s-resize",
+              right: "se-resize",
+              left: "sw-resize",
+            },
+            right: "e-resize",
+            left: "w-resize",
+            y: "ns-resize",
+            x: "ew-resize",
+            diagonal: {
+              forward: "nesw-resize",
+              backward: "nwse-resize",
+            },
+          },
+        },
+      },
+    },
+  },
 };
 
 export default shilpConfig;

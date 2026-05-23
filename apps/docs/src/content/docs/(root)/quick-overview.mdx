@@ -1,23 +1,22 @@
 ---
 title: "Shilp CSS Quick Overview"
 description:
-  "Get a quick introduction to Shilp CSS architecture: intent-based styling,
-  static CSS output, and how it processes styles at build time."
-keywords:
-  ["Shilp CSS architecture", "CSS processing", "build time", "intent system"]
+  "Get a quick introduction to Shilp CSS architecture: intent-based styling, static CSS output, and
+  how it processes styles at build time."
+keywords: ["Shilp CSS architecture", "CSS processing", "build time", "intent system"]
 ---
 
 # Quick Overview
 
 _Shilp CSS is an **Intent-first, CSS-centric** styling engine and framework._
 
-You compose intent-based styles in CSS, and generate plain, static and purgable
-CSS at build time, without runtime logic or framework lock-in.
+You compose intent-based styles in CSS, and generate plain, static and purgable CSS at build time,
+without runtime logic or framework lock-in.
 
 <Alert>
 
-_If any concept or syntax here feels unfamiliar, don’t worry. You can safely
-skip it for now. Everything is explained gradually in later chapters._
+_If any concept or syntax here feels unfamiliar, don’t worry. You can safely skip it for now.
+Everything is explained gradually in later chapters._
 
 </Alert>
 
@@ -27,13 +26,12 @@ skip it for now. Everything is explained gradually in later chapters._
 
 ## What is Shilp CSS?
 
-Shilp CSS is a **logic-driven wrapper** built on top of
-[SCSS](https://sass-lang.com/), [Purge CSS](https://purgecss.com/) and
-[Lightning CSS](https://lightningcss.dev/), designed to integrate seamlessly as
-a **bundler plugin**.
+Shilp CSS is a **logic-driven wrapper** built on top of [SCSS](https://sass-lang.com/),
+[Purge CSS](https://purgecss.com/) and [Lightning CSS](https://lightningcss.dev/), designed to
+integrate seamlessly as a **bundler plugin**.
 
-It works by transforming your styles through multiple explicit stages, and what
-the browser receives is **just plain CSS**.
+It works by transforming your styles through multiple explicit stages, and what the browser receives
+is **just plain CSS**.
 
 At a high level:
 
@@ -87,9 +85,9 @@ The stpes are:
    - Use _intents_ inside CSS to compose behavior
    - ```css
      .custom-btn {
-     	@layout shadow-sm;
-     	@text size-md;
-     	@bg color-primary/90;
+       @layout shadow-sm;
+       @text size-md;
+       @bg color-primary/90;
      }
      ```
 2. Bind them using class names, IDs, or attributes
@@ -97,8 +95,7 @@ The stpes are:
 
 <Alert variant="warning">
 
-Class names must be static strings. **No string concatenation**. So, purging can
-work reliably.
+Class names must be static strings. **No string concatenation**. So, purging can work reliably.
 
 </Alert>
 
@@ -108,8 +105,7 @@ work reliably.
 
 ## SCSS Support
 
-Shilp CSS uses the SCSS parser internally. _an important part among many in the
-system_.
+Shilp CSS uses the SCSS parser internally. _an important part among many in the system_.
 
 This means:
 
@@ -133,8 +129,7 @@ However:
 
 ## Output
 
-Shilp CSS always outputs Plain CSS, No runtime dependencies and No framework
-assumptions.
+Shilp CSS always outputs Plain CSS, No runtime dependencies and No framework assumptions.
 
 This makes it:
 
@@ -150,11 +145,11 @@ This makes it:
 
 ## Framework & Bundler Support
 
-Shilp CSS is **framework-agnostic by design**. It integrates at the **bundler
-level**, not the framework level.
+Shilp CSS is **framework-agnostic by design**. It integrates at the **bundler level**, not the
+framework level.
 
-Frameworks only matter during purging, where Shilp CSS needs access to the final
-build source: `HTML`, `CSS` and `JS`.
+Frameworks only matter during purging, where Shilp CSS needs access to the final build source:
+`HTML`, `CSS` and `JS`.
 
 Defaults sources are provided for:
 

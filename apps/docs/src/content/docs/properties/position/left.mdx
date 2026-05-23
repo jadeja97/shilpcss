@@ -1,7 +1,6 @@
 ---
 title: "Left Offset | @position"
-description:
-  "Set positioned element's left side distance or offset from the parent."
+description: "Set positioned element's left side distance or offset from the parent."
 keywords: ["position", "left", "offset", "coordinate"]
 ---
 
@@ -15,8 +14,8 @@ Usage:
 
 <Alert variant="info">
 
-This page contains only the **property configuration reference**. Complete
-documentation and usage examples will be added progressively in future updates.
+This page contains only the **property configuration reference**. Complete documentation and usage
+examples will be added progressively in future updates.
 
 </Alert>
 
@@ -27,19 +26,20 @@ documentation and usage examples will be added progressively in future updates.
 ## Reference
 
 ```js title="shilp.config.js"
+/** @type {import('shilpcss/types').ShilpConfig} */
 const shilpConfig = {
-	source: "react",
+  source: "react",
 
-	properties: {
-		position: {
-			left: {
-				property: "left: <n><v><i>;",
-				resolve: "spacing",
-				themeKey: "spacing",
-				values: {},
-			},
-		},
-	},
+  properties: {
+    position: {
+      left: {
+        property: "left: <n><v><i>;",
+        resolve: "spacing",
+        themeKey: "spacing",
+        values: {},
+      },
+    },
+  },
 };
 
 export default shilpConfig;

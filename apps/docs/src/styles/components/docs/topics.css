@@ -3,63 +3,63 @@
 ================================================================================================ */
 
 .topics {
-	/*  */
+  /*  */
 
-	/* highlight intent and mixins in navigation (ux) */
-	[data-folder-page^="@"] > a,
-	[data-folder="mixins"] li ~ li > a {
-		/*  */
-		@match not("[data-active]") {
-			@layout opacity-100;
-			@text color-secondary thick-600;
+  /* highlight intent and mixins in navigation (ux) */
+  [data-folder-page^="@"] > a,
+  [data-folder="mixins"] li ~ li > a {
+    /*  */
+    @match not("[data-active]") {
+      @layout opacity-100;
+      @text color-secondary thick-600;
 
-			@theme dark {
-				@text color-secondary-400;
-			}
-		}
-	}
+      @theme dark {
+        @text color-secondary-400;
+      }
+    }
+  }
 
-	a {
-		@text case-capitalize;
-	}
+  a {
+    @text case-capitalize;
+  }
 
-	/*
+  /*
 		case for every link is lowercase. but, with styles it's converted to capitalize.
 		for below folders, the styles will change to lowercase
 	*/
-	:where(
-			[data-folder="components"],
-			[data-folder="properties"],
-			[data-folder="mixins"],
-			[data-folder="default styles"],
-			[data-folder="changelog"]
-		)
-		a {
-		@text case-inherit;
-	}
+  :where(
+      [data-folder="components"],
+      [data-folder="properties"],
+      [data-folder="mixins"],
+      [data-folder="default styles"],
+      [data-folder="changelog"]
+    )
+    a {
+    @text case-inherit;
+  }
 }
 
 /* ============================================================================================= */
 
 [data-folder] {
-	@siblings match("[data-folder]") {
-		@space mt-14;
-	}
+  @siblings match("[data-folder]") {
+    @space mt-14;
+  }
 }
 
 /* ============================================================================================= */
 
 [data-folder-page] ul {
-	@space pl-5;
+  @space pl-5;
 
-	a {
-		@position is-relative;
+  a {
+    @position is-relative;
 
-		@self before {
-			content: "-";
+    @self before {
+      content: "-";
 
-			@position is-absolute top-1/2;
-			@adjust preset -move-y-1/2 -move-x-5;
-		}
-	}
+      @position is-absolute top-1/2;
+      @adjust preset -move-y-1/2 -move-x-5;
+    }
+  }
 }

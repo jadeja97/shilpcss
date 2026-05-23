@@ -1,7 +1,6 @@
 ---
 title: "@self Mixin - Element Self Selector"
-description:
-  "Use @self mixin to apply styles to the element itself with conditions."
+description: "Use @self mixin to apply styles to the element itself with conditions."
 keywords: ["@self", "self selector", "element selector", "conditional styling"]
 ---
 
@@ -23,8 +22,8 @@ Usage:
 
 <Alert variant="info">
 
-This page contains only the **mixins configuration reference**. Complete
-documentation and usage examples will be added progressively in future updates.
+This page contains only the **mixins configuration reference**. Complete documentation and usage
+examples will be added progressively in future updates.
 
 </Alert>
 
@@ -35,35 +34,36 @@ documentation and usage examples will be added progressively in future updates.
 ## Reference
 
 ```js title="shilp.config.js"
+/** @type {import('shilpcss/types').ShilpConfig} */
 const shilpConfig = {
-	target: "react",
+  target: "react",
 
-	mixins: {
-		self: {
-			variants: {
-				// pseudo
-				before: "&::before",
-				after: "&::after",
+  mixins: {
+    self: {
+      variants: {
+        // pseudo
+        before: "&::before",
+        after: "&::after",
 
-				//
-				first: "&:first-child",
-				last: "&:last-child",
-				// only: "&:only-child",
-				odd: "&:nth-child(odd)",
-				even: "&:nth-child(even)",
-				//
-				// "first-of-type": "&:first-of-type",
-				// "last-of-type": "&:last-of-type",
-				// "only-of-type": "&:only-of-type",
+        //
+        first: "&:first-child",
+        last: "&:last-child",
+        // only: "&:only-child",
+        odd: "&:nth-child(odd)",
+        even: "&:nth-child(even)",
+        //
+        // "first-of-type": "&:first-of-type",
+        // "last-of-type": "&:last-of-type",
+        // "only-of-type": "&:only-of-type",
 
-				/* functions */
-				nth: "&:nth-child(<1>)",
-				// "nth-last": "&:nth-last-child(<1>)",
-				// "nth-of-type": "&:nth-of-type(<1>)",
-				// "nth-last-of-type": "&:nth-last-of-type(<1>)",
-			},
-		},
-	},
+        /* functions */
+        nth: "&:nth-child(<1>)",
+        // "nth-last": "&:nth-last-child(<1>)",
+        // "nth-of-type": "&:nth-of-type(<1>)",
+        // "nth-last-of-type": "&:nth-last-of-type(<1>)",
+      },
+    },
+  },
 };
 
 export default shilpConfig;

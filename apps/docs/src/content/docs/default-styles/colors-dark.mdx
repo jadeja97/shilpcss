@@ -1,21 +1,19 @@
 ---
 title: "Dark Theme Colors Stylesheet"
-description:
-  "Dark theme color variables stylesheet. Paired colors for dark mode CSS
-  variables."
+description: "Dark theme color variables stylesheet. Paired colors for dark mode CSS variables."
 keywords: ["colors-dark.css", "dark mode colors", "dark theme", "color palette"]
 ---
 
 # colors-dark.css
 
-`colors-dark.css` defines the **dark theme color overrides** for the variables
-defined in `colors.css`.
+`colors-dark.css` defines the **dark theme color overrides** for the variables defined in
+`colors.css`.
 
-It does not create new variables. Instead, it **overrides existing color roles**
-so the UI automatically adapts to dark environments.
+It does not create new variables. Instead, it **overrides existing color roles** so the UI
+automatically adapts to dark environments.
 
-Because components and utilities rely on these variables, switching themes
-updates the entire interface without changing component styles.
+Because components and utilities rely on these variables, switching themes updates the entire
+interface without changing component styles.
 
 ---
 
@@ -37,11 +35,9 @@ This mixin transform into a selector that applies when dark mode is enabled.
 html.dark, :host.dark { ... }
 ```
 
-This means the same color variables defined in `colors.css` will change when
-dark mode is active.
+This means the same color variables defined in `colors.css` will change when dark mode is active.
 
-To understand how mixin works internally, see
-[Mixins Config](/docs/config/mixins).
+To understand how mixin works internally, see [Mixins Config](/docs/config/mixins).
 
 </section>
 
@@ -49,8 +45,7 @@ To understand how mixin works internally, see
 
 ## What This File Changes
 
-This file only updates **color roles**. These variables control the interface
-appearance.
+This file only updates **color roles**. These variables control the interface appearance.
 
 When dark mode is active, these variables switch to darker values.
 
@@ -67,14 +62,13 @@ So background becomes dark while text becomes light.
 
 ## Why Variables Are Used
 
-Dark mode works because components never hardcode colors. Instead they use
-variables.
+Dark mode works because components never hardcode colors. Instead they use variables.
 
 ```css title="card.css"
 .card {
-	background-color: var(--surface);
-	color: var(--surface-fg);
-	border-color: var(--border);
+  background-color: var(--surface);
+  color: var(--surface-fg);
+  border-color: var(--border);
 }
 ```
 
@@ -86,11 +80,9 @@ Component styles does not need to change.
 
 ## Relationship with colors.css
 
-`colors.css` defines the base color system. `colors-dark.css` only overrides
-specific variables.
+`colors.css` defines the base color system. `colors-dark.css` only overrides specific variables.
 
-Because dark styles are loaded after `colors.css`, they replace the values when
-dark mode is active.
+Because dark styles are loaded after `colors.css`, they replace the values when dark mode is active.
 
 </section>
 
@@ -100,9 +92,9 @@ dark mode is active.
 
 ```css title="card.css"
 .card {
-	background-color: var(--surface);
-	color: var(--surface-fg);
-	border-color: var(--border);
+  background-color: var(--surface);
+  color: var(--surface-fg);
+  border-color: var(--border);
 }
 ```
 
@@ -110,9 +102,9 @@ In light mode, it renders actual values:
 
 ```css
 .card {
-	background-color: var(--base-50);
-	color: var(--base-950);
-	border-color: var(--base-300);
+  background-color: var(--base-50);
+  color: var(--base-950);
+  border-color: var(--base-300);
 }
 ```
 
@@ -120,9 +112,9 @@ In dark mode, it renders actual values:
 
 ```css
 .card {
-	background-color: var(--base-950);
-	color: var(--base-50);
-	border-color: var(--base-700);
+  background-color: var(--base-950);
+  color: var(--base-50);
+  border-color: var(--base-700);
 }
 ```
 
@@ -141,8 +133,7 @@ Use `colors-dark.css` when:
 3. you prefer **explicit variable overrides**
 
 If you want a **quick automatic inversion of base colors**, you can use
-[`colors-dark-flip-base.css`](/docs/default-styles/colors-dark-flip-base)
-instead.
+[`colors-dark-flip-base.css`](/docs/default-styles/colors-dark-flip-base) instead.
 
 </section>
 
@@ -157,20 +148,19 @@ Example:
 ```css title="override-colors-dark.css"
 html,
 :host {
-	/* */
+  /* */
 
-	@theme self-dark {
-		/* --bg: var(--base-950); */
-		--bg: var(--black);
+  @theme self-dark {
+    /* --bg: var(--base-950); */
+    --bg: var(--black);
 
-		/* --border: var(--base-700); */
-		--border: var(--white);
-	}
+    /* --border: var(--base-700); */
+    --border: var(--white);
+  }
 }
 ```
 
-Because components and utilities rely on variables, the entire UI will update
-automatically.
+Because components and utilities rely on variables, the entire UI will update automatically.
 
 See: [Modifying Default Styles](/docs/default-styles#modifying-default-styles).
 
@@ -182,9 +172,8 @@ See: [Modifying Default Styles](/docs/default-styles#modifying-default-styles).
 
 <Alert>
 
-If any part of this file feels difficult to understand, copy the snippet and
-paste it into [ChatGPT](https://chatgpt.com) and ask it to explain the code in
-simple words.
+If any part of this file feels difficult to understand, copy the snippet and paste it into
+[ChatGPT](https://chatgpt.com) and ask it to explain the code in simple words.
 
 </Alert>
 
@@ -219,7 +208,7 @@ https://shilpcss.com/docs/default-styles/colors-dark
 /* ============================================================================================= */
 
 .purge-ignore-start {
-	all: unset;
+  all: unset;
 }
 
 /* ============================================================================================= */
@@ -231,56 +220,56 @@ https://shilpcss.com/docs/default-styles/colors-dark
 /* Define CSS variables with optional value */
 html,
 :host {
-	/* */
+  /* */
 
-	/* ==============================================================================================
+  /* ==============================================================================================
 		DARK MODE
 	============================================================================================== */
 
-	/* dark theme overrides */
-	@theme dark-self {
-		/*  */
+  /* dark theme overrides */
+  @theme dark-self {
+    /*  */
 
-		/* ============================================================================================
+    /* ============================================================================================
 			MAIN BACKGROUND AND TEXT COLORS
 		============================================================================================ */
 
-		/* Background color (dark) */
-		--bg: var(--base-950);
-		/* Text color on background (dark) */
-		--fg: var(--base-50);
+    /* Background color (dark) */
+    --bg: var(--base-950);
+    /* Text color on background (dark) */
+    --fg: var(--base-50);
 
-		/* ============================================================================================
+    /* ============================================================================================
 			MUTED COLORS
 		============================================================================================ */
 
-		/* Muted color (dark) */
-		--muted: var(--base-800);
-		/* Text color on muted (dark) */
-		--muted-fg: var(--base-400);
+    /* Muted color (dark) */
+    --muted: var(--base-800);
+    /* Text color on muted (dark) */
+    --muted-fg: var(--base-400);
 
-		/* ============================================================================================
+    /* ============================================================================================
 			SURFACE COLORS
 		============================================================================================ */
 
-		/* Surface color (dark) */
-		--surface: var(--black);
-		/* Text color on surface (dark) */
-		--surface-fg: var(--white);
+    /* Surface color (dark) */
+    --surface: var(--black);
+    /* Text color on surface (dark) */
+    --surface-fg: var(--white);
 
-		/* ============================================================================================
+    /* ============================================================================================
 			BORDER COLOR
 		============================================================================================ */
 
-		/* Border color (dark) */
-		--border: var(--base-700);
-	}
+    /* Border color (dark) */
+    --border: var(--base-700);
+  }
 }
 
 /* ============================================================================================= */
 
 .purge-ignore-end {
-	all: unset;
+  all: unset;
 }
 ```
 

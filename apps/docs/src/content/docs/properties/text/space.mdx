@@ -14,8 +14,8 @@ Usage:
 
 <Alert variant="info">
 
-This page contains only the **property configuration reference**. Complete
-documentation and usage examples will be added progressively in future updates.
+This page contains only the **property configuration reference**. Complete documentation and usage
+examples will be added progressively in future updates.
 
 </Alert>
 
@@ -26,25 +26,26 @@ documentation and usage examples will be added progressively in future updates.
 ## Reference
 
 ```js title="shilp.config.js"
+/** @type {import('shilpcss/types').ShilpConfig} */
 const shilpConfig = {
-	source: "react",
+  source: "react",
 
-	properties: {
-		text: {
-			space: {
-				property: "white-space: <v><i>;",
-				values: {
-					normal: "normal",
-					nowrap: "nowrap",
-					pre: {
-						DEFAULT: "pre",
-						line: "pre-line",
-						wrap: "pre-wrap",
-					},
-				},
-			},
-		},
-	},
+  properties: {
+    text: {
+      space: {
+        property: "white-space: <v><i>;",
+        values: {
+          normal: "normal",
+          nowrap: "nowrap",
+          pre: {
+            DEFAULT: "pre",
+            line: "pre-line",
+            wrap: "pre-wrap",
+          },
+        },
+      },
+    },
+  },
 };
 
 export default shilpConfig;

@@ -1,18 +1,15 @@
 ---
 title: "Components Stylesheet"
 description:
-  "Component classes stylesheet. Default reusable components like container and
-  screen-reader."
+  "Component classes stylesheet. Default reusable components like container and screen-reader."
 keywords: ["components.css", "component styles", "default components"]
 ---
 
 # components.css
 
-`components.css` provides a small set of **ready-to-use component classes**
-shipped with Shilp CSS.
+`components.css` provides a small set of **ready-to-use component classes** shipped with Shilp CSS.
 
-Unlike utilities, these are **normal CSS classes** meant to be used directly in
-markup.
+Unlike utilities, these are **normal CSS classes** meant to be used directly in markup.
 
 Examples:
 
@@ -20,8 +17,8 @@ Examples:
 - `.limit-lines`
 - `.screen-reader`
 
-These components solve **common layout and accessibility patterns** that are
-reused across many projects.
+These components solve **common layout and accessibility patterns** that are reused across many
+projects.
 
 ---
 
@@ -31,11 +28,10 @@ reused across many projects.
 
 Shilp CSS encourages writing styles inside `.css` using intents and utilities.
 
-However, some patterns appear so frequently that writing them repeatedly creates
-unnecessary work.
+However, some patterns appear so frequently that writing them repeatedly creates unnecessary work.
 
-These patterns are therefore provided as **pre-built components**. They can be
-used immediately without writing additional CSS.
+These patterns are therefore provided as **pre-built components**. They can be used immediately
+without writing additional CSS.
 
 </section>
 
@@ -43,8 +39,8 @@ used immediately without writing additional CSS.
 
 ## How This File Works
 
-The file itself does not contain component styles directly. Instead it imports
-individual component files.
+The file itself does not contain component styles directly. Instead it imports individual component
+files.
 
 ```css title="components.css"
 @import "./components/limit-lines.css";
@@ -60,8 +56,8 @@ This structure allows:
 - importing individual components
 - extended by dynamic components generated from the config
 
-The comment at the bottom is used internally by Shilp CSS to **inject
-dynamically generated components**.
+The comment at the bottom is used internally by Shilp CSS to **inject dynamically generated
+components**.
 
 See: [Components Config](/docs/config/components)
 
@@ -77,9 +73,8 @@ Example: `@import "shilpcss/styles/components/container.css";`
 
 <Alert variant="warning">
 
-if importing individual components, include
-`/* import("shilpcss-dynamic-components"); */` to inject dynamically generated
-components.
+if importing individual components, include `/* import("shilpcss-dynamic-components"); */` to inject
+dynamically generated components.
 
 </Alert>
 
@@ -132,9 +127,8 @@ See: [Modifying Default Styles](/docs/default-styles#modifying-default-styles).
 
 <Alert>
 
-If any part of this file feels difficult to understand, copy the snippet and
-paste it into [ChatGPT](https://chatgpt.com) and ask it to explain the code in
-simple words.
+If any part of this file feels difficult to understand, copy the snippet and paste it into
+[ChatGPT](https://chatgpt.com) and ask it to explain the code in simple words.
 
 </Alert>
 

@@ -1,28 +1,20 @@
 ---
 title: "Writing Shilp CSS: Naming, Organization, and Patterns"
 description:
-  "Master the art of naming roles in Shilp CSS. Avoid naming colors, learn
-  organizational patterns, and write maintainable styles."
-keywords:
-  [
-    "naming",
-    "writing styles",
-    "role-based naming",
-    "organization patterns",
-    "maintenance",
-  ]
+  "Master the art of naming roles in Shilp CSS. Avoid naming colors, learn organizational patterns,
+  and write maintainable styles."
+keywords: ["naming", "writing styles", "role-based naming", "organization patterns", "maintenance"]
 ---
 
 # Best Practices For Writing Shilp CSS
 
-_Naming things is hard, Fear is real for broken styles by changing just one line
-and avoiding it entirely is one reason utility-first (atomic classes) approaches
-feel appealing._
+_Naming things is hard, Fear is real for broken styles by changing just one line and avoiding it
+entirely is one reason utility-first (atomic classes) approaches feel appealing._
 
 This page guides you how to write, name, and organize Shilp CSS.
 
-Not theory. <br /> Not trends. <br /> Just how to work with Shilp CSS in a way
-that stays clean over time.
+Not theory. <br /> Not trends. <br /> Just how to work with Shilp CSS in a way that stays clean over
+time.
 
 If you have ever:
 
@@ -43,8 +35,7 @@ If you use Shilp CSS, you must name things.
 
 There is no escaping it.
 
-Utility-first systems reduce naming. But, long-lived systems always bring naming
-back.
+Utility-first systems reduce naming. But, long-lived systems always bring naming back.
 
 Shilp CSS does not try to avoid naming. It helps you do it safely.
 
@@ -167,12 +158,12 @@ Let’s build a card and understand.
 
 ```css title="card.css"
 .card {
-	@layout is-flex;
-	@flex flow-col;
-	@space p-6 gap-4;
-	@border rounded-lg;
-	@bg color-surface;
-	@text color-surface-fg;
+  @layout is-flex;
+  @flex flow-col;
+  @space p-6 gap-4;
+  @border rounded-lg;
+  @bg color-surface;
+  @text color-surface-fg;
 }
 ```
 
@@ -182,16 +173,16 @@ This describes the card’s responsibility.
 
 ```css title="card.css"
 .card__header {
-	@text size-lg thick-600;
+  @text size-lg thick-600;
 }
 
 .card__body {
-	@text size-sm;
+  @text size-sm;
 }
 
 .card__footer {
-	@layout is-flex;
-	@flex justify-between;
+  @layout is-flex;
+  @flex justify-between;
 }
 ```
 
@@ -201,7 +192,7 @@ Everything is grouped.
 
 ```css title="card.css"
 .card--elevated {
-	@layout shadow-lg;
+  @layout shadow-lg;
 }
 ```
 
@@ -233,8 +224,7 @@ Do not mix page layout with component identity.
 
 Let layout classes define structure. Let component classes define behavior.
 
-When layout changes, you do not touch the component. This is how refactors stay
-calm.
+When layout changes, you do not touch the component. This is how refactors stay calm.
 
 </section>
 
@@ -332,11 +322,10 @@ If HTML changes, your styles survive.
 
 ## Understanding Specificity
 
-If you write CSS, you must understand specificity. It is part of writing safe
-CSS.
+If you write CSS, you must understand specificity. It is part of writing safe CSS.
 
-Specificity is a way to help browser decide, _when two CSS rules try to style
-the same thing, which one wins?_
+Specificity is a way to help browser decide, _when two CSS rules try to style the same thing, which
+one wins?_
 
 If two rules apply to the same element:
 
@@ -388,8 +377,7 @@ If unsure, open browser DevTools and inspect which rule is winning.
 
 ### Use !important Rarely
 
-in Shilp CSS, you can add `!important` flag to any property just by appending
-`!` to the utility.
+in Shilp CSS, you can add `!important` flag to any property just by appending `!` to the utility.
 
 Example: `@layout is-flex!;` → `display: flex !important;`
 
@@ -402,8 +390,7 @@ If you need it often, your selector structure may be wrong.
 
 ### Learn This Properly
 
-Spend one hour learning through below resources properly. It will remove 80% of
-CSS frustration.
+Spend one hour learning through below resources properly. It will remove 80% of CSS frustration.
 
 - [Specificity by Kevin Powell](https://youtu.be/c0kfcP_nD9E?si=WVOq36ZfKkDaNfST)
 - [Specificity by Web Dev Simplified](https://youtu.be/CHyPGSpIhSs?si=5mKUuEwf7SGYsaC3)
@@ -436,8 +423,7 @@ If you need to rename `.card`:
 3. Replace the instances globally
 4. Done
 
-Refactor is predictable. Because Shilp CSS uses static class names, search
-works.
+Refactor is predictable. Because Shilp CSS uses static class names, search works.
 
 No dynamic strings. No magic.
 
@@ -503,12 +489,12 @@ You write:
 
 ```css title="card.css"
 .card {
-	@layout is-flex;
-	@flex flow-col;
-	@space p-6 gap-4;
-	@border rounded-lg;
-	@bg color-surface;
-	@text color-surface-fg;
+  @layout is-flex;
+  @flex flow-col;
+  @space p-6 gap-4;
+  @border rounded-lg;
+  @bg color-surface;
+  @text color-surface-fg;
 }
 ```
 
@@ -535,8 +521,7 @@ Plain CSS fails when:
 - Files are huge
 - Boundaries are unclear
 
-> Shilp CSS fixes grouping (via intents). <br /> You fix naming (via clear
-> roles).
+> Shilp CSS fixes grouping (via intents). <br /> You fix naming (via clear roles).
 
 Together, they scale.
 
@@ -579,15 +564,13 @@ Slow. Clear. Practical.
 
 ### A Small Note Before We Begin
 
-The button we are about to build is **not a production-ready design system
-button**.
+The button we are about to build is **not a production-ready design system button**.
 
 It is not perfect. It is not complete. It does not include every edge case.
 
 **It is styled only to help you understand.**
 
-Once you understand the structure, you can build buttons as complex as your
-system requires.
+Once you understand the structure, you can build buttons as complex as your system requires.
 
 ### Step 1 — Decide What It Is?
 
@@ -609,12 +592,12 @@ Start simple.
 
 ```css title="button.css"
 .button {
-	@layout is-inline-flex;
-	@flex items-center justify-center;
-	@space px-4 py-2;
-	@border rounded-md;
-	@text color-primary-fg family-display h-normal;
-	@bg color-primary;
+  @layout is-inline-flex;
+  @flex items-center justify-center;
+  @space px-4 py-2;
+  @border rounded-md;
+  @text color-primary-fg family-display h-normal;
+  @bg color-primary;
 }
 ```
 
@@ -630,12 +613,12 @@ Don’t create a new class. Extend the block.
 
 ```css title="button.css"
 .button {
-	...
+  ...
   /* base styles */
 
 	@state hover {
-		@bg color-primary-600;
-	}
+    @bg color-primary-600;
+  }
 }
 ```
 
@@ -691,8 +674,7 @@ Usage:
 <button class="button button--md">Continue</button>
 ```
 
-Notice something important: <br /> We never changed `.button`. We added
-controlled variations.
+Notice something important: <br /> We never changed `.button`. We added controlled variations.
 
 That’s scalable CSS.
 
@@ -704,20 +686,20 @@ Add structure:
 
 ```html title="button with icon"
 <button class="button has-icon">
-	<svg
-		xmlns="http://www.w3.org/2000/svg"
-		width="16"
-		height="16"
-		fill="currentColor"
-		view-box="0 0 16 16"
-		class="icon"
-	>
-		<path
-			d="M8.707 1.5a1 1 0 0 0-1.414 0L.646 8.146a.5.5 0 0 0 .708.708L2 8.207V13.5A1.5 1.5 0 0 0 3.5 15h9a1.5 1.5 0 0 0 1.5-1.5V8.207l.646.647a.5.5 0 0 0 .708-.708L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293zM13 7.207V13.5a.5.5 0 0 1-.5.5h-9a.5.5 0 0 1-.5-.5V7.207l5-5z"
-		/>
-	</svg>
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="16"
+    height="16"
+    fill="currentColor"
+    view-box="0 0 16 16"
+    class="icon"
+  >
+    <path
+      d="M8.707 1.5a1 1 0 0 0-1.414 0L.646 8.146a.5.5 0 0 0 .708.708L2 8.207V13.5A1.5 1.5 0 0 0 3.5 15h9a1.5 1.5 0 0 0 1.5-1.5V8.207l.646.647a.5.5 0 0 0 .708-.708L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293zM13 7.207V13.5a.5.5 0 0 1-.5.5h-9a.5.5 0 0 1-.5-.5V7.207l5-5z"
+    />
+  </svg>
 
-	Home
+  Home
 </button>
 ```
 
@@ -739,11 +721,9 @@ Clear relationship. If icon spacing changes, you know where to go.
 
 <Alert variant="warning">
 
-`has-icon` class on button is needed as `:has` is not supported by Shilp CSS
-baseline, **yet**.
+`has-icon` class on button is needed as `:has` is not supported by Shilp CSS baseline, **yet**.
 
-See:
-[Deliberate Limitations](/docs/browser-compatibility#deliberate-limitations)
+See: [Deliberate Limitations](/docs/browser-compatibility#deliberate-limitations)
 
 </Alert>
 
@@ -843,8 +823,7 @@ Imagine design changes:
 
 You update: `.button`, `.button--secondary`, and `.button--md`
 
-One place (_practically some_), Not multiple markup files. This is the
-advantage.
+One place (_practically some_), Not multiple markup files. This is the advantage.
 
 ### Step 11 — What If You Need to Rename It?
 

@@ -1,15 +1,13 @@
 ---
 title: "Transform Distance or Perspective | @adjust"
 description:
-  "Set translationtra distance (perspective) for transform positioning, movement
-  and origin."
+  "Set translationtra distance (perspective) for transform positioning, movement and origin."
 keywords: ["transform", "translate", "distance", "positioning"]
 ---
 
 # Transform Distance OR Perspective
 
-Set translation distance (perspective) for transform positioning, movement and
-origin.
+Set translation distance (perspective) for transform positioning, movement and origin.
 
 Usage:
 
@@ -18,8 +16,8 @@ Usage:
 
 <Alert variant="info">
 
-This page contains only the **property configuration reference**. Complete
-documentation and usage examples will be added progressively in future updates.
+This page contains only the **property configuration reference**. Complete documentation and usage
+examples will be added progressively in future updates.
 
 </Alert>
 
@@ -30,48 +28,49 @@ documentation and usage examples will be added progressively in future updates.
 ## Reference
 
 ```js title="shilp.config.js"
+/** @type {import('shilpcss/types').ShilpConfig} */
 const shilpConfig = {
-	source: "react",
+  source: "react",
 
-	properties: {
-		adjust: {
-			distance: {
-				DEFAULT: {
-					property: "--dst: perspective(<v>)<i>;",
-					values: {
-						none: "none",
-						dramatic: "100px",
-						near: "300px",
-						normal: "500px",
-						midrange: "800px",
-						distant: "1200px",
-					},
-				},
+  properties: {
+    adjust: {
+      distance: {
+        DEFAULT: {
+          property: "--dst: perspective(<v>)<i>;",
+          values: {
+            none: "none",
+            dramatic: "100px",
+            near: "300px",
+            normal: "500px",
+            midrange: "800px",
+            distant: "1200px",
+          },
+        },
 
-				origin: {
-					property: "perspective-origin: <n><v><i>;",
-					resolve: "rawSpacing",
-					themeKey: "spacingPixels",
-					values: {
-						// perspective-origin: x y;
-						center: "center",
-						right: "right",
-						left: "left",
-						top: {
-							DEFAULT: "top",
-							left: "left top",
-							right: "right top",
-						},
-						bottom: {
-							DEFAULT: "bottom",
-							left: "left bottom",
-							right: "right bottom",
-						},
-					},
-				},
-			},
-		},
-	},
+        origin: {
+          property: "perspective-origin: <n><v><i>;",
+          resolve: "rawSpacing",
+          themeKey: "spacingPixels",
+          values: {
+            // perspective-origin: x y;
+            center: "center",
+            right: "right",
+            left: "left",
+            top: {
+              DEFAULT: "top",
+              left: "left top",
+              right: "right top",
+            },
+            bottom: {
+              DEFAULT: "bottom",
+              left: "left bottom",
+              right: "right bottom",
+            },
+          },
+        },
+      },
+    },
+  },
 };
 
 export default shilpConfig;

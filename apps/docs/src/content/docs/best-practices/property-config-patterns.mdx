@@ -1,22 +1,15 @@
 ---
 title: "Property Configuration Patterns"
 description:
-  "Explore common property config patterns in Shilp CSS. Learn utilities
-  structure, variants, presets, and CSS variables."
-keywords:
-  [
-    "property config",
-    "configuration patterns",
-    "utilities",
-    "presets",
-    "CSS variables",
-  ]
+  "Explore common property config patterns in Shilp CSS. Learn utilities structure, variants,
+  presets, and CSS variables."
+keywords: ["property config", "configuration patterns", "utilities", "presets", "CSS variables"]
 ---
 
 # Property Config Patterns
 
-There is no single way to write a property config. Depending on your use case,
-you may structure it differently.
+There is no single way to write a property config. Depending on your use case, you may structure it
+differently.
 
 ---
 
@@ -52,31 +45,32 @@ One utility maps to one CSS property. This is the regular and most used pattern.
 | `@space -ml-4;`     | `margin-left: -1rem;`       |
 
 ```js title="shilp.config.js"
+/** @type {import('shilpcss/types').ShilpConfig} */
 const shilpConfig = {
-	source: "react",
+  source: "react",
 
-	properties: {
-		layout: {
-			is: {
-				property: "display: <v><i>",
-				values: {
-					hidden: "none",
-					flex: "flex",
-				},
-			},
-		},
-		space: {
-			ml: {
-				property: "margin-left: <n><v><i>;",
-				resolve: "spacing",
-				values: {
-					0: "0px",
-					1: "4px",
-					4: "16px",
-				},
-			},
-		},
-	},
+  properties: {
+    layout: {
+      is: {
+        property: "display: <v><i>",
+        values: {
+          hidden: "none",
+          flex: "flex",
+        },
+      },
+    },
+    space: {
+      ml: {
+        property: "margin-left: <n><v><i>;",
+        resolve: "spacing",
+        values: {
+          0: "0px",
+          1: "4px",
+          4: "16px",
+        },
+      },
+    },
+  },
 };
 
 export default shilpConfig;
@@ -90,8 +84,7 @@ This is the default structure most properties use.
 
 ## One Utility, Multiple Properties, Same Value
 
-Sometimes one utility should apply multiple properties, but all resolve to the
-same value.
+Sometimes one utility should apply multiple properties, but all resolve to the same value.
 
 | Input                | Output                                                                  |
 | -------------------- | ----------------------------------------------------------------------- |
@@ -100,6 +93,7 @@ same value.
 | `@border thick-x-4;` | `border-left-width: 0.25rem;`<br />`border-right-width: 0.25rem;`       |
 
 ```js title="shilp.config.js"
+/** @type {import('shilpcss/types').ShilpConfig} */
 const shilpConfig = {
   source: "react",
 
@@ -158,31 +152,32 @@ For that use `special: true`, and this changes how the property is processed.
 | `@text overflow-truncate!;` | `overflow: hidden !important;`<br />`text-overflow: ellipsis !important;`<br />`white-space: nowrap !important;` |
 
 ```js title="shilp.config.js"
+/** @type {import('shilpcss/types').ShilpConfig} */
 const shilpConfig = {
-	source: "react",
+  source: "react",
 
-	properties: {
-		text: {
-			overflow: {
-				truncate: {
-					property: "<v>",
-					special: true,
-					values: {
-						DEFAULT: `
+  properties: {
+    text: {
+      overflow: {
+        truncate: {
+          property: "<v>",
+          special: true,
+          values: {
+            DEFAULT: `
 							overflow: hidden<i>;
 							text-overflow: ellipsis<i>;
 							white-space: nowrap<i>;
 						`,
-						unset: `
+            unset: `
 							overflow: unset<i>;
 							text-overflow: unset<i>;
 							white-space: unset<i>;
             `,
-					},
-				},
-			},
-		},
-	},
+          },
+        },
+      },
+    },
+  },
 };
 
 export default shilpConfig;
@@ -214,19 +209,20 @@ One word utility can be set using `DEFAULT` key. It skips extra tokens.
 | `@layout show!;` | `visibility: visible !important;` |
 
 ```js title="shilp.config.js"
+/** @type {import('shilpcss/types').ShilpConfig} */
 const shilpConfig = {
-	source: "react",
+  source: "react",
 
-	properties: {
-		layout: {
-			show: {
-				property: "visibility: <v><i>;",
-				values: {
-					DEFAULT: "visible",
-				},
-			},
-		},
-	},
+  properties: {
+    layout: {
+      show: {
+        property: "visibility: <v><i>;",
+        values: {
+          DEFAULT: "visible",
+        },
+      },
+    },
+  },
 };
 
 export default shilpConfig;
@@ -248,37 +244,38 @@ You can extend property structure using nested objects.
 | `@layout overflow-y-auto;`   | `overflow-y: auto;`            |
 
 ```js title="shilp.config.js"
+/** @type {import('shilpcss/types').ShilpConfig} */
 const shilpConfig = {
-	source: "react",
+  source: "react",
 
-	properties: {
-		layout: {
-			overflow: {
-				DEFAULT: {
-					property: "overflow: <v><i>;",
-					values: {
-						auto: "auto",
-						hidden: "hidden",
-						// other values
-					},
-				},
+  properties: {
+    layout: {
+      overflow: {
+        DEFAULT: {
+          property: "overflow: <v><i>;",
+          values: {
+            auto: "auto",
+            hidden: "hidden",
+            // other values
+          },
+        },
 
-				x: {
-					property: "overflow-x: <v><i>;",
-					values: {
-						// values same as overflow.DEFAULT
-					},
-				},
+        x: {
+          property: "overflow-x: <v><i>;",
+          values: {
+            // values same as overflow.DEFAULT
+          },
+        },
 
-				y: {
-					property: "overflow-y: <v><i>;",
-					values: {
-						// values same as overflow.DEFAULT
-					},
-				},
-			},
-		},
-	},
+        y: {
+          property: "overflow-y: <v><i>;",
+          values: {
+            // values same as overflow.DEFAULT
+          },
+        },
+      },
+    },
+  },
 };
 
 export default shilpConfig;
@@ -292,13 +289,11 @@ This structure keeps utilities predictable and expandable.
 
 ## preset-\* Utility, Shorthand + Individual
 
-Some CSS features supports **full shorthand property** and also **individual
-sub-properties**.
+Some CSS features supports **full shorthand property** and also **individual sub-properties**.
 
 For example: `animation`, `transition`, `flex`
 
-For this, you can combine a **preset utility** with detailed individual
-utilities.
+For this, you can combine a **preset utility** with detailed individual utilities.
 
 1. Shorthand preset:
 
@@ -317,58 +312,59 @@ utilities.
 | `@flex shrink-0! grow;`   | `flex-shrink: 0 !important; flex-grow: 1;` |
 
 ```js title="shilp.config.js"
+/** @type {import('shilpcss/types').ShilpConfig} */
 const shilpConfig = {
-	source: "react",
+  source: "react",
 
-	properties: {
-		animate: {
-			preset: {
-				property: "animation: <v><i>;",
-				values: {
-					none: "none",
-					spin: "spin 1s linear infinite",
-					ping: `ping 1s theme(flow-ease-out) infinite`,
-					pulse: `pulse 2s theme(flow-pulse) infinite`,
-					bounce: "bounce 1s infinite",
-					wiggle: "wiggle 1s theme(flow-ease-in-out) infinite",
-				},
-			},
+  properties: {
+    animate: {
+      preset: {
+        property: "animation: <v><i>;",
+        values: {
+          none: "none",
+          spin: "spin 1s linear infinite",
+          ping: `ping 1s theme(flow-ease-out) infinite`,
+          pulse: `pulse 2s theme(flow-pulse) infinite`,
+          bounce: "bounce 1s infinite",
+          wiggle: "wiggle 1s theme(flow-ease-in-out) infinite",
+        },
+      },
 
-			duration: {
-				property: "animation-duration: <v><i>;",
-				themeKey: "time",
-				values: {
-					auto: "auto",
-				},
-			},
-		},
-		flex: {
-			grow: {
-				property: "flex-grow: <v><i>;",
-				values: {
-					DEFAULT: 1,
-					0: 0,
-				},
-			},
-			preset: {
-				property: "flex: <v><i>;",
-				values: {
-					// flex: [grow] [shrink] [basis];
-					1: "1 1 0%",
-					auto: "1 1 auto",
-					initial: "0 1 auto",
-					none: "none",
-				},
-			},
-			shrink: {
-				property: "flex-shrink: <v><i>;",
-				values: {
-					DEFAULT: 1,
-					0: 0,
-				},
-			},
-		},
-	},
+      duration: {
+        property: "animation-duration: <v><i>;",
+        themeKey: "time",
+        values: {
+          auto: "auto",
+        },
+      },
+    },
+    flex: {
+      grow: {
+        property: "flex-grow: <v><i>;",
+        values: {
+          DEFAULT: 1,
+          0: 0,
+        },
+      },
+      preset: {
+        property: "flex: <v><i>;",
+        values: {
+          // flex: [grow] [shrink] [basis];
+          1: "1 1 0%",
+          auto: "1 1 auto",
+          initial: "0 1 auto",
+          none: "none",
+        },
+      },
+      shrink: {
+        property: "flex-shrink: <v><i>;",
+        values: {
+          DEFAULT: 1,
+          0: 0,
+        },
+      },
+    },
+  },
 };
 
 export default shilpConfig;
@@ -389,16 +385,14 @@ By default, Shilp CSS treats each utility as a **single-part value**. That means
 
 The previous value is overridden. This is intentional.
 
-Most CSS properties in real-world usage do not require multi-part composition.
-Overriding is predictable and simpler.
+Most CSS properties in real-world usage do not require multi-part composition. Overriding is
+predictable and simpler.
 
 ### When You Need Multi-Part Values
 
-For properties like `filter` or `transform`, multiple parts are sometimes
-necessary.
+For properties like `filter` or `transform`, multiple parts are sometimes necessary.
 
-Instead of allowing random accumulation of values, Shilp CSS recommends using
-`preset-*`.
+Instead of allowing random accumulation of values, Shilp CSS recommends using `preset-*`.
 
 This makes combinations explicit and predictable.
 
@@ -415,31 +409,32 @@ This makes combinations explicit and predictable.
 | `@filter peset-ipsum;` | `filter: blur(0.125rem) brightness(1.25);` |
 
 ```js title="shilp.config.js"
+/** @type {import('shilpcss/types').ShilpConfig} */
 const shilpConfig = {
-	source: "react",
+  source: "react",
 
-	properties: {
-		filter: {
-			blur: {
-				property: "filter: blur(<v>)<i>;",
-				resolve: "spacing",
-				themeKey: "blur",
-				values: {},
-			},
-			bright: {
-				property: "filter: brightness(<v>)<i>;",
-				themeKey: "fractions",
-				values: {},
-			},
-			preset: {
-				property: "filter: <v><i>;",
-				values: {
-					// filter: [blur] [brightness] [contrast] [drop-shadow] [grayscale] [hue-rotate] [invert] [opacity] [saturate] [sepia];
-					ipsum: "blur(theme(blur-sm)) bright(theme(fractions-125))",
-				},
-			},
-		},
-	},
+  properties: {
+    filter: {
+      blur: {
+        property: "filter: blur(<v>)<i>;",
+        resolve: "spacing",
+        themeKey: "blur",
+        values: {},
+      },
+      bright: {
+        property: "filter: brightness(<v>)<i>;",
+        themeKey: "fractions",
+        values: {},
+      },
+      preset: {
+        property: "filter: <v><i>;",
+        values: {
+          // filter: [blur] [brightness] [contrast] [drop-shadow] [grayscale] [hue-rotate] [invert] [opacity] [saturate] [sepia];
+          ipsum: "blur(theme(blur-sm)) bright(theme(fractions-125))",
+        },
+      },
+    },
+  },
 };
 
 export default shilpConfig;
@@ -451,8 +446,7 @@ export default shilpConfig;
 
 ## Multiple Utilities With CSS Variables
 
-Some CSS systems are easier to manage using **CSS variables as building
-blocks**.
+Some CSS systems are easier to manage using **CSS variables as building blocks**.
 
 For example: `box-shadow`, `text-shadow`, `transform`, `filter`
 
@@ -467,98 +461,97 @@ This keeps things composable and predictable.
 *,
 ::before,
 ::after {
-	/* Box Shadow ================================================================================ */
+  /* Box Shadow ================================================================================ */
 
-	--in-sdw: ; /* inset shadow */
-	--b-sdw: ;
-	--bx-sdw: var(--in-sdw) var(--b-sdw, 0 0 #0000);
+  --in-sdw: ; /* inset shadow */
+  --b-sdw: ;
+  --bx-sdw: var(--in-sdw) var(--b-sdw, 0 0 #0000);
 
-	/* variants */
-	--b-sdw-clr: ;
-	--b-sdw-xs: 0 1px 2px 0 var(--b-sdw-clr, #0000);
-	--b-sdw-sm:
-		0 1px 3px 0 var(--b-sdw-clr, #0000), 0 1px 2px -1px var(--b-sdw-clr, #0000);
+  /* variants */
+  --b-sdw-clr: ;
+  --b-sdw-xs: 0 1px 2px 0 var(--b-sdw-clr, #0000);
+  --b-sdw-sm: 0 1px 3px 0 var(--b-sdw-clr, #0000), 0 1px 2px -1px var(--b-sdw-clr, #0000);
 
-	/* Text Shadow =============================================================================== */
+  /* Text Shadow =============================================================================== */
 
-	/* variants */
-	--t-sdw-clr: ;
-	--t-sdw-xs: 0 1px 1px var(--t-sdw-clr, #0000);
-	--t-sdw-sm:
-		0 1px 0 var(--t-sdw-clr, #0000), 0 1px 1px var(--t-sdw-clr, #0000);
+  /* variants */
+  --t-sdw-clr: ;
+  --t-sdw-xs: 0 1px 1px var(--t-sdw-clr, #0000);
+  --t-sdw-sm: 0 1px 0 var(--t-sdw-clr, #0000), 0 1px 1px var(--t-sdw-clr, #0000);
 }
 ```
 
 ```js title="shilp.config.js"
+/** @type {import('shilpcss/types').ShilpConfig} */
 const shilpConfig = {
-	source: "react",
+  source: "react",
 
-	properties: {
-		layout: {
-			shadow: {
-				DEFAULT: {
-					property: "<v>",
-					special: true,
-					values: {
-						none: `
+  properties: {
+    layout: {
+      shadow: {
+        DEFAULT: {
+          property: "<v>",
+          special: true,
+          values: {
+            none: `
               box-shadow: 0 0 #0000<i>;
               --b-sdw: initial<i>;
             `,
-						xs: `
+            xs: `
               box-shadow: var(--bx-sdw)<i>;
               --b-sdw: var(--b-sdw-xs)<i>;
             `,
-						sm: `
+            sm: `
               box-shadow: var(--bx-sdw)<i>;
               --b-sdw: var(--b-sdw-sm)<i>;
             `,
-						DEFAULT: `
+            DEFAULT: `
               box-shadow: var(--bx-sdw)<i>;
               --b-sdw: var(--b-sdw-sm)<i>;
             `,
-					},
-				},
+          },
+        },
 
-				inset: {
-					property: "--in-sdw: <v><i>;",
-					values: {
-						DEFAULT: "inset",
-						none: "unset",
-					},
-				},
+        inset: {
+          property: "--in-sdw: <v><i>;",
+          values: {
+            DEFAULT: "inset",
+            none: "unset",
+          },
+        },
 
-				color: {
-					property: "--b-sdw-clr: <v><i>;",
-					resolve: "color",
-					themeKey: "colors",
-					variant: true,
-					values: {},
-				},
-			},
-		},
+        color: {
+          property: "--b-sdw-clr: <v><i>;",
+          resolve: "color",
+          themeKey: "colors",
+          variant: true,
+          values: {},
+        },
+      },
+    },
 
-		text: {
-			shadow: {
-				DEFAULT: {
-					property: "text-shadow: <v><i>;",
-					values: {
-						none: "0 0 #0000",
-						xs: "var(--t-sdw-xs)",
-						sm: "var(--t-sdw-sm)",
-						DEFAULT: "var(--t-sdw-sm)",
-					},
-				},
+    text: {
+      shadow: {
+        DEFAULT: {
+          property: "text-shadow: <v><i>;",
+          values: {
+            none: "0 0 #0000",
+            xs: "var(--t-sdw-xs)",
+            sm: "var(--t-sdw-sm)",
+            DEFAULT: "var(--t-sdw-sm)",
+          },
+        },
 
-				color: {
-					property: "--t-sdw-clr: <v><i>;",
-					resolve: "color",
-					themeKey: "colors",
-					variant: true,
-					values: {},
-				},
-			},
-		},
-	},
+        color: {
+          property: "--t-sdw-clr: <v><i>;",
+          resolve: "color",
+          themeKey: "colors",
+          variant: true,
+          values: {},
+        },
+      },
+    },
+  },
 };
 
 export default shilpConfig;
@@ -567,38 +560,38 @@ export default shilpConfig;
 ```css title="Inset box shadow"
 /* Intent */
 .any-class {
-	@layout shadow-xs shadow-inset shadow-color-orange-600/10;
+  @layout shadow-xs shadow-inset shadow-color-orange-600/10;
 }
 
 /* Output */
 .any-class {
-	--b-sdw-clr: oklch(64.6% 0.222 41.116 / 0.1);
-	--b-sdw: var(--b-sdw-xs); /* 0 1px 2px 0 var(--b-sdw-clr, #0000) */
-	--in-sdw: inset;
-	box-shadow: var(--bx-sdw); /* var(--in-sdw) var(--b-sdw, 0 0 #0000) */
+  --b-sdw-clr: oklch(64.6% 0.222 41.116 / 0.1);
+  --b-sdw: var(--b-sdw-xs); /* 0 1px 2px 0 var(--b-sdw-clr, #0000) */
+  --in-sdw: inset;
+  box-shadow: var(--bx-sdw); /* var(--in-sdw) var(--b-sdw, 0 0 #0000) */
 }
 
 /* Computed property */
 .any-class {
-	box-shadow: inset 0 1px 2px 0 oklch(64.6% 0.222 41.116 / 0.1);
+  box-shadow: inset 0 1px 2px 0 oklch(64.6% 0.222 41.116 / 0.1);
 }
 ```
 
 ```css title="text shadow"
 /* Intent */
 .any-class {
-	@text shadow-xs shadow-colore-orange-600/10;
+  @text shadow-xs shadow-colore-orange-600/10;
 }
 
 /* Output */
 .any-class {
-	--t-sdw-clr: oklch(64.6% 0.222 41.116 / 0.1);
-	text-shadow: var(--t-sdw-xs); /* 0 1px 1px var(--t-sdw-clr, #0000) */
+  --t-sdw-clr: oklch(64.6% 0.222 41.116 / 0.1);
+  text-shadow: var(--t-sdw-xs); /* 0 1px 1px var(--t-sdw-clr, #0000) */
 }
 
 /* Computed property */
 .any-class {
-	text-shadow: 0 1px 1px oklch(64.6% 0.222 41.116 / 0.1);
+  text-shadow: 0 1px 1px oklch(64.6% 0.222 41.116 / 0.1);
 }
 ```
 

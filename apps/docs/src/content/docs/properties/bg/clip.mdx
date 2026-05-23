@@ -14,8 +14,8 @@ Usage:
 
 <Alert variant="info">
 
-This page contains only the **property configuration reference**. Complete
-documentation and usage examples will be added progressively in future updates.
+This page contains only the **property configuration reference**. Complete documentation and usage
+examples will be added progressively in future updates.
 
 </Alert>
 
@@ -26,22 +26,23 @@ documentation and usage examples will be added progressively in future updates.
 ## Reference
 
 ```js title="shilp.config.js"
+/** @type {import('shilpcss/types').ShilpConfig} */
 const shilpConfig = {
-	source: "react",
+  source: "react",
 
-	properties: {
-		bg: {
-			clip: {
-				property: "background-clip: <v><i>;",
-				values: {
-					border: "border-box",
-					padding: "padding-box",
-					content: "content-box",
-					text: "text",
-				},
-			},
-		},
-	},
+  properties: {
+    bg: {
+      clip: {
+        property: "background-clip: <v><i>;",
+        values: {
+          border: "border-box",
+          padding: "padding-box",
+          content: "content-box",
+          text: "text",
+        },
+      },
+    },
+  },
 };
 
 export default shilpConfig;

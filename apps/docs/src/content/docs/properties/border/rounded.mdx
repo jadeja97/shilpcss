@@ -22,8 +22,8 @@ Usage:
 
 <Alert variant="info">
 
-This page contains only the **property configuration reference**. Complete
-documentation and usage examples will be added progressively in future updates.
+This page contains only the **property configuration reference**. Complete documentation and usage
+examples will be added progressively in future updates.
 
 </Alert>
 
@@ -38,32 +38,33 @@ Shilp CSS uses a single base radius variable: `--radius: theme(spacing-1);`
 The radius scale is derived from config:
 
 ```js title="shilp.config.js"
+/** @type {import('shilpcss/types').ShilpConfig} */
 const shilpConfig = {
-	source: "react",
+  source: "react",
 
-	extend: {
-		theme: {
-			borderRadius: {
-				radius: {
-					0: 0,
-					// NOTE: small radius can be added manually
-					DEFAULT: "var(--radius)", // 4px
-					md: "calc(var(--radius) * 1.5)", // 6px
-					lg: "calc(var(--radius) * 2)", // 8px
-					xl: "calc(var(--radius) * 3)", // 12px
-					// NOTE: always fully rounded untill explicitely set to 0
-					full: "calc(infinity * 1px)",
-				},
-			},
-		},
-	},
+  extend: {
+    theme: {
+      borderRadius: {
+        radius: {
+          0: 0,
+          // NOTE: small radius can be added manually
+          DEFAULT: "var(--radius)", // 4px
+          md: "calc(var(--radius) * 1.5)", // 6px
+          lg: "calc(var(--radius) * 2)", // 8px
+          xl: "calc(var(--radius) * 3)", // 12px
+          // NOTE: always fully rounded untill explicitely set to 0
+          full: "calc(infinity * 1px)",
+        },
+      },
+    },
+  },
 };
 
 export default shilpConfig;
 ```
 
-Change `--radius` once and every rounded element updates. This keeps curvature
-consistent across the system.
+Change `--radius` once and every rounded element updates. This keeps curvature consistent across the
+system.
 
 ### Important Note
 
@@ -84,81 +85,82 @@ consistent across the system.
 ## Reference
 
 ```js title="shilp.config.js"
+/** @type {import('shilpcss/types').ShilpConfig} */
 const shilpConfig = {
-	source: "react",
+  source: "react",
 
-	properties: {
-		border: {
-			rounded: {
-				DEFAULT: {
-					property: "border-radius: <v><i>;",
-					resolve: "spacing",
-					themeKey: "radius",
-					values: {},
-				},
-				tl: {
-					property: "border-top-left-radius: <v><i>;",
-					resolve: "spacing",
-					themeKey: "radius",
-					values: {},
-				},
-				tr: {
-					property: "border-top-right-radius: <v><i>;",
-					resolve: "spacing",
-					themeKey: "radius",
-					values: {},
-				},
-				br: {
-					property: "border-bottom-right-radius: <v><i>;",
-					resolve: "spacing",
-					themeKey: "radius",
-					values: {},
-				},
-				bl: {
-					property: "border-bottom-left-radius: <v><i>;",
-					resolve: "spacing",
-					themeKey: "radius",
-					values: {},
-				},
-				top: {
-					property: `
+  properties: {
+    border: {
+      rounded: {
+        DEFAULT: {
+          property: "border-radius: <v><i>;",
+          resolve: "spacing",
+          themeKey: "radius",
+          values: {},
+        },
+        tl: {
+          property: "border-top-left-radius: <v><i>;",
+          resolve: "spacing",
+          themeKey: "radius",
+          values: {},
+        },
+        tr: {
+          property: "border-top-right-radius: <v><i>;",
+          resolve: "spacing",
+          themeKey: "radius",
+          values: {},
+        },
+        br: {
+          property: "border-bottom-right-radius: <v><i>;",
+          resolve: "spacing",
+          themeKey: "radius",
+          values: {},
+        },
+        bl: {
+          property: "border-bottom-left-radius: <v><i>;",
+          resolve: "spacing",
+          themeKey: "radius",
+          values: {},
+        },
+        top: {
+          property: `
 						border-top-left-radius: <v><i>;
 						border-top-right-radius: <v><i>;
 					`,
-					resolve: "spacing",
-					themeKey: "radius",
-					values: {},
-				},
-				left: {
-					property: `
+          resolve: "spacing",
+          themeKey: "radius",
+          values: {},
+        },
+        left: {
+          property: `
 						border-top-left-radius: <v><i>;
 						border-bottom-left-radius: <v><i>;
 					`,
-					resolve: "spacing",
-					themeKey: "radius",
-					values: {},
-				},
-				bottom: {
-					property: `
+          resolve: "spacing",
+          themeKey: "radius",
+          values: {},
+        },
+        bottom: {
+          property: `
 						border-bottom-left-radius: <v><i>;
 						border-bottom-right-radius: <v><i>;
 					`,
-					resolve: "spacing",
-					themeKey: "radius",
-					values: {},
-				},
-				right: {
-					property: `
+          resolve: "spacing",
+          themeKey: "radius",
+          values: {},
+        },
+        right: {
+          property: `
 						border-top-right-radius: <v><i>;
 						border-bottom-right-radius: <v><i>;
 					`,
-					resolve: "spacing",
-					themeKey: "radius",
-					values: {},
-				},
-			},
-		},
-	},
+          resolve: "spacing",
+          themeKey: "radius",
+          values: {},
+        },
+      },
+    },
+  },
 };
 
 export default shilpConfig;

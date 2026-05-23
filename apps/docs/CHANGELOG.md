@@ -1,5 +1,36 @@
 # Changelog
 
+## 1.0.0-alpha.10
+
+## Minor Changes
+
+- feat: integrate typescript, linter and formatter for code standarization
+  - setup `oxfmt` and `oxlint`
+  - simplified the scripts
+  - refactored the code according to linter and formatters
+- feat: add `SearchError` component for showing search related error
+
+## Patch Changes
+
+- moved next telemetry disable to `.env` file
+  - add exception for `.env` in `.gitignore`
+
+## 1.0.0-alpha.9
+
+### Minor Changes
+
+- feat: add typescript
+- other minor changes
+
+## 1.0.0-alpha.8
+
+### Minor Changes
+
+- feat: Update docs with types related to #50
+  - rename "`shilp.config.js`" to "`shilp.config` file"
+  - add `/** @type {import('shilpcss/types').ShilpConfig} */` at `shilp.config` file code
+- bump up `next`, `react`, `react-dom`, and `@next/third-parties` to latest
+
 ## 1.0.0-alpha.7
 
 ### Minor Changes
@@ -49,8 +80,7 @@
 ### Patch Changes
 
 - From `rss.xml`, remove 1:1 mapping with sitemap
-- Made minor adjustments to the work-with-me page for better structure and
-  readability
+- Made minor adjustments to the work-with-me page for better structure and readability
 
 ## 1.0.0-alpha.4
 
@@ -86,8 +116,7 @@
 ### Minor Changes
 
 - Basic Search Engine Indexing & Analytics
-  - Add canonical urls with mime-types including llms.txt and text/markdown for
-    ai
+  - Add canonical urls with mime-types including llms.txt and text/markdown for ai
   - Add GA4 and MS Clarity for tracking
   - Add rss.xml
 
@@ -110,6 +139,5 @@
 
 All notable changes to this project is documented in this file.
 
-The format is loosely based on
-[Keep a Changelog](https://keepachangelog.com/en/1.0.0/), and
+The format is loosely based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), and
 [Semantic Versioning](https://semver.org/spec/v2.0.0.html).

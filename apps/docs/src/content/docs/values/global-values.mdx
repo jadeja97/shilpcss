@@ -6,8 +6,8 @@ keywords: ["values", "global", "css", "inherit", "initial"]
 
 # Global Values Dataset
 
-The **Global Values dataset** defines tokens for CSS global keywords that can
-apply to **any CSS property**.
+The **Global Values dataset** defines tokens for CSS global keywords that can apply to **any CSS
+property**.
 
 ---
 
@@ -24,8 +24,8 @@ Resolved location: `shilpConfig.values.globalValues` <br /> Theme location:
 
 ## Usage
 
-**ALL UTILITIES** (_except those with `propertyConfig.special: true`_) read
-values from the theme, which is built from this dataset.
+**ALL UTILITIES** (_except those with `propertyConfig.special: true`_) read values from the theme,
+which is built from this dataset.
 
 </section>
 
@@ -33,8 +33,7 @@ values from the theme, which is built from this dataset.
 
 ## Dataset Structure
 
-The dataset is a **simple key–value map** of css global keywords tokens to CSS
-values.
+The dataset is a **simple key–value map** of css global keywords tokens to CSS values.
 
 See:
 
@@ -49,20 +48,21 @@ See:
 
 You can override or modify the dataset structure in your config.
 
-However, **new global values cannot be added** because the dataset already
-covers all supported css global values.
+However, **new global values cannot be added** because the dataset already covers all supported css
+global values.
 
 ```js title="Customize global values"
+/** @type {import('shilpcss/types').ShilpConfig} */
 const shilpConfig = {
-	source: "react",
+  source: "react",
 
-	extend: {
-		values: {
-			globalValues: {
-				// modify structure if needed
-			},
-		},
-	},
+  extend: {
+    values: {
+      globalValues: {
+        // modify structure if needed
+      },
+    },
+  },
 };
 
 export default shilpConfig;
@@ -80,13 +80,13 @@ This will update global values tokens available through the theme system.
 // https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Cascade#keywords
 
 const globalValues = {
-	inherit: "inherit",
-	initial: "initial",
-	revert: {
-		DEFAULT: "revert",
-		layer: "revert-layer",
-	},
-	unset: "unset",
+  inherit: "inherit",
+  initial: "initial",
+  revert: {
+    DEFAULT: "revert",
+    layer: "revert-layer",
+  },
+  unset: "unset",
 };
 
 export default globalValues;

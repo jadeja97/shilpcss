@@ -17,8 +17,8 @@ Usage:
 
 <Alert variant="info">
 
-This page contains only the **property configuration reference**. Complete
-documentation and usage examples will be added progressively in future updates.
+This page contains only the **property configuration reference**. Complete documentation and usage
+examples will be added progressively in future updates.
 
 </Alert>
 
@@ -29,44 +29,45 @@ documentation and usage examples will be added progressively in future updates.
 ## Reference
 
 ```js title="shilp.config.js"
+/** @type {import('shilpcss/types').ShilpConfig} */
 const shilpConfig = {
-	source: "react",
+  source: "react",
 
-	properties: {
-		grid: {
-			row: {
-				start: {
-					property: "grid-row-start: <v><i>;",
-					themeKey: "range",
-					values: {},
-				},
+  properties: {
+    grid: {
+      row: {
+        start: {
+          property: "grid-row-start: <v><i>;",
+          themeKey: "range",
+          values: {},
+        },
 
-				end: {
-					property: "grid-row-end: <v><i>;",
-					themeKey: "range",
-					values: {
-						13: 13,
-					},
-				},
+        end: {
+          property: "grid-row-end: <v><i>;",
+          themeKey: "range",
+          values: {
+            13: 13,
+          },
+        },
 
-				size: {
-					property: "grid-auto-rows: <v><i>;",
-					values: {
-						auto: "auto",
-						min: "min-content",
-						max: "max-content",
-						fraction: "minmax(0, 1fr)",
-					},
-				},
+        size: {
+          property: "grid-auto-rows: <v><i>;",
+          values: {
+            auto: "auto",
+            min: "min-content",
+            max: "max-content",
+            fraction: "minmax(0, 1fr)",
+          },
+        },
 
-				span: {
-					property: "grid-row: <v><i>;",
-					themeKey: "span",
-					values: {},
-				},
-			},
-		},
-	},
+        span: {
+          property: "grid-row: <v><i>;",
+          themeKey: "span",
+          values: {},
+        },
+      },
+    },
+  },
 };
 
 export default shilpConfig;

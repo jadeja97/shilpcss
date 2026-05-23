@@ -1,8 +1,8 @@
 ---
 title: "Theme Configuration and Usage"
 description:
-  "Configure theming in Shilp CSS. Structure datasets, inline theme function,
-  and design token management."
+  "Configure theming in Shilp CSS. Structure datasets, inline theme function, and design token
+  management."
 keywords: ["theme configuration", "design tokens", "theming", "theme system"]
 ---
 
@@ -10,8 +10,8 @@ keywords: ["theme configuration", "design tokens", "theming", "theme system"]
 
 A **theme** is a structured dataset built on top of values.
 
-If values are _raw primitives_ and properties _consume values_, then **theme
-organizes values so they can be reused consistently**.
+If values are _raw primitives_ and properties _consume values_, then **theme organizes values so
+they can be reused consistently**.
 
 Theme is not CSS. Theme is data.
 
@@ -46,11 +46,11 @@ Example:
 
 ```js title="Text color property config"
 const propertyConfig = {
-	property: "color: <v><i>;",
-	resolve: "color",
-	themeKey: "colors",
-	variant: true,
-	values: {},
+  property: "color: <v><i>;",
+  resolve: "color",
+  themeKey: "colors",
+  variant: true,
+  values: {},
 };
 ```
 
@@ -69,14 +69,10 @@ Theme also allows custom CSS to **reuse** structured values.
 Example:
 
 ```css title="Inline theme function used for gradient"
-background-image: linear-gradient(
-	oklch(theme(colors-orange-400)),
-	oklch(theme(colors-orange-600))
-);
+background-image: linear-gradient(oklch(theme(colors-orange-400)), oklch(theme(colors-orange-600)));
 ```
 
-This uses the same dataset that are used by utilities with
-`propertyConfig.themekey`.
+This uses the same dataset that are used by utilities with `propertyConfig.themekey`.
 
 </section>
 
@@ -86,8 +82,8 @@ This uses the same dataset that are used by utilities with
 
 <Alert variant="info">
 
-List of [Available Internal Theme Dataset](#available-built-in-theme-dataset) is
-at the bottom of this page.
+List of [Available Internal Theme Dataset](#available-built-in-theme-dataset) is at the bottom of
+this page.
 
 </Alert>
 
@@ -104,13 +100,14 @@ Replacing it completely may break internal behavior.
 </Alert>
 
 ```js title="Override theme"
+/** @type {import('shilpcss/types').ShilpConfig} */
 const shilpConfig = {
 	source: "react",
 
 	// internal defaults
 	values: { ... },
 
-	theme: (values) => {
+	theme: ({ values, defaultValues, defaultTheme }) => {
 		return { ... };
 	}
 	// OR
@@ -125,6 +122,7 @@ export default shilpConfig;
 This is **RECOMMENDED** way to modify theme.
 
 ```js title="Extend theme"
+/** @type {import('shilpcss/types').ShilpConfig} */
 const shilpConfig = {
 	source: "react",
 
@@ -133,7 +131,7 @@ const shilpConfig = {
 	theme: { ... },
 
 	extend: {
-		theme: (values /* shilpConfig.values */, inBuiltTheme /* shilpConfig.theme */) => {
+		theme: ({ values, theme, defaultValues, defaultTheme }) => {
 			return { ... };
 		}
 		// OR
@@ -162,8 +160,7 @@ There are two ways to write it, depending on how much control you need.
 
 ### 1. Get Raw Value
 
-Example: <br /> `color: theme(colors-orange-600);` →
-`color: 64.6% 0.222 41.116;`
+Example: <br /> `color: theme(colors-orange-600);` → `color: 64.6% 0.222 41.116;`
 
 This is raw OKLCH value.
 
@@ -182,13 +179,13 @@ Syntax: `theme(<resolver>|<theme-tokens>)`
 
 If resolver not provided, then `"default"` resolver is used.
 
-Resolvers are located at `shilpConfig.valueResolvers`. This is the same resolver
-system used by properties.
+Resolvers are located at `shilpConfig.valueResolvers`. This is the same resolver system used by
+properties.
 
 #### Variant Support
 
-`variant` is handled by value resolvers and as we can provide resolver to inline
-theme, variant is also supported the same way as with utilities.
+`variant` is handled by value resolvers and as we can provide resolver to inline theme, variant is
+also supported the same way as with utilities.
 
 Example: <br /> `color: theme(color|colors-orange-600/80);` →
 `color: oklch(64.6% 0.222 41.116 / 0.8);`
@@ -196,16 +193,17 @@ Example: <br /> `color: theme(color|colors-orange-600/80);` →
 Here, `variant` must be explicitely enabled at **resolver level**:
 
 ```js
+/** @type {import('shilpcss/types').ShilpConfig} */
 const shilpConfig = {
-	source: "react",
+  source: "react",
 
-	extend: {
-		inlineTheme: {
-			color: {
-				variant: true,
-			},
-		},
-	},
+  extend: {
+    inlineTheme: {
+      color: {
+        variant: true,
+      },
+    },
+  },
 };
 
 export default shilpConfig;
@@ -227,6 +225,7 @@ If you need different behavior → create and use a new resolver.
 Inline theme config lives at `shilpConfig.inlineTheme`.
 
 ```js title="Inline theme config"
+/** @type {import('shilpcss/types').ShilpConfig} */
 const shilpConfig = {
 	source: "react",
 
@@ -252,6 +251,7 @@ There is no nested structure like `shilpConfig.theme`. It is flat.
 ### Customize Inline Theme Resolver
 
 ```js title="Create custom inline theme"
+/** @type {import('shilpcss/types').ShilpConfig} */
 const shilpConfig = {
 	source: "react",
 
@@ -281,8 +281,8 @@ See: [Custom Value Resolver](/docs/config/values#custom-resolver)
 
 <Alert variant="info">
 
-For inline theme `options.propertyConfig` will be undefined and
-`options.inlineThemeConfig` will be available.
+For inline theme `options.propertyConfig` will be undefined and `options.inlineThemeConfig` will be
+available.
 
 </Alert>
 
@@ -302,8 +302,7 @@ In return it expects a string containing valid CSS value.
 
 ## Inline Theme Processing
 
-Inline theme is processed during build generation. There is no runtime
-evaluation.
+Inline theme is processed during build generation. There is no runtime evaluation.
 
 From [Quick Overview](/docs/quick-overview) page, we know:
 
@@ -316,11 +315,11 @@ Inline theme processing happens twice:
 
 There might be custom css written using inline theme function.
 
-Because, `SCSS` can not understand `theme(...)` function's custom structure, it
-will throw error during compilation.
+Because, `SCSS` can not understand `theme(...)` function's custom structure, it will throw error
+during compilation.
 
-To avoid this case, Shilp CSS scans and resolves inline theme functions early
-and outputs plain css value.
+To avoid this case, Shilp CSS scans and resolves inline theme functions early and outputs plain css
+value.
 
 ### 2. After Full Shilp CSS Is Processed
 
@@ -331,16 +330,15 @@ There are use-cases where inline theme function is used to build property value:
 - Animation composition
 - and many others...
 
-As inline theme function is not resolved during runtime, if not processed at
-this stage, browser would not undertand this and styles were not applied.
+As inline theme function is not resolved during runtime, if not processed at this stage, browser
+would not undertand this and styles were not applied.
 
 For the above scenarios, Inline theme processing happens twice.
 
 ### How It Is Detected
 
-Inline theme matches this pattern `theme(<resolver>|<theme-tokens>)`.
-Technically it is RegExp pattern
-`/theme\((?:([a-zA-Z]+)\|)?([a-zA-Z0-9.\/-]+)\)/g`.
+Inline theme matches this pattern `theme(<resolver>|<theme-tokens>)`. Technically it is RegExp
+pattern `/theme\((?:([a-zA-Z]+)\|)?([a-zA-Z0-9.\/-]+)\)/g`.
 
 Examples are:
 
@@ -372,8 +370,8 @@ If inline theme function exists, then Shilp CSS split it into two parts:
    - Value tokens: `["colors", "orange", "600"]`
    - Variant: `"80"`
 
-This will then matched against `shilpConfig.theme` and
-`shilpConfig.valueResolvers` to resolve the value.
+This will then matched against `shilpConfig.theme` and `shilpConfig.valueResolvers` to resolve the
+value.
 
 #### High-Level Resolver Steps
 
@@ -447,6 +445,7 @@ Theme is the structured layer that makes Shilp CSS scalable.
 It connects: **Values**, **Properties** and **Custom CSS**
 
 ```js title="Theme dataset"
+/** @type {import('shilpcss/types').ShilpConfig} */
 const shilpConfig = {
 	source: "react",
 
@@ -460,12 +459,12 @@ const shilpConfig = {
 		}
 	}
 
-	theme: (values /* shilpConfig.values */) => {
-		return {
+	theme: ({ values }) => {
+		return deepCopy({
 			//
 
 			/* =====================================
-				Mixins config data
+				MIXINS CONFIG DATA
 			===================================== */
 
 			screens: {
@@ -479,7 +478,7 @@ const shilpConfig = {
 			},
 
 			/* =====================================
-				Components config data
+				COMPONENTS CONFIG DATA
 			===================================== */
 
 			container: {
@@ -504,7 +503,7 @@ const shilpConfig = {
 			},
 
 			/* =====================================
-				Flat values
+				FLAT VALUES
 			===================================== */
 			globalValues: values.globalValues,
 			angles: values.angles,
@@ -513,7 +512,7 @@ const shilpConfig = {
 			time: values.time,
 
 			/* =====================================
-				Grouped values
+				GROUPED VALUES
 			===================================== */
 
 			// numbers
@@ -522,10 +521,10 @@ const shilpConfig = {
 			percentages: values.numbers?.percentages,
 
 			// spacing
-			spacing: {
-				...values.spacing?.percentages,
-				...values.spacing?.pixels,
-			},
+			spacing: Object.assign(
+				deepCopy(values.spacing?.percentages),
+				deepCopy(values.spacing?.pixels),
+			),
 			spacingPercentages: values.spacing?.percentages,
 			spacingPixels: values.spacing?.pixels,
 
@@ -544,16 +543,17 @@ const shilpConfig = {
 			span: values.flexGrid?.gridSpan,
 
 			/* =====================================
-				Colors
+				COLORS
+
+				1. white, black, transparent, currentColor
+				2. Tailwind colors with color scales
+				3. HTML named colors
 			===================================== */
 
-			colors: {
-				// 1. white, black, transparent, currentColor
-				// 2. Tailwind colors with color scales
-				// 3. HTML named colors
-				...values.colors,
-
-				// color roles
+			colors: Object.assign(deepCopy(values.colors), {
+				/* =====================================
+					COLOR ROLES
+				===================================== */
 				bg: "var(--bg)",
 				fg: "var(--fg)",
 				border: "var(--border)",
@@ -566,7 +566,9 @@ const shilpConfig = {
 					fg: "var(--surface-fg)",
 				},
 
-				// brand colors
+				/* =====================================
+					BRAND COLORS
+				===================================== */
 				primary: {
 					DEFAULT: "var(--primary)",
 					fg: {
@@ -622,7 +624,9 @@ const shilpConfig = {
 					950: "var(--accent-950)",
 				},
 
-				// semantic colors
+				/* =====================================
+					SEMANTIC COLORS
+				===================================== */
 				base: {
 					DEFAULT: "var(--base)",
 					fg: {
@@ -713,8 +717,8 @@ const shilpConfig = {
 					900: "var(--info-900)",
 					950: "var(--info-950)",
 				},
-			},
-		}
+			}),
+		})
 	}
 }
 ```

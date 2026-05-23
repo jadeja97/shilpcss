@@ -1,15 +1,25 @@
 {
-	"$schema": "https://turbo.build/schema.json",
+	"$schema": "https://v2-9-14.turborepo.dev/schema.json",
 	"dangerouslyDisablePackageManagerCheck": true,
 	"tasks": {
-		"build": {
-			"dependsOn": ["^build"],
-			"outputs": [".next/**", "!.next/cache/**", "!.next/dev/**", "dist/**"]
-		},
 		"dev": {
 			"dependsOn": ["^build"],
 			"cache": false,
 			"persistent": true
+		},
+		"check": {
+			"dependsOn": ["^build"],
+			"cache": false
+		},
+		"lint-staged": {
+			"cache": false
+		},
+		"fix": {
+			"cache": false
+		},
+		"build": {
+			"dependsOn": ["check"],
+			"outputs": [".next/**", "!.next/cache/**", "!.next/dev/**", "dist/**"]
 		},
 		"publish-it": {
 			"dependsOn": ["build"],

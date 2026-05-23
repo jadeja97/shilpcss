@@ -19,15 +19,15 @@ Usage:
 
 Gradient color uses `background-image` property.
 
-So, if you are using `@bg img-*;` then conflict will be created. You need to
-choose a stratagey to work with both.
+So, if you are using `@bg img-*;` then conflict will be created. You need to choose a stratagey to
+work with both.
 
 </Alert>
 
 <Alert variant="info">
 
-This page contains only the **property configuration reference**. Complete
-documentation and usage examples will be added progressively in future updates.
+This page contains only the **property configuration reference**. Complete documentation and usage
+examples will be added progressively in future updates.
 
 </Alert>
 
@@ -38,34 +38,35 @@ documentation and usage examples will be added progressively in future updates.
 ## Reference
 
 ```js title="shilp.config.js"
+/** @type {import('shilpcss/types').ShilpConfig} */
 const shilpConfig = {
-	source: "react",
+  source: "react",
 
-	properties: {
-		bg: {
-			gradient: {
-				DEFAULT: {
-					property: "background-image: <v><i>;",
-					values: {},
-				},
+  properties: {
+    bg: {
+      gradient: {
+        DEFAULT: {
+          property: "background-image: <v><i>;",
+          values: {},
+        },
 
-				linear: {
-					property: "background-image: linear-gradient(<v>)<i>;",
-					values: {},
-				},
+        linear: {
+          property: "background-image: linear-gradient(<v>)<i>;",
+          values: {},
+        },
 
-				radial: {
-					property: "background-image: radial-gradient(<v>)<i>;",
-					values: {},
-				},
+        radial: {
+          property: "background-image: radial-gradient(<v>)<i>;",
+          values: {},
+        },
 
-				conic: {
-					property: "background-image: conic-gradient(<v>)<i>;",
-					values: {},
-				},
-			},
-		},
-	},
+        conic: {
+          property: "background-image: conic-gradient(<v>)<i>;",
+          values: {},
+        },
+      },
+    },
+  },
 };
 
 export default shilpConfig;

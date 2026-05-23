@@ -1,13 +1,13 @@
 #not-found {
-	@layout is-flex;
-	@flex flow-col items-center justify-center;
+  @layout is-flex;
+  @flex flow-col items-center justify-center;
 
-	p {
-		@text size-h3 align-x-center;
-	}
+  p {
+    @text size-h3 align-x-center;
+  }
 
-	.btn {
-		@space mt-6;
-		@text size-md;
-	}
+  .btn {
+    @space mt-6;
+    @text size-md;
+  }
 }

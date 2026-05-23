@@ -1,7 +1,6 @@
 ---
 title: "Outline | @live"
-description:
-  "Set element outline styling, thickness (width), style, color and offset."
+description: "Set element outline styling, thickness (width), style, color and offset."
 keywords: ["live", "outline", "border", "focus"]
 ---
 
@@ -19,8 +18,8 @@ Usage:
 
 <Alert variant="info">
 
-This page contains only the **property configuration reference**. Complete
-documentation and usage examples will be added progressively in future updates.
+This page contains only the **property configuration reference**. Complete documentation and usage
+examples will be added progressively in future updates.
 
 </Alert>
 
@@ -31,53 +30,54 @@ documentation and usage examples will be added progressively in future updates.
 ## Reference
 
 ```js title="shilp.config.js"
+/** @type {import('shilpcss/types').ShilpConfig} */
 const shilpConfig = {
-	source: "react",
+  source: "react",
 
-	properties: {
-		live: {
-			outline: {
-				DEFAULT: {
-					property: "outline: <v><i>;",
-					values: {
-						0: 0,
-					},
-				},
+  properties: {
+    live: {
+      outline: {
+        DEFAULT: {
+          property: "outline: <v><i>;",
+          values: {
+            0: 0,
+          },
+        },
 
-				thick: {
-					property: "outline-width: <v><i>;",
-					resolve: "spacing",
-					themeKey: "thickness",
-					values: {
-						DEFAULT: "thick",
-						thin: "thin",
-						medium: "medium",
-					},
-				},
+        thick: {
+          property: "outline-width: <v><i>;",
+          resolve: "spacing",
+          themeKey: "thickness",
+          values: {
+            DEFAULT: "thick",
+            thin: "thin",
+            medium: "medium",
+          },
+        },
 
-				style: {
-					property: "outline-style: <v><i>;",
-					themeKey: "style",
-					values: {},
-				},
+        style: {
+          property: "outline-style: <v><i>;",
+          themeKey: "style",
+          values: {},
+        },
 
-				color: {
-					property: "outline-color: <v><i>;",
-					resolve: "color",
-					themeKey: "colors",
-					variant: true,
-					values: {},
-				},
+        color: {
+          property: "outline-color: <v><i>;",
+          resolve: "color",
+          themeKey: "colors",
+          variant: true,
+          values: {},
+        },
 
-				offset: {
-					property: "outline-offset: <n><v><i>;",
-					resolve: "spacing",
-					themeKey: "thickness",
-					values: {},
-				},
-			},
-		},
-	},
+        offset: {
+          property: "outline-offset: <n><v><i>;",
+          resolve: "spacing",
+          themeKey: "thickness",
+          values: {},
+        },
+      },
+    },
+  },
 };
 
 export default shilpConfig;

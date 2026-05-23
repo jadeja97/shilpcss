@@ -1,10 +1,9 @@
 ---
 title: "How to Setup Shilp CSS"
 description:
-  "Step-by-step installation guide for Shilp CSS with Vite and Webpack.
-  Configure bundler plugins and optimize your styling workflow."
-keywords:
-  ["install", "setup", "Vite", "Webpack", "plugin", "bundler", "configuration"]
+  "Step-by-step installation guide for Shilp CSS with Vite and Webpack. Configure bundler plugins
+  and optimize your styling workflow."
+keywords: ["install", "setup", "Vite", "Webpack", "plugin", "bundler", "configuration"]
 ---
 
 # Setup Shilp CSS
@@ -30,17 +29,16 @@ Content will be added progressively in future updates.
 
 ## Addressing The Known Issues
 
-As per development and primary testing, the current setup works reliably for
-**SPA frameworks** like React and Vue.
+As per development and primary testing, the current setup works reliably for **SPA frameworks** like
+React and Vue.
 
-At this point in time, Shilp CSS has a known limitation related to **Purge CSS
-integration** when used with **MPA frameworks** or frameworks that perform
-additional processing after the bundler stage (for example Next and Nuxt).
+At this point in time, Shilp CSS has a known limitation related to **Purge CSS integration** when
+used with **MPA frameworks** or frameworks that perform additional processing after the bundler
+stage (for example Next and Nuxt).
 
 The issues and solutions are on paper, implementation is in progress. 😅
 
-This will be addressed in future releases (before the **v1.0.0 stable
-release**).
+This will be addressed in future releases (before the **v1.0.0 stable release**).
 
 <Alert variant="warning">
 
@@ -50,8 +48,8 @@ If styles are not updating during development, restart the development server.
 
 <Alert>
 
-Currently Shilp CSS is in **alpha** version and the focus is on React, Vue and
-Next. <br /> Future considerations are Nuxt, Tanstack Start, and Svelte.
+Currently Shilp CSS is in **alpha** version and the focus is on React, Vue and Next. <br /> Future
+considerations are Nuxt, Tanstack Start, and Svelte.
 
 </Alert>
 
@@ -61,8 +59,7 @@ Next. <br /> Future considerations are Nuxt, Tanstack Start, and Svelte.
 
 ## Vite
 
-This is intended for vite based frameworks and / or ideal for **SPA** frameworks
-like React and Vue.
+This is intended for vite based frameworks and / or ideal for **SPA** frameworks like React and Vue.
 
 ### Installation
 
@@ -77,10 +74,11 @@ pnpm add -D shilpcss@alpha browserslist@latest lightningcss@latest purgecss@late
 Add or update following files located at your project's root.
 
 ```js title="shilp.config.js"
+/** @type {import('shilpcss/types').ShilpConfig} */
 const shilpConfig = {
-	source: "react", // or "vue"
+  source: "react", // or "vue"
 
-	extend: {},
+  extend: {},
 };
 
 export default shilpConfig;
@@ -96,19 +94,18 @@ import shilpConfig from "./shilp.config";
 
 // https://vite.dev/config/
 export default defineConfig({
-	plugins: [
-		// your other plugins
-		ShilpCSS(shilpConfig),
-	],
+  plugins: [
+    // your other plugins
+    ShilpCSS(shilpConfig),
+  ],
 
-	// other configs...
+  // other configs...
 });
 ```
 
 ### Integrate
 
-Add following files to your main style file which is being imported in your
-frameworks entry point.
+Add following files to your main style file which is being imported in your frameworks entry point.
 
 ```css title="main.css"
 /* Shilp CSS Styles - Maintain the order of these imports */
@@ -138,8 +135,7 @@ Shilp CSS styles are optional. Add what you need.
 
 Congratulations 🥳🎉🎊. You have successfully setup the Shilp CSS.
 
-Now you can officially [Begin Your Journey](/docs#begin-your-journey) with Shilp
-CSS.
+Now you can officially [Begin Your Journey](/docs#begin-your-journey) with Shilp CSS.
 
 Explore. Learn. Play. Enjoy. Just Be Happy. 😇
 
@@ -167,16 +163,16 @@ Add or update following files located at your project's root.
 
 ```json title="package.json"
 {
-	// other things...
+  // other things...
 
-	"scripts": {
-		"dev": "next dev --webpack",
-		"build": "next build --webpack"
+  "scripts": {
+    "dev": "next dev --webpack",
+    "build": "next build --webpack"
 
-		// other scripts...
-	}
+    // other scripts...
+  }
 
-	// other things...
+  // other things...
 }
 ```
 
@@ -189,10 +185,11 @@ Make sure the `--webpack` flag is present in both `dev` and `build` scripts.
 </Alert>
 
 ```js title="shilp.config.js"
+/** @type {import('shilpcss/types').ShilpConfig} */
 const shilpConfig = {
-	source: null,
+  source: null,
 
-	extend: {},
+  extend: {},
 };
 
 export default shilpConfig;
@@ -200,8 +197,7 @@ export default shilpConfig;
 
 <Alert variant="warning">
 
-`source: null` will disable the CSS purging. This is recommended option for
-current release.
+`source: null` will disable the CSS purging. This is recommended option for current release.
 
 This will be addressed in future releases.
 
@@ -220,16 +216,16 @@ import shilpConfig from "./shilp.config.js";
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-	//
+  //
 
-	// your next config...
+  // your next config...
 
-	webpack: (config) => {
-		//
-		config.plugins.push(new ShilpCSS(shilpConfig));
+  webpack: (config) => {
+    //
+    config.plugins.push(new ShilpCSS(shilpConfig));
 
-		return config;
-	},
+    return config;
+  },
 };
 
 export default nextConfig;
@@ -237,8 +233,7 @@ export default nextConfig;
 
 ### Integrate
 
-Add following files to your main style file which is being imported in your
-frameworks entry point.
+Add following files to your main style file which is being imported in your frameworks entry point.
 
 ```css title="main.css"
 /* Shilp CSS Styles - Maintain the order of these imports */
@@ -268,8 +263,7 @@ Shilp CSS styles are optional. Add what you need.
 
 Congratulations 🥳🎉🎊. You have successfully setup the Shilp CSS.
 
-Now you can officially [Begin Your Journey](/docs#begin-your-journey) with Shilp
-CSS.
+Now you can officially [Begin Your Journey](/docs#begin-your-journey) with Shilp CSS.
 
 Explore. Learn. Play. Enjoy. Just Be Happy. 😇
 

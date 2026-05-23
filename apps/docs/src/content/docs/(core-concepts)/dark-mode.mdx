@@ -1,24 +1,17 @@
 ---
 title: "Dark Mode Implementation Guide"
 description:
-  "Implement dark mode in Shilp CSS using class-based approach. Learn theme
-  mixins and dark mode toggle patterns."
-keywords:
-  [
-    "dark mode",
-    "theme switching",
-    "CSS variables",
-    "light mode",
-    "accessibility",
-  ]
+  "Implement dark mode in Shilp CSS using class-based approach. Learn theme mixins and dark mode
+  toggle patterns."
+keywords: ["dark mode", "theme switching", "CSS variables", "light mode", "accessibility"]
 ---
 
 # Dark Mode
 
 Dark mode is a standard expectation in modern interfaces.
 
-Shilp CSS supports **class-based dark mode by default**, with full control over
-how it is applied and customized.
+Shilp CSS supports **class-based dark mode by default**, with full control over how it is applied
+and customized.
 
 ---
 
@@ -32,15 +25,15 @@ how it is applied and customized.
 
 ```css title="card.css"
 .card {
-	/* light mode styles (default) */
-	@bg color-white;
-	@text color-black;
+  /* light mode styles (default) */
+  @bg color-white;
+  @text color-black;
 
-	/* dark mode styles */
-	@theme dark {
-		@bg color-black;
-		@text color-white;
-	}
+  /* dark mode styles */
+  @theme dark {
+    @bg color-black;
+    @text color-white;
+  }
 }
 ```
 
@@ -78,8 +71,8 @@ Under the hood, dark mode is powered by mixins (stateful intents).
 
 <Alert variant="info">
 
-`@theme dark-any { ... }` is not included by default. you have to explicitely
-add this. Light variants are also available.
+`@theme dark-any { ... }` is not included by default. you have to explicitely add this. Light
+variants are also available.
 
 See:
 
@@ -94,11 +87,9 @@ See:
 
 ## Recommendation
 
-Class-based theming is recommended. Becuase, it keeps selectors simple and it
-minimizes output size.
+Class-based theming is recommended. Becuase, it keeps selectors simple and it minimizes output size.
 
-Using data-theme widely can increase CSS size if applied inconsistently across
-the app.
+Using data-theme widely can increase CSS size if applied inconsistently across the app.
 
 For most applications, global `dark` class on `<html>` is the cleanest approach.
 
@@ -110,11 +101,10 @@ For most applications, global `dark` class on `<html>` is the cleanest approach.
 
 ### Dark Mode With Parent
 
-Parent-based dark mode is best suited when we need site-wide theming. A single
-source of truth, controls the entire interface.
+Parent-based dark mode is best suited when we need site-wide theming. A single source of truth,
+controls the entire interface.
 
-You add `dark` class once on html element and all the define styles with
-`@theme dark { ... }`.
+You add `dark` class once on html element and all the define styles with `@theme dark { ... }`.
 
 ### Dark Mode With Self
 
@@ -127,30 +117,28 @@ Examples:
 - Embedded widgets
 - Mixed theme layouts
 
-You add `dark` class on element itself (`<div class="my-el dark"> ... </div>`)
-and define styles in `.my-el { @theme dark-self { ... } }`, targetting this
-element.
+You add `dark` class on element itself (`<div class="my-el dark"> ... </div>`) and define styles in
+`.my-el { @theme dark-self { ... } }`, targetting this element.
 
-This allows isolated components to opt-into dark mode without affecting the
-entire page.
+This allows isolated components to opt-into dark mode without affecting the entire page.
 
 ### Special Case
 
 One special use-case for self based dark mode is `html` element itself.
 
-Shilp CSS defines color tokens on `html { ... }`. To override the tokens for
-dark mode, it need to target the `html` element itself.
+Shilp CSS defines color tokens on `html { ... }`. To override the tokens for dark mode, it need to
+target the `html` element itself.
 
 ```css title="colors.css"
 html,
 :host {
-	--bg: theme(colors-base-50);
-	--fg: theme(colors-base-950);
+  --bg: theme(colors-base-50);
+  --fg: theme(colors-base-950);
 
-	@theme dark-self {
-		--bg: theme(colors-base-950);
-		--fg: theme(colors-base-50);
-	}
+  @theme dark-self {
+    --bg: theme(colors-base-950);
+    --fg: theme(colors-base-50);
+  }
 }
 ```
 
@@ -163,29 +151,30 @@ html,
 By default, Shilp CSS uses class-based theming.
 
 If you prefer `data-theme` instead, You can extend / override it in
-[`shilp.config.js`](/docs/config/shilp-config-file).
+[`shilp.config` File](/docs/config/shilp-config-file).
 
 ```js title="shilp.config.js"
+/** @type {import('shilpcss/types').ShilpConfig} */
 const shilpConfig = {
-	source: "react",
+  source: "react",
 
-	extend: {
-		mixins: {
-			theme: {
-				/* data on parent, style on self */
-				dark: "[data-theme='dark'] &",
-				light: "[data-theme='light'] &",
+  extend: {
+    mixins: {
+      theme: {
+        /* data on parent, style on self */
+        dark: "[data-theme='dark'] &",
+        light: "[data-theme='light'] &",
 
-				/* data on self, style on self */
-				"dark-self": "&[data-theme='dark']",
-				"light-self": "&[data-theme='light']",
+        /* data on self, style on self */
+        "dark-self": "&[data-theme='dark']",
+        "light-self": "&[data-theme='light']",
 
-				/* data on parent or self, style on self */
-				// "dark-any": "[data-theme='dark'] &, &[data-theme='dark']",
-				// "light-any": "[data-theme='light'] &, &[data-theme='light']"
-			},
-		},
-	},
+        /* data on parent or self, style on self */
+        // "dark-any": "[data-theme='dark'] &, &[data-theme='dark']",
+        // "light-any": "[data-theme='light'] &, &[data-theme='light']"
+      },
+    },
+  },
 };
 
 export default shilpConfig;

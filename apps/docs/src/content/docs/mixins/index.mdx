@@ -1,20 +1,18 @@
 ---
 title: "Mixins and Stateful Intents"
 description:
-  "Learn Shilp CSS mixins. Conditional styling with states, themes, breakpoints,
-  and custom conditions."
+  "Learn Shilp CSS mixins. Conditional styling with states, themes, breakpoints, and custom
+  conditions."
 keywords: ["mixins", "stateful intents", "conditional styling", "responsive"]
 ---
 
 # Mixins Overview
 
-**Mixins** are predefined **stateful selectors** used to apply styles based on
-conditions.
+**Mixins** are predefined **stateful selectors** used to apply styles based on conditions.
 
 In simple words, mixins wrap styles with conditional logic.
 
-To understand about mixins and it's processing, See
-[Mixins Config](/docs/config/mixins).
+To understand about mixins and it's processing, See [Mixins Config](/docs/config/mixins).
 
 ---
 
@@ -24,14 +22,13 @@ To understand about mixins and it's processing, See
 
 <Alert variant="warning">
 
-If `mixinConfig.resolve` exists, Shilp CSS does not process
-`mixinConfig.variants`. You must handle variants inside your resolver
-explicitely.
+If `mixinConfig.resolve` exists, Shilp CSS does not process `mixinConfig.variants`. You must handle
+variants inside your resolver explicitely.
 
 Example:
 
-the `@screen` mixin uses resolve, so variants from
-`shilpConfig.extend.mixins.screen.variants` are ignored.
+the `@screen` mixin uses resolve, so variants from `shilpConfig.extend.mixins.screen.variants` are
+ignored.
 
 To overcome this, either provide a custom resolver or define a separate mixin.
 

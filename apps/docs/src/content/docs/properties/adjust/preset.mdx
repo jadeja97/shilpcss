@@ -15,18 +15,16 @@ Usage:
 
 <Alert variant="warning">
 
-If you are using other `@adjust` utilites, then `preset` utility is requried to
-set the base.
+If you are using other `@adjust` utilites, then `preset` utility is requried to set the base.
 
-See:
-[Transform Compisition by Variables](/docs/default-styles/variables#transform)
+See: [Transform Compisition by Variables](/docs/default-styles/variables#transform)
 
 </Alert>
 
 <Alert variant="info">
 
-This page contains only the **property configuration reference**. Complete
-documentation and usage examples will be added progressively in future updates.
+This page contains only the **property configuration reference**. Complete documentation and usage
+examples will be added progressively in future updates.
 
 </Alert>
 
@@ -37,20 +35,21 @@ documentation and usage examples will be added progressively in future updates.
 ## Reference
 
 ```js title="shilp.config.js"
+/** @type {import('shilpcss/types').ShilpConfig} */
 const shilpConfig = {
-	source: "react",
+  source: "react",
 
-	properties: {
-		adjust: {
-			preset: {
-				property: "transform: <v><i>;",
-				values: {
-					DEFAULT: "var(--trsfm)",
-					none: "none",
-				},
-			},
-		},
-	},
+  properties: {
+    adjust: {
+      preset: {
+        property: "transform: <v><i>;",
+        values: {
+          DEFAULT: "var(--trsfm)",
+          none: "none",
+        },
+      },
+    },
+  },
 };
 
 export default shilpConfig;

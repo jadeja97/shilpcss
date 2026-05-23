@@ -1,8 +1,6 @@
 ---
 title: "@state Mixin - UI States"
-description:
-  "Use @state mixin for hover, focus, active, disabled and other interactive
-  states."
+description: "Use @state mixin for hover, focus, active, disabled and other interactive states."
 keywords: ["@state", "UI states", "hover", "focus", "active", "disabled"]
 ---
 
@@ -21,8 +19,8 @@ Usage:
 
 <Alert variant="info">
 
-This page contains only the **mixins configuration reference**. Complete
-documentation and usage examples will be added progressively in future updates.
+This page contains only the **mixins configuration reference**. Complete documentation and usage
+examples will be added progressively in future updates.
 
 </Alert>
 
@@ -33,23 +31,24 @@ documentation and usage examples will be added progressively in future updates.
 ## Reference
 
 ```js title="shilp.config.js"
+/** @type {import('shilpcss/types').ShilpConfig} */
 const shilpConfig = {
-	target: "react",
+  target: "react",
 
-	mixins: {
-		state: {
-			disabled: "&:disabled",
-			enabled: "&:enabled",
-			empty: "&:empty",
-			hover: ["@media (hover: hover)", "&:hover"],
-			// "real-focus": "&:focus",
-			focus: "&:focus-visible",
-			// "focus-within": "&:focus-within",
-			active: "&:active", // active during user interaction (press/hold/trigger)
-			// visited: "&:visited",
-			target: "&:target",
-		},
-	},
+  mixins: {
+    state: {
+      disabled: "&:disabled",
+      enabled: "&:enabled",
+      empty: "&:empty",
+      hover: ["@media (hover: hover)", "&:hover"],
+      // "real-focus": "&:focus",
+      focus: "&:focus-visible",
+      // "focus-within": "&:focus-within",
+      active: "&:active", // active during user interaction (press/hold/trigger)
+      // visited: "&:visited",
+      target: "&:target",
+    },
+  },
 };
 
 export default shilpConfig;

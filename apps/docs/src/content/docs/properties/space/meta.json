@@ -1,7 +1,7 @@
 {
-	"page": true,
-	"name": "index",
-	"label": "@space",
-	"title": "space intent",
-	"items": ["gap", "m", "p"]
+  "page": true,
+  "name": "index",
+  "label": "@space",
+  "title": "space intent",
+  "items": ["gap", "m", "p"]
 }

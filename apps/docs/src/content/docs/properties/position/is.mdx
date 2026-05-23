@@ -14,8 +14,8 @@ Usage:
 
 <Alert variant="info">
 
-This page contains only the **property configuration reference**. Complete
-documentation and usage examples will be added progressively in future updates.
+This page contains only the **property configuration reference**. Complete documentation and usage
+examples will be added progressively in future updates.
 
 </Alert>
 
@@ -26,23 +26,24 @@ documentation and usage examples will be added progressively in future updates.
 ## Reference
 
 ```js title="shilp.config.js"
+/** @type {import('shilpcss/types').ShilpConfig} */
 const shilpConfig = {
-	source: "react",
+  source: "react",
 
-	properties: {
-		position: {
-			is: {
-				property: "position: <v><i>;",
-				values: {
-					static: "static",
-					fixed: "fixed",
-					absolute: "absolute",
-					relative: "relative",
-					sticky: "sticky",
-				},
-			},
-		},
-	},
+  properties: {
+    position: {
+      is: {
+        property: "position: <v><i>;",
+        values: {
+          static: "static",
+          fixed: "fixed",
+          absolute: "absolute",
+          relative: "relative",
+          sticky: "sticky",
+        },
+      },
+    },
+  },
 };
 
 export default shilpConfig;

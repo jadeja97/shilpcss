@@ -1,21 +1,20 @@
 ---
 title: "Styling with Intent - Core Concept"
 description:
-  "Learn intent-based styling in Shilp CSS. Organize styles by responsibility
-  using intents like @layout, @text, @bg, and stateful mixins."
-keywords:
-  ["intent", "intent-based styling", "CSS organization", "stateful intent"]
+  "Learn intent-based styling in Shilp CSS. Organize styles by responsibility using intents like
+  @layout, @text, @bg, and stateful mixins."
+keywords: ["intent", "intent-based styling", "CSS organization", "stateful intent"]
 ---
 
 # Styling With Intent
 
-With Shilp CSS, you don’t build styles by accumulating utilities in HTML, You
-compose them in CSS by clearly stating what an _element is responsible for_.
+With Shilp CSS, you don’t build styles by accumulating utilities in HTML, You compose them in CSS by
+clearly stating what an _element is responsible for_.
 
 <Alert>
 
-_If any concept or syntax here feels unfamiliar, don’t worry. You can safely
-skip it for now. Everything is explained gradually in later chapters._
+_If any concept or syntax here feels unfamiliar, don’t worry. You can safely skip it for now.
+Everything is explained gradually in later chapters._
 
 </Alert>
 
@@ -61,12 +60,12 @@ and it goes on...
 
 ```css title="Using intent to build component"
 .card {
-	@bg color-surface;
-	@text color-surface-fg;
-	@layout is-flex shadow-sm shadow-color-fg/5;
-	@flex flow-col;
-	@border thick rounded-xl;
-	@space py-6 gap-6;
+  @bg color-surface;
+  @text color-surface-fg;
+  @layout is-flex shadow-sm shadow-color-fg/5;
+  @flex flow-col;
+  @border thick rounded-xl;
+  @space py-6 gap-6;
 }
 ```
 
@@ -99,28 +98,28 @@ and it goes on...
 
 ```css title="Using stateful intent (mixins) to build component"
 .card {
-	/* Regular intents */
-	@bg color-surface;
-	@text color-surface-fg;
-	@layout is-flex shadow-sm shadow-color-fg/5;
-	@flex flow-col;
-	@border thick rounded-xl;
-	@space py-6 gap-6;
+  /* Regular intents */
+  @bg color-surface;
+  @text color-surface-fg;
+  @layout is-flex shadow-sm shadow-color-fg/5;
+  @flex flow-col;
+  @border thick rounded-xl;
+  @space py-6 gap-6;
 
-	/* Stateful intents ( responsive + state ) */
-	@screen xl {
-		@space py-8 gap-10;
+  /* Stateful intents ( responsive + state ) */
+  @screen xl {
+    @space py-8 gap-10;
 
-		@state hover {
-			@border thick-2;
-		}
-	}
+    @state hover {
+      @border thick-2;
+    }
+  }
 
-	/* Stateful intents ( theme ) */
-	@theme dark {
-		@bg color-surface/90;
-		@text color-surface-fg/90;
-	}
+  /* Stateful intents ( theme ) */
+  @theme dark {
+    @bg color-surface/90;
+    @text color-surface-fg/90;
+  }
 }
 ```
 
@@ -134,8 +133,8 @@ No mixing. No Guessing.
 
 ## Using Arbitrary Values or Custom CSS
 
-Shilp CSS does not invent a special syntax for everything. If something does not
-fit an intent, mixin or an utility, **use plain CSS**.
+Shilp CSS does not invent a special syntax for everything. If something does not fit an intent,
+mixin or an utility, **use plain CSS**.
 
 > **Intent-based styling is a tool, not a cage.**
 
@@ -143,45 +142,45 @@ You can freely write:
 
 ```css title="Using custom CSS to build a component"
 .card {
-	/* Regular intents */
-	@text color-surface-fg;
+  /* Regular intents */
+  @text color-surface-fg;
 
-	/* Plain CSS */
-	background-image: linear-gradient(
-		in oklch to top right,
-		cyan 20%,
-		magenta 50%,
-		yellow 70%,
-		black 100%
-	);
+  /* Plain CSS */
+  background-image: linear-gradient(
+    in oklch to top right,
+    cyan 20%,
+    magenta 50%,
+    yellow 70%,
+    black 100%
+  );
 
-	/* Stateful intents ( theme ) */
-	@theme dark {
-		@bg color-surface/90;
-		@text color-surface-fg/90;
-	}
+  /* Stateful intents ( theme ) */
+  @theme dark {
+    @bg color-surface/90;
+    @text color-surface-fg/90;
+  }
 }
 ```
 
 ### Using Theme Values Inline
 
-You can reference theme values directly in custom CSS using inline `theme(...)`
-function. You can use it anywhere a value is expected.
+You can reference theme values directly in custom CSS using inline `theme(...)` function. You can
+use it anywhere a value is expected.
 
 ```css title="Using inline theme value for custom CSS"
 .any-class {
-	background-image: linear-gradient(
-		in oklch to theme(angles-45),
-		oklch(theme(colors-html-cyan)) theme(spacing-1/5),
-		oklch(theme(colors-html-magenta) / 0.9) theme(spacing-1/2),
-		oklch(theme(colors-orange-600)) 70%,
-		oklch(theme(colors-black)) theme(spacing-full)
-	);
+  background-image: linear-gradient(
+    in oklch to theme(angles-45),
+    oklch(theme(colors-html-cyan)) theme(spacing-1/5),
+    oklch(theme(colors-html-magenta) / 0.9) theme(spacing-1/2),
+    oklch(theme(colors-orange-600)) 70%,
+    oklch(theme(colors-black)) theme(spacing-full)
+  );
 }
 ```
 
-This keeps custom CSS aligned with the system without forcing everything through
-intent and utilities.
+This keeps custom CSS aligned with the system without forcing everything through intent and
+utilities.
 
 See: [Inline Theme Function](/docs/config/theme#inline-theme-function).
 
@@ -191,21 +190,21 @@ See: [Inline Theme Function](/docs/config/theme#inline-theme-function).
 
 ## Using The Important Flag
 
-Shilp CSS has `!important` flag implementation. It can be applied to intent and
-utilities, but not on mixins.
+Shilp CSS has `!important` flag implementation. It can be applied to intent and utilities, but not
+on mixins.
 
 Add `!` just after utility or intent name.
 
 ```css title="Using the important flag"
 .card {
-	/* on one utility */
-	@layout is-flex! shadow-sm;
+  /* on one utility */
+  @layout is-flex! shadow-sm;
 
-	/* on all utilities */
-	@layout is-flex! shadow-sm!;
+  /* on all utilities */
+  @layout is-flex! shadow-sm!;
 
-	/* on all utilities but via intent name */
-	@layout! is-flex shadow-sm;
+  /* on all utilities but via intent name */
+  @layout! is-flex shadow-sm;
 }
 ```
 
@@ -218,8 +217,8 @@ Use it only when:
 
 <Alert variant="warning">
 
-**If you reach for it often, it usually means intent boundaries are breaking
-down.** _This is where chaos begins._
+**If you reach for it often, it usually means intent boundaries are breaking down.** _This is where
+chaos begins._
 
 </Alert>
 
@@ -229,18 +228,16 @@ down.** _This is where chaos begins._
 
 ## Conflicting Intent or Utilities
 
-When multiple declarations apply, the rule with **higher specificity
-wins**.<br /> For simplicity, ASSUME the last declration wins.
+When multiple declarations apply, the rule with **higher specificity wins**.<br /> For simplicity,
+ASSUME the last declration wins.
 
-This follows normal CSS behavior. Shilp CSS does not add conflict resolution
-logic on top.
+This follows normal CSS behavior. Shilp CSS does not add conflict resolution logic on top.
 
 Because intent is grouped, conflicts are usually obvious and easy to fix.
 
 If you are unsure which rule applies, check the browser’s DevTool.
 
-See:
-[Understanding Specificity](/docs/best-practices/writing-shilp-css#understanding-specificity)
+See: [Understanding Specificity](/docs/best-practices/writing-shilp-css#understanding-specificity)
 
 </section>
 
@@ -274,8 +271,7 @@ The difference is where composition happens.
 | Utility-first atomic classes | in markup   |
 | Shilp CSS                    | in CSS      |
 
-_Shilp CSS keeps Intent and Utility-first idea both_, and makes sure they live
-where they belong.
+_Shilp CSS keeps Intent and Utility-first idea both_, and makes sure they live where they belong.
 
 > **Same power. Different ownership model.**
 
@@ -317,8 +313,7 @@ This is not about writing more CSS. It’s about writing CSS that explains itsel
 
 <Alert variant="danger">
 
-You **CAN NOT USE** names reserved by `CSS` or `SCSS`. Using them **WILL CAUSE
-CONFLICTS**.
+You **CAN NOT USE** names reserved by `CSS` or `SCSS`. Using them **WILL CAUSE CONFLICTS**.
 
 </Alert>
 

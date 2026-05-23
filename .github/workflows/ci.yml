@@ -1,4 +1,4 @@
-# Purpose: Verify repository builds
+# Purpose: Check packages and apps
 # Trigger: pull_request
 
 name: CI
@@ -15,15 +15,11 @@ on:
       - synchronize
 
 #
-permissions:
-  contents: read # for actions/checkout
-
-#
 jobs:
   #
   #
   #
-  check_build:
+  check:
     # skip if closed PR is "closed without merging (dismissed)"
     if: >
       github.event.action != 'closed' || (
@@ -31,9 +27,13 @@ jobs:
         github.event.pull_request.merged == true
       )
 
-    name: Check if build is succeeding
+    name: Check
 
     runs-on: ubuntu-latest
+
+    # job level permissions
+    permissions:
+      contents: read # for actions/checkout
 
     steps:
       # 1
@@ -63,21 +63,21 @@ jobs:
         run: pnpm i --frozen-lockfile
 
       # 5
-      - name: Build all packages
-        run: pnpm build
+      - name: Check types, lint and formatting
+        run: pnpm check
 
   #
   #
   #
   docs:
-    # runs after `check_build` job
-    needs: check_build
+    # runs after `check` job
+    needs: check
 
-    # `check_build` job must succeed
+    # `check` job must succeed
     # base branch is "main"
     # PR is merged
     if: >
-      needs.check_build.result == 'success' && (
+      needs.check.result == 'success' && (
         github.base_ref == 'main' &&
         github.event.pull_request.merged == true
       )

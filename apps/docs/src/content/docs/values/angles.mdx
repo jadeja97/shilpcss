@@ -6,8 +6,8 @@ keywords: ["values", "angles", "degrees", "transform", "css"]
 
 # Angles Dataset
 
-The **Angles dataset** defines angle units used by CSS properties that require
-**degree values (`deg`)**.
+The **Angles dataset** defines angle units used by CSS properties that require **degree values
+(`deg`)**.
 
 ---
 
@@ -15,8 +15,7 @@ The **Angles dataset** defines angle units used by CSS properties that require
 
 ## Location
 
-Resolved location: `shilpConfig.values.angles` <br /> Theme location:
-`shilpConfig.theme.angles`
+Resolved location: `shilpConfig.values.angles` <br /> Theme location: `shilpConfig.theme.angles`
 
 </section>
 
@@ -54,17 +53,18 @@ See: [Angles Dataset Reference](#angles-dataset-reference)
 You can extend or override this dataset in your config.
 
 ```js title="Customize angles dataset"
+/** @type {import('shilpcss/types').ShilpConfig} */
 const shilpConfig = {
-	source: "react",
+  source: "react",
 
-	extend: {
-		values: {
-			angles: {
-				120: "120deg",
-				270: "270deg",
-			},
-		},
-	},
+  extend: {
+    values: {
+      angles: {
+        120: "120deg",
+        270: "270deg",
+      },
+    },
+  },
 };
 
 export default shilpConfig;
@@ -80,18 +80,18 @@ This will make additional angle tokens available through the theme system.
 
 ```js title="Angles dataset"
 const angles = {
-	0: "0deg",
-	1: "1deg",
-	2: "2deg",
-	6: "6deg",
-	15: "15deg",
-	DEFAULT: "15deg",
-	30: "30deg",
-	45: "45deg",
-	60: "60deg",
-	75: "75deg",
-	90: "90deg",
-	180: "180deg",
+  0: "0deg",
+  1: "1deg",
+  2: "2deg",
+  6: "6deg",
+  15: "15deg",
+  DEFAULT: "15deg",
+  30: "30deg",
+  45: "45deg",
+  60: "60deg",
+  75: "75deg",
+  90: "90deg",
+  180: "180deg",
 };
 
 export default angles;

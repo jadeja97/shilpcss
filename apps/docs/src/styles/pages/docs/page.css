@@ -3,16 +3,16 @@
 ================================================================================================ */
 
 .content__wrapper {
-	/* fill the available space */
-	@flex grow;
+  /* fill the available space */
+  @flex grow;
 
-	@layout is-flex;
-	@flex flow-col;
-	/*
+  @layout is-flex;
+  @flex flow-col;
+  /*
 		parent is `flex` or `grid`, all childs will be `min-width: auto;`
 		setting `min-width: 0;` will solve the overflow issue.
 	*/
-	@size min-w-0;
+  @size min-w-0;
 }
 
 /* ================================================================================================
@@ -20,26 +20,26 @@
 ================================================================================================ */
 
 .content__wrapper main {
-	/* fill the available space */
-	@flex grow;
+  /* fill the available space */
+  @flex grow;
 
-	@layout is-flex overflow-x-hidden;
-	@flex flow-col;
-	@space px-4 pb-8;
+  @layout is-flex overflow-x-hidden;
+  @flex flow-col;
+  @space px-4 pb-8;
 
-	padding-top: var(--docs-main-pt, 0px);
+  padding-top: var(--docs-main-pt, 0px);
 
-	@screen md {
-		@space px-6;
-	}
+  @screen md {
+    @space px-6;
+  }
 
-	@screen xl {
-		@space mx-8 px-0;
+  @screen xl {
+    @space mx-8 px-0;
 
-		article {
-			@space px-8;
-		}
-	}
+    article {
+      @space px-8;
+    }
+  }
 }
 
 /* ================================================================================================
@@ -47,30 +47,30 @@
 ================================================================================================ */
 
 .content__wrapper article {
-	/* fill the available space */
-	@flex grow;
+  /* fill the available space */
+  @flex grow;
 
-	@space pb-8;
-	@layout overflow-x-hidden;
+  @space pb-8;
+  @layout overflow-x-hidden;
 }
 
 .page__neighbours {
-	@space my-6 gap-4;
-	@layout is-flex;
-	@flex flow-col;
-	@text case-capitalize;
+  @space my-6 gap-4;
+  @layout is-flex;
+  @flex flow-col;
+  @text case-capitalize;
 
-	@screen md {
-		@flex flow-row items-center;
+  @screen md {
+    @flex flow-row items-center;
 
-		.next-btn {
-			@space ml-auto;
-		}
-	}
+    .next-btn {
+      @space ml-auto;
+    }
+  }
 
-	@screen xl {
-		@space px-8;
-	}
+  @screen xl {
+    @space px-8;
+  }
 }
 
 /* ================================================================================================
@@ -83,15 +83,15 @@
 
 /* styling table column */
 [data-path="/docs/config"] {
-	#how-to-understand-the-config {
-		@siblings match(".table") {
-			thead tr,
-			tbody tr {
-				@childs first {
-					@size min-w-20;
-					@text align-x-center;
-				}
-			}
-		}
-	}
+  #how-to-understand-the-config {
+    @siblings match(".table") {
+      thead tr,
+      tbody tr {
+        @childs first {
+          @size min-w-20;
+          @text align-x-center;
+        }
+      }
+    }
+  }
 }

@@ -1,7 +1,6 @@
 ---
 title: "@form Mixin - Form States"
-description:
-  "Use @form mixin for form element states and conditions in Shilp CSS."
+description: "Use @form mixin for form element states and conditions in Shilp CSS."
 keywords: ["@form", "form mixin", "form states", "input states"]
 ---
 
@@ -20,8 +19,8 @@ Usage:
 
 <Alert variant="info">
 
-This page contains only the **mixins configuration reference**. Complete
-documentation and usage examples will be added progressively in future updates.
+This page contains only the **mixins configuration reference**. Complete documentation and usage
+examples will be added progressively in future updates.
 
 </Alert>
 
@@ -32,31 +31,32 @@ documentation and usage examples will be added progressively in future updates.
 ## Reference
 
 ```js title="shilp.config.js"
+/** @type {import('shilpcss/types').ShilpConfig} */
 const shilpConfig = {
-	target: "react",
+  target: "react",
 
-	mixins: {
-		form: {
-			variants: {
-				checked: "&:checked",
-				// indeterminate: "&:indeterminate",
-				// default: "&:default",
-				// optional: "&:optional",
-				required: "&:required",
-				valid: "&:valid",
-				invalid: "&:invalid",
-				// "in-range": "&:in-range",
-				// "out-of-range": "&:out-of-range",
-				// "placeholder-visible": "&:placeholder-shown",
-				// "auto-fill": "&:autofill",	// NOTE: supported via webkit
-				"read-only": "&:read-only",
+  mixins: {
+    form: {
+      variants: {
+        checked: "&:checked",
+        // indeterminate: "&:indeterminate",
+        // default: "&:default",
+        // optional: "&:optional",
+        required: "&:required",
+        valid: "&:valid",
+        invalid: "&:invalid",
+        // "in-range": "&:in-range",
+        // "out-of-range": "&:out-of-range",
+        // "placeholder-visible": "&:placeholder-shown",
+        // "auto-fill": "&:autofill",	// NOTE: supported via webkit
+        "read-only": "&:read-only",
 
-				// pseudo
-				file: "&::file-selector-button",
-				placeholder: "&::placeholder",
-			},
-		},
-	},
+        // pseudo
+        file: "&::file-selector-button",
+        placeholder: "&::placeholder",
+      },
+    },
+  },
 };
 
 export default shilpConfig;

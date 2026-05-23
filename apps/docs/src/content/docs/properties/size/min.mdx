@@ -18,8 +18,8 @@ Usage:
 
 <Alert variant="info">
 
-This page contains only the **property configuration reference**. Complete
-documentation and usage examples will be added progressively in future updates.
+This page contains only the **property configuration reference**. Complete documentation and usage
+examples will be added progressively in future updates.
 
 </Alert>
 
@@ -30,75 +30,76 @@ documentation and usage examples will be added progressively in future updates.
 ## Reference
 
 ```js title="shilp.config.js"
+/** @type {import('shilpcss/types').ShilpConfig} */
 const shilpConfig = {
-	source: "react",
+  source: "react",
 
-	properties: {
-		size: {
-			min: {
-				DEFAULT: {
-					property: `
+  properties: {
+    size: {
+      min: {
+        DEFAULT: {
+          property: `
 						min-width: <v><i>;
 						min-height: <v><i>;
 					`,
-					resolve: "spacing",
-					themeKey: "spacing",
-					values: {
-						min: "min-content",
-						max: "max-content",
-						fit: "fit-content",
-					},
-				},
+          resolve: "spacing",
+          themeKey: "spacing",
+          values: {
+            min: "min-content",
+            max: "max-content",
+            fit: "fit-content",
+          },
+        },
 
-				block: {
-					property: "min-block-size: <v><i>;",
-					resolve: "spacing",
-					themeKey: "spacing",
-					values: {
-						min: "min-content",
-						max: "max-content",
-						fit: "fit-content",
-					},
-				},
+        block: {
+          property: "min-block-size: <v><i>;",
+          resolve: "spacing",
+          themeKey: "spacing",
+          values: {
+            min: "min-content",
+            max: "max-content",
+            fit: "fit-content",
+          },
+        },
 
-				h: {
-					property: "min-height: <v><i>;",
-					resolve: "spacing",
-					themeKey: "spacing",
-					values: {
-						min: "min-content",
-						max: "max-content",
-						fit: "fit-content",
-						screen: "100vh",
-					},
-				},
+        h: {
+          property: "min-height: <v><i>;",
+          resolve: "spacing",
+          themeKey: "spacing",
+          values: {
+            min: "min-content",
+            max: "max-content",
+            fit: "fit-content",
+            screen: "100vh",
+          },
+        },
 
-				inline: {
-					property: "min-inline-size: <v><i>;",
-					resolve: "spacing",
-					themeKey: "spacing",
-					values: {
-						min: "min-content",
-						max: "max-content",
-						fit: "fit-content",
-					},
-				},
+        inline: {
+          property: "min-inline-size: <v><i>;",
+          resolve: "spacing",
+          themeKey: "spacing",
+          values: {
+            min: "min-content",
+            max: "max-content",
+            fit: "fit-content",
+          },
+        },
 
-				w: {
-					property: "min-width: <v><i>;",
-					resolve: "spacing",
-					themeKey: "spacing",
-					values: {
-						min: "min-content",
-						max: "max-content",
-						fit: "fit-content",
-						screen: "100vw",
-						stretch: "stretch",
-					},
-				},
-			},
-		},
-	},
+        w: {
+          property: "min-width: <v><i>;",
+          resolve: "spacing",
+          themeKey: "spacing",
+          values: {
+            min: "min-content",
+            max: "max-content",
+            fit: "fit-content",
+            screen: "100vw",
+            stretch: "stretch",
+          },
+        },
+      },
+    },
+  },
 };
 
 export default shilpConfig;

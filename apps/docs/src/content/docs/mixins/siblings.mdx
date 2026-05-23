@@ -1,9 +1,7 @@
 ---
 title: "@siblings Mixin - Sibling Elements"
-description:
-  "Use @siblings mixin to style sibling elements based on conditions."
-keywords:
-  ["@siblings", "sibling selector", "structural selector", "related elements"]
+description: "Use @siblings mixin to style sibling elements based on conditions."
+keywords: ["@siblings", "sibling selector", "structural selector", "related elements"]
 ---
 
 # @siblings Mixin
@@ -21,8 +19,8 @@ Usage:
 
 <Alert variant="info">
 
-This page contains only the **mixins configuration reference**. Complete
-documentation and usage examples will be added progressively in future updates.
+This page contains only the **mixins configuration reference**. Complete documentation and usage
+examples will be added progressively in future updates.
 
 </Alert>
 
@@ -34,24 +32,24 @@ documentation and usage examples will be added progressively in future updates.
 
 <Alert>
 
-Must see:
-[Youtube: CSS Siblings Selector](https://www.youtube.com/watch?v=rndMS4pEKP8&t=145s)
+Must see: [Youtube: CSS Siblings Selector](https://www.youtube.com/watch?v=rndMS4pEKP8&t=145s)
 
 </Alert>
 
 ```js title="shilp.config.js"
+/** @type {import('shilpcss/types').ShilpConfig} */
 const shilpConfig = {
-	target: "react",
+  target: "react",
 
-	mixins: {
-		siblings: {
-			// https://www.youtube.com/watch?v=rndMS4pEKP8&t=145s
+  mixins: {
+    siblings: {
+      // https://www.youtube.com/watch?v=rndMS4pEKP8&t=145s
 
-			/* functions */
-			match: "& ~ <1>", // not nested, not from other parents, all following
-			"match-closest": "& + <1>", // not nested, not from other parents, all direct following
-		},
-	},
+      /* functions */
+      match: "& ~ <1>", // not nested, not from other parents, all following
+      "match-closest": "& + <1>", // not nested, not from other parents, all direct following
+    },
+  },
 };
 
 export default shilpConfig;

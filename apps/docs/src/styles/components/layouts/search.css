@@ -4,28 +4,38 @@
 
 /* dialog component */
 .search-content {
-	@size h-100;
-	@border thick-2;
+  @size h-100;
+  @border thick-2;
 }
 
 .search {
-	@size h-full;
-	@position is-relative;
-	@layout is-flex;
-	@flex flow-col grow;
-	@space p-1;
+  @size h-full;
+  @position is-relative;
+  @layout is-flex;
+  @flex flow-col grow;
+  @space p-1;
 }
 
 /* close search popup - floating button */
 .search > .dialog__close {
-	@position is-absolute -top-10 right-0;
-	@bg color-surface;
-	@space p-1;
-	@border thick;
+  @position is-absolute -top-10 right-0;
+  @bg color-surface;
+  @space p-1;
+  @border thick;
 
-	@screen sm {
-		@position top-1 -right-10;
-	}
+  @screen sm {
+    @position top-1 -right-10;
+  }
+}
+
+/* ================================================================================================
+	SEARCH - ERROR
+================================================================================================ */
+
+.search-error {
+  @layout is-flex;
+  @flex grow items-center justify-center;
+  @text align-x-center;
 }
 
 /* ================================================================================================
@@ -33,16 +43,16 @@
 ================================================================================================ */
 
 .search__input {
-	@border rounded-inherit;
-	@layout is-flex;
-	@flex items-center;
+  @border rounded-inherit;
+  @layout is-flex;
+  @flex items-center;
 
-	input {
-		@bg color-base-100;
-		@border rounded-lg thick;
-		@size w-full;
-		@space p-2;
-	}
+  input {
+    @bg color-base-100;
+    @border rounded-lg thick;
+    @size w-full;
+    @space p-2;
+  }
 }
 
 /* ================================================================================================
@@ -50,8 +60,8 @@
 ================================================================================================ */
 
 .search-loader__wrapper {
-	@layout is-flex;
-	@flex grow items-center justify-center;
+  @layout is-flex;
+  @flex grow items-center justify-center;
 }
 
 /* ================================================================================================
@@ -59,63 +69,63 @@
 ================================================================================================ */
 
 .search-result {
-	@layout is-flex overflow-hidden;
-	@flex grow flow-col;
-	@space mt-1;
+  @layout is-flex overflow-hidden;
+  @flex grow flow-col;
+  @space mt-1;
 }
 
 /* ============================================================================================= */
 
 .search-result__states {
-	@flex shrink-0;
-	@space p-2;
-	@text color-muted-fg size-sm;
+  @flex shrink-0;
+  @space p-2;
+  @text color-muted-fg size-sm;
 }
 
 /* ============================================================================================= */
 
 .search-result__container {
-	@flex grow;
-	@layout overflow-hidden overflow-y-auto scroll-fade-y scroll-fade-size-8;
+  @flex grow;
+  @layout overflow-hidden overflow-y-auto scroll-fade-y scroll-fade-size-8;
 
-	/* search result is empty */
-	@data is("search-empty") {
-		@layout is-flex;
-		@flex items-center justify-center;
-		@text align-x-center;
-	}
+  /* search result is empty */
+  @data is("search-empty") {
+    @layout is-flex;
+    @flex items-center justify-center;
+    @text align-x-center;
+  }
 
-	/* list of results */
-	ul {
-		@space px-2 py-6;
+  /* list of results */
+  ul {
+    @space px-2 py-6;
 
-		li {
-			@space py-2;
+    li {
+      @space py-2;
 
-			button {
-				@size w-full;
-				@text align-x-left;
-			}
-		}
-	}
+      button {
+        @size w-full;
+        @text align-x-left;
+      }
+    }
+  }
 
-	/* search result pages */
-	a {
-		@space p-3 gap-3;
-		@layout is-flex;
-		@flex flow-col;
-		@text align-x-left h-base;
-		@border thick rounded-lg;
-		@size w-full;
-		@bg color-base-100;
+  /* search result pages */
+  a {
+    @space p-3 gap-3;
+    @layout is-flex;
+    @flex flow-col;
+    @text align-x-left h-base;
+    @border thick rounded-lg;
+    @size w-full;
+    @bg color-base-100;
 
-		@state hover {
-			@bg color-base-200;
-		}
+    @state hover {
+      @bg color-base-200;
+    }
 
-		.link__url,
-		.link__confidence {
-			@text color-muted-fg size-sm;
-		}
-	}
+    .link__url,
+    .link__confidence {
+      @text color-muted-fg size-sm;
+    }
+  }
 }

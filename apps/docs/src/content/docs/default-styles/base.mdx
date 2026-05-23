@@ -1,7 +1,6 @@
 ---
 title: "Base Stylesheet"
-description:
-  "Base stylesheet with fundamental default styles for Shilp CSS projects."
+description: "Base stylesheet with fundamental default styles for Shilp CSS projects."
 keywords: ["base.css", "base styles", "default stylesheet"]
 ---
 
@@ -9,16 +8,16 @@ keywords: ["base.css", "base styles", "default stylesheet"]
 
 `base.css` defines the **default visual styles**.
 
-Unlike `variables.css`, which defines variables, this file **applies those
-variables to real CSS properties**.
+Unlike `variables.css`, which defines variables, this file **applies those variables to real CSS
+properties**.
 
 In simple terms:
 
 - `variables.css` → defines variables and its compositions
 - `base.css` → applies them to the UI
 
-These styles provide a **sensible baseline** so that most interfaces look
-consistent without requiring immediate customization.
+These styles provide a **sensible baseline** so that most interfaces look consistent without
+requiring immediate customization.
 
 ---
 
@@ -26,8 +25,7 @@ consistent without requiring immediate customization.
 
 ## What This File Does
 
-It establishes **global defaults**. So, that the UI immediately reflects the
-design system.
+It establishes **global defaults**. So, that the UI immediately reflects the design system.
 
 It defines things like:
 
@@ -37,8 +35,8 @@ It defines things like:
 - Interactive element behavior
 - And so on...
 
-As most of the defaults uses CSS variables, the entire appearance can be
-customized **without modifying this file** (_mostly_).
+As most of the defaults uses CSS variables, the entire appearance can be customized **without
+modifying this file** (_mostly_).
 
 </section>
 
@@ -60,8 +58,7 @@ The table below highlights the Shilp CSS default basee styles.
 | Heading sizes        | Uses `--h1` → `--h6` variables                             | Keeps typography globally configurable                 |
 | Code fonts           | Applies `var(--font-code)` to code elements                | Ensures consistent monospaced rendering                |
 
-These changes create a predictable baseline so your styles behave the same
-across browsers.
+These changes create a predictable baseline so your styles behave the same across browsers.
 
 </section>
 
@@ -71,8 +68,8 @@ across browsers.
 
 <Alert variant="info">
 
-Examples shown in the sections below, include only partial styles for clarity.
-See the complete file in [reset.css Reference](#resetcss-reference).
+Examples shown in the sections below, include only partial styles for clarity. See the complete file
+in [reset.css Reference](#resetcss-reference).
 
 </Alert>
 
@@ -84,8 +81,8 @@ Examples below shows all default base colors.
 
 ```css title="Default colors for page"
 body {
-	background-color: var(--bg);
-	color: var(--fg);
+  background-color: var(--bg);
+  color: var(--fg);
 }
 ```
 
@@ -107,24 +104,23 @@ All elements receive a border color:
 *,
 *::before,
 *::after {
-	border-color: oklch(var(--border));
+  border-color: oklch(var(--border));
 }
 ```
 
-However this rule **does not create borders**. It only sets the color if a
-border already exists.
+However this rule **does not create borders**. It only sets the color if a border already exists.
 
 Example: `border: 1px solid;`
 
-This allows utilities or components to define borders while keeping colors
-consistent with the design system.
+This allows utilities or components to define borders while keeping colors consistent with the
+design system.
 
 #### Text Selection Colors
 
 ```css title="Text selection colors"
 ::selection {
-	background-color: oklch(var(--primary));
-	color: oklch(var(--primary-fg));
+  background-color: oklch(var(--primary));
+  color: oklch(var(--primary-fg));
 }
 ```
 
@@ -144,7 +140,7 @@ The `body` element uses the composed font stack:
 
 ```css title="Body font usage"
 body {
-	font-family: var(--font-body);
+  font-family: var(--font-body);
 }
 ```
 
@@ -154,21 +150,21 @@ Headings use the composed font stack:
 
 ```css title="Display font usage"
 :where(h1, h2, h3, h4, h5, h6) {
-	font-family: var(--font-display);
+  font-family: var(--font-display);
 }
 ```
 
 #### Code Font
 
-Code-related elements use the code font stack. This keeps developer-oriented
-content visually distinct.
+Code-related elements use the code font stack. This keeps developer-oriented content visually
+distinct.
 
 ```css title="Code font usage"
 code,
 kbd,
 samp,
 pre {
-	font-family: var(--font-code);
+  font-family: var(--font-code);
 }
 ```
 
@@ -182,7 +178,7 @@ These are applied directly:
 
 ```css title="Exmaple usage of heading scale"
 h1 {
-	font-size: var(--h1);
+  font-size: var(--h1);
 }
 ```
 
@@ -192,8 +188,7 @@ This makes typography **globally adjustable**.
 
 It uses `clamp` to adjust the size as per viewport.
 
-See:
-[variables.css Reference](/docs/default-styles/variables#variablescss-reference).
+See: [variables.css Reference](/docs/default-styles/variables#variablescss-reference).
 
 </Alert>
 
@@ -205,8 +200,7 @@ See:
 
 You can override any variable in your own styles.
 
-In most cases, customization should happen through **variables**, not style
-rules.
+In most cases, customization should happen through **variables**, not style rules.
 
 Example:
 
@@ -215,17 +209,17 @@ Example:
 *,
 *::before,
 *::after {
-	/* border-color: oklch(var(--border)); */
-	border-color: oklch(var(--fg));
+  /* border-color: oklch(var(--border)); */
+  border-color: oklch(var(--fg));
 }
 
 /* set default selection colors. */
 ::selection {
-	/* background-color: oklch(var(--primary)); */
-	background-color: oklch(var(--accent));
+  /* background-color: oklch(var(--primary)); */
+  background-color: oklch(var(--accent));
 
-	/* color: oklch(var(--primary-fg)); */
-	color: oklch(var(--accent-fg));
+  /* color: oklch(var(--primary-fg)); */
+  color: oklch(var(--accent-fg));
 }
 ```
 
@@ -254,9 +248,8 @@ You might override base styles when:
 
 <Alert>
 
-If any part of this file feels difficult to understand, copy the snippet and
-paste it into [ChatGPT](https://chatgpt.com) and ask it to explain the code in
-simple words.
+If any part of this file feels difficult to understand, copy the snippet and paste it into
+[ChatGPT](https://chatgpt.com) and ask it to explain the code in simple words.
 
 </Alert>
 
@@ -291,7 +284,7 @@ https://shilpcss.com/docs/default-styles/base
 /* ============================================================================================= */
 
 .purge-ignore-start {
-	all: unset;
+  all: unset;
 }
 
 /* ============================================================================================= */
@@ -304,11 +297,8 @@ https://shilpcss.com/docs/default-styles/base
 *,
 *::before,
 *::after,
-input:where([type="file"]):where(
-		::file-selector-button,
-		::-webkit-file-upload-button
-	) {
-	border-color: oklch(var(--border));
+input:where([type="file"]):where(::file-selector-button, ::-webkit-file-upload-button) {
+  border-color: oklch(var(--border));
 }
 
 /* ================================================================================================
@@ -320,9 +310,9 @@ input:where([type="file"]):where(
 2. set default font family.
 */
 body {
-	background-color: oklch(var(--bg)); /* 1 */
-	color: oklch(var(--fg)); /* 1 */
-	font-family: var(--font-body); /* 2 */
+  background-color: oklch(var(--bg)); /* 1 */
+  color: oklch(var(--fg)); /* 1 */
+  font-family: var(--font-body); /* 2 */
 }
 
 /* ================================================================================================
@@ -331,8 +321,8 @@ body {
 
 /* set default colors. */
 ::selection {
-	background-color: oklch(var(--primary));
-	color: oklch(var(--primary-fg));
+  background-color: oklch(var(--primary));
+  color: oklch(var(--primary-fg));
 }
 
 /* ================================================================================================
@@ -344,11 +334,8 @@ a,
 button,
 :where([role="button"]),
 :where(input, button):where([type="button"], [type="reset"], [type="submit"]),
-input:where([type="file"]):where(
-		::file-selector-button,
-		::-webkit-file-upload-button
-	) {
-	line-height: 1;
+input:where([type="file"]):where(::file-selector-button, ::-webkit-file-upload-button) {
+  line-height: 1;
 }
 
 /* ================================================================================================
@@ -364,40 +351,40 @@ h3,
 h4,
 h5,
 h6 {
-	font-family: var(--font-display); /* 1 */
-	line-height: 1.5; /* 2 */
+  font-family: var(--font-display); /* 1 */
+  line-height: 1.5; /* 2 */
 }
 
 /* set sensible font weights */
 h1,
 h2 {
-	font-weight: 600;
+  font-weight: 600;
 }
 h3,
 h4,
 h5,
 h6 {
-	font-weight: 500;
+  font-weight: 500;
 }
 
 /* set font dynamic sizes */
 h1 {
-	font-size: var(--h1);
+  font-size: var(--h1);
 }
 h2 {
-	font-size: var(--h2);
+  font-size: var(--h2);
 }
 h3 {
-	font-size: var(--h3);
+  font-size: var(--h3);
 }
 h4 {
-	font-size: var(--h4);
+  font-size: var(--h4);
 }
 h5 {
-	font-size: var(--h5);
+  font-size: var(--h5);
 }
 h6 {
-	font-size: var(--h6);
+  font-size: var(--h6);
 }
 
 /* ================================================================================================
@@ -408,13 +395,13 @@ code,
 kbd,
 samp,
 pre {
-	font-family: var(--font-code);
+  font-family: var(--font-code);
 }
 
 /* ============================================================================================= */
 
 .purge-ignore-end {
-	all: unset;
+  all: unset;
 }
 ```
 

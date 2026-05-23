@@ -18,8 +18,8 @@ Usage:
 
 <Alert variant="info">
 
-This page contains only the **property configuration reference**. Complete
-documentation and usage examples will be added progressively in future updates.
+This page contains only the **property configuration reference**. Complete documentation and usage
+examples will be added progressively in future updates.
 
 </Alert>
 
@@ -30,73 +30,74 @@ documentation and usage examples will be added progressively in future updates.
 ## Reference
 
 ```js title="shilp.config.js"
+/** @type {import('shilpcss/types').ShilpConfig} */
 const shilpConfig = {
-	source: "react",
+  source: "react",
 
-	properties: {
-		layout: {
-			shadow: {
-				DEFAULT: {
-					property: "<v>",
-					special: true,
-					values: {
-						none: `
+  properties: {
+    layout: {
+      shadow: {
+        DEFAULT: {
+          property: "<v>",
+          special: true,
+          values: {
+            none: `
 							box-shadow: 0 0 #0000<i>;
 							--b-sdw: initial<i>;
 						`,
-						"2xs": `
+            "2xs": `
 							box-shadow: var(--bx-sdw)<i>;
 							--b-sdw: var(--b-sdw-2xs)<i>;
 						`,
-						xs: `
+            xs: `
 							box-shadow: var(--bx-sdw)<i>;
 							--b-sdw: var(--b-sdw-xs)<i>;
 						`,
-						sm: `
+            sm: `
 							box-shadow: var(--bx-sdw)<i>;
 							--b-sdw: var(--b-sdw-sm)<i>;
 						`,
-						DEFAULT: `
+            DEFAULT: `
 							box-shadow: var(--bx-sdw)<i>;
 							--b-sdw: var(--b-sdw-sm)<i>;
 						`,
-						md: `
+            md: `
 							box-shadow: var(--bx-sdw)<i>;
 							--b-sdw: var(--b-sdw-md)<i>;
 						`,
-						lg: `
+            lg: `
 							box-shadow: var(--bx-sdw)<i>;
 							--b-sdw: var(--b-sdw-lg)<i>;
 						`,
-						xl: `
+            xl: `
 							box-shadow: var(--bx-sdw)<i>;
 							--b-sdw: var(--b-sdw-xl)<i>;
 						`,
-						"2xl": `
+            "2xl": `
 							box-shadow: var(--bx-sdw)<i>;
 							--b-sdw: var(--b-sdw-2xl)<i>;
 						`,
-					},
-				},
+          },
+        },
 
-				inset: {
-					property: "--in-sdw: <v><i>;",
-					values: {
-						DEFAULT: "inset",
-						none: "unset",
-					},
-				},
+        inset: {
+          property: "--in-sdw: <v><i>;",
+          values: {
+            DEFAULT: "inset",
+            none: "unset",
+          },
+        },
 
-				color: {
-					property: "--b-sdw-clr: <v><i>;",
-					resolve: "color",
-					themeKey: "colors",
-					variant: true,
-					values: {},
-				},
-			},
-		},
-	},
+        color: {
+          property: "--b-sdw-clr: <v><i>;",
+          resolve: "color",
+          themeKey: "colors",
+          variant: true,
+          values: {},
+        },
+      },
+    },
+  },
 };
 
 export default shilpConfig;

@@ -6,11 +6,10 @@ keywords: ["values", "flow", "bezier-curve", "animation", "transition", "css"]
 
 # Flow Dataset
 
-The **Flow dataset** defines **easing curve tokens** used by transition and
-animation.
+The **Flow dataset** defines **easing curve tokens** used by transition and animation.
 
-These tokens represent timing functions that control how motion accelerates,
-decelerates, or changes speed during an animation or phase transition.
+These tokens represent timing functions that control how motion accelerates, decelerates, or changes
+speed during an animation or phase transition.
 
 ---
 
@@ -18,8 +17,7 @@ decelerates, or changes speed during an animation or phase transition.
 
 ## Location
 
-Resolved location: `shilpConfig.values.flow` <br /> Theme location:
-`shilpConfig.theme.flow`
+Resolved location: `shilpConfig.values.flow` <br /> Theme location: `shilpConfig.theme.flow`
 
 </section>
 
@@ -40,8 +38,7 @@ These utilities read values from the theme, which is built from this dataset.
 
 ## Dataset Structure
 
-The dataset is a **simple key–value map** of flow easing curve tokens to CSS
-values.
+The dataset is a **simple key–value map** of flow easing curve tokens to CSS values.
 
 See: [Flow Dataset Reference](#flow-dataset-reference)
 
@@ -54,26 +51,26 @@ See: [Flow Dataset Reference](#flow-dataset-reference)
 You can extend or override this dataset in your config.
 
 ```js title="Customize flow dataset"
+/** @type {import('shilpcss/types').ShilpConfig} */
 const shilpConfig = {
-	source: "react",
+  source: "react",
 
-	extend: {
-		values: {
-			flow: {
-				elastic: {
-					// --elastic-pop: cubic-bezier(0.34, 1.56, 0.64, 1);
-					pop: "var(--elastic-pop)",
-				},
-			},
-		},
-	},
+  extend: {
+    values: {
+      flow: {
+        elastic: {
+          // --elastic-pop: cubic-bezier(0.34, 1.56, 0.64, 1);
+          pop: "var(--elastic-pop)",
+        },
+      },
+    },
+  },
 };
 
 export default shilpConfig;
 ```
 
-This will make additional flow easing curve tokens available through the theme
-system.
+This will make additional flow easing curve tokens available through the theme system.
 
 </section>
 
@@ -83,16 +80,16 @@ system.
 
 ```js title="Flow Dataset"
 const flow = {
-	ease: {
-		DEFAULT: "var(--ease)",
-		in: {
-			DEFAULT: "var(--ease-in)",
-			out: "var(--ease-in-out)",
-		},
-		out: "var(--ease-out)",
-	},
-	warp: "var(--ease-warp)",
-	pulse: "var(--ease-pulse)",
+  ease: {
+    DEFAULT: "var(--ease)",
+    in: {
+      DEFAULT: "var(--ease-in)",
+      out: "var(--ease-in-out)",
+    },
+    out: "var(--ease-out)",
+  },
+  warp: "var(--ease-warp)",
+  pulse: "var(--ease-pulse)",
 };
 
 export default flow;

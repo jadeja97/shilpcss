@@ -14,15 +14,14 @@ Usage:
 
 <Alert variant="info">
 
-If using unicode or emoji as marker, you need to apply left (inline start)
-padding to `li`.
+If using unicode or emoji as marker, you need to apply left (inline start) padding to `li`.
 
 </Alert>
 
 <Alert variant="info">
 
-This page contains only the **property configuration reference**. Complete
-documentation and usage examples will be added progressively in future updates.
+This page contains only the **property configuration reference**. Complete documentation and usage
+examples will be added progressively in future updates.
 
 </Alert>
 
@@ -33,51 +32,52 @@ documentation and usage examples will be added progressively in future updates.
 ## Reference
 
 ```js title="shilp.config.js"
+/** @type {import('shilpcss/types').ShilpConfig} */
 const shilpConfig = {
-	source: "react",
+  source: "react",
 
-	properties: {
-		list: {
-			marker: {
-				property: "list-style-type: <v><i>;",
-				values: {
-					// default
-					plain: "none",
-					dot: "disc",
-					circle: "circle",
-					square: "square",
-					greek: "lower-greek",
-					devanagari: "devanagari",
-					gujarati: "gujarati",
-					number: {
-						DEFAULT: "decimal",
-						"leading-zero": "decimal-leading-zero",
-					},
-					roman: {
-						lower: "lower-roman",
-						DEFAULT: "upper-roman",
-					},
-					alpha: {
-						DEFAULT: "lower-alpha, lower-latin",
-						upper: "upper-alpha, upper-latin",
-					},
+  properties: {
+    list: {
+      marker: {
+        property: "list-style-type: <v><i>;",
+        values: {
+          // default
+          plain: "none",
+          dot: "disc",
+          circle: "circle",
+          square: "square",
+          greek: "lower-greek",
+          devanagari: "devanagari",
+          gujarati: "gujarati",
+          number: {
+            DEFAULT: "decimal",
+            "leading-zero": "decimal-leading-zero",
+          },
+          roman: {
+            lower: "lower-roman",
+            DEFAULT: "upper-roman",
+          },
+          alpha: {
+            DEFAULT: "lower-alpha, lower-latin",
+            upper: "upper-alpha, upper-latin",
+          },
 
-					// unicode, emoji
-					hyphen: `"-"`,
-					chevron: {
-						DEFAULT: `"›"`,
-						double: `"»"`,
-					},
-					target: `"☉"`,
-					arrow: `"➤"`,
-					star: `"★"`,
-					heart: `"♥"`,
-					check: `"✓"`,
-					asterisk: `"∗"`,
-				},
-			},
-		},
-	},
+          // unicode, emoji
+          hyphen: `"-"`,
+          chevron: {
+            DEFAULT: `"›"`,
+            double: `"»"`,
+          },
+          target: `"☉"`,
+          arrow: `"➤"`,
+          star: `"★"`,
+          heart: `"♥"`,
+          check: `"✓"`,
+          asterisk: `"∗"`,
+        },
+      },
+    },
+  },
 };
 
 export default shilpConfig;

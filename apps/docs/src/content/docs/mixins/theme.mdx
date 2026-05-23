@@ -1,7 +1,6 @@
 ---
 title: "@theme Mixin - Theme Variants"
-description:
-  "Use @theme mixin for dark/light mode and custom theme switching in Shilp CSS."
+description: "Use @theme mixin for dark/light mode and custom theme switching in Shilp CSS."
 keywords: ["@theme", "dark mode", "light mode", "theme variants", "theming"]
 ---
 
@@ -20,8 +19,8 @@ Usage:
 
 <Alert variant="info">
 
-This page contains only the **mixins configuration reference**. Complete
-documentation and usage examples will be added progressively in future updates.
+This page contains only the **mixins configuration reference**. Complete documentation and usage
+examples will be added progressively in future updates.
 
 </Alert>
 
@@ -32,26 +31,27 @@ documentation and usage examples will be added progressively in future updates.
 ## Reference
 
 ```js title="shilp.config.js"
+/** @type {import('shilpcss/types').ShilpConfig} */
 const shilpConfig = {
-	target: "react",
+  target: "react",
 
-	mixins: {
-		theme: {
-			variants: {
-				/* class on parent, style on self */
-				dark: ".dark &",
-				light: ".light &",
+  mixins: {
+    theme: {
+      variants: {
+        /* class on parent, style on self */
+        dark: ".dark &",
+        light: ".light &",
 
-				/* class on self, style on self */
-				"dark-self": "&.dark",
-				"light-self": "&.light",
+        /* class on self, style on self */
+        "dark-self": "&.dark",
+        "light-self": "&.light",
 
-				/* class on parent or self, style on self */
-				// "dark-any": ".dark &, &.dark",
-				// "light-any": ".light &, &.light",
-			},
-		},
-	},
+        /* class on parent or self, style on self */
+        // "dark-any": ".dark &, &.dark",
+        // "light-any": ".light &, &.light",
+      },
+    },
+  },
 };
 
 export default shilpConfig;

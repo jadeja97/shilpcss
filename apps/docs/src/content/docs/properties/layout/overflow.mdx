@@ -16,8 +16,8 @@ Usage:
 
 <Alert variant="info">
 
-This page contains only the **property configuration reference**. Complete
-documentation and usage examples will be added progressively in future updates.
+This page contains only the **property configuration reference**. Complete documentation and usage
+examples will be added progressively in future updates.
 
 </Alert>
 
@@ -28,44 +28,45 @@ documentation and usage examples will be added progressively in future updates.
 ## Reference
 
 ```js title="shilp.config.js"
+/** @type {import('shilpcss/types').ShilpConfig} */
 const shilpConfig = {
-	source: "react",
+  source: "react",
 
-	properties: {
-		layout: {
-			overflow: {
-				DEFAULT: {
-					property: "overflow: <v><i>;",
-					values: {
-						auto: "auto",
-						visible: "visible",
-						hidden: "hidden",
-						scroll: "scroll",
-					},
-				},
+  properties: {
+    layout: {
+      overflow: {
+        DEFAULT: {
+          property: "overflow: <v><i>;",
+          values: {
+            auto: "auto",
+            visible: "visible",
+            hidden: "hidden",
+            scroll: "scroll",
+          },
+        },
 
-				x: {
-					property: "overflow-x: <v><i>;",
-					values: {
-						auto: "auto",
-						visible: "visible",
-						hidden: "hidden",
-						scroll: "scroll",
-					},
-				},
+        x: {
+          property: "overflow-x: <v><i>;",
+          values: {
+            auto: "auto",
+            visible: "visible",
+            hidden: "hidden",
+            scroll: "scroll",
+          },
+        },
 
-				y: {
-					property: "overflow-y: <v><i>;",
-					values: {
-						auto: "auto",
-						visible: "visible",
-						hidden: "hidden",
-						scroll: "scroll",
-					},
-				},
-			},
-		},
-	},
+        y: {
+          property: "overflow-y: <v><i>;",
+          values: {
+            auto: "auto",
+            visible: "visible",
+            hidden: "hidden",
+            scroll: "scroll",
+          },
+        },
+      },
+    },
+  },
 };
 
 export default shilpConfig;
