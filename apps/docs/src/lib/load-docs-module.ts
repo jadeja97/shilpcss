@@ -1,4 +1,4 @@
-import { throwError } from "@/lib/utils";
+import { throwError } from "@jadeja/ts/lib";
 
 import type { FC } from "react";
 

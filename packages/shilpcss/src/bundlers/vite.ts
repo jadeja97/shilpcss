@@ -1,11 +1,12 @@
 import { readFileSync, writeFileSync } from "node:fs";
 import { resolve } from "node:path";
 
+import { throwError } from "@jadeja/ts/lib";
+
 import preProcess from "@/bundlers/methods/pre-process";
 import process from "@/bundlers/methods/process";
 import purge from "@/bundlers/methods/purge";
 import transpile from "@/bundlers/methods/transpile";
-import { throwError } from "@/lib/logger";
 
 import type { ResolvedConfig } from "vite";
 

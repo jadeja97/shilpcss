@@ -1,13 +1,8 @@
 import { resolve } from "node:path";
 
+import { copyFolders } from "@jadeja/ts/plugins/vite";
 import dts from "unplugin-dts/vite";
 import { defineConfig } from "vite";
-
-import { copyFolderSync, getAbsolutePath } from "./src/lib/utils.js";
-
-/* ============================================================================================= */
-
-const { __dirname } = getAbsolutePath(import.meta.url);
 
 /* ============================================================================================= */
 
@@ -29,9 +24,9 @@ const viteConfig = defineConfig({
     // mark as library
     lib: {
       entry: {
-        vite: resolve(__dirname, "./src/bundlers/vite.ts"),
-        webpack: resolve(__dirname, "./src/bundlers/webpack.ts"),
-        lib: resolve(__dirname, "./src/lib/index.ts"),
+        vite: resolve(import.meta.dirname, "./src/bundlers/vite.ts"),
+        webpack: resolve(import.meta.dirname, "./src/bundlers/webpack.ts"),
+        lib: resolve(import.meta.dirname, "./src/lib/index.ts"),
       },
 
       // minify whitespace is disabled for es format
@@ -51,8 +46,6 @@ const viteConfig = defineConfig({
         // add all the node in-built modules list here which are used
         "node:path",
         "node:fs",
-        "node:url",
-        "node:util",
       ],
 
       output: {
@@ -74,7 +67,7 @@ const viteConfig = defineConfig({
 
   resolve: {
     alias: {
-      "@": resolve(__dirname, "./src"),
+      "@": resolve(import.meta.dirname, "./src"),
     },
   },
 
@@ -87,17 +80,12 @@ const viteConfig = defineConfig({
     dts(),
 
     //
-    {
-      name: "vite-plugin-copy-src-folder-to-dist",
-      apply: "build",
-      enforce: "post",
-
-      closeBundle() {
-        const stylesSrc = resolve(__dirname, "./src/styles");
-        const stylesDest = resolve(__dirname, "./dist/styles");
-        copyFolderSync(stylesSrc, stylesDest);
+    copyFolders(import.meta.dirname, [
+      {
+        src: "./src/styles",
+        dest: "./dist/styles",
       },
-    },
+    ]),
   ],
 });
 

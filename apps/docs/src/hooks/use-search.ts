@@ -1,3 +1,4 @@
+import { sleep } from "@jadeja/ts/lib";
 import MiniSearch from "minisearch";
 import { useRef, useEffect, useState } from "react";
 
@@ -7,7 +8,6 @@ import {
   SEARCH_INDEX_FIELDS,
   SEARCH_INDEX_RETURN_FIELDS,
 } from "@/lib/constants";
-import { sleep } from "@/lib/utils";
 
 import type { AsPlainObject, SearchResult } from "minisearch";
 

@@ -57,6 +57,9 @@ importers:
         specifier: ^19.2.6
         version: 19.2.6(react@19.2.6)
     devDependencies:
+      '@jadeja/ts':
+        specifier: 1.0.0-alpha.0
+        version: 1.0.0-alpha.0(@types/node@24.12.2)(typescript@6.0.3)
       '@mdx-js/loader':
         specifier: ^3.1.1
         version: 3.1.1(webpack@5.106.2)
@@ -157,6 +160,9 @@ importers:
         specifier: ^3.3.4
         version: 3.3.4
     devDependencies:
+      '@jadeja/ts':
+        specifier: 1.0.0-alpha.0
+        version: 1.0.0-alpha.0(@types/node@24.12.2)(typescript@6.0.3)
       '@types/node':
         specifier: ^24.6.2
         version: 24.12.2
@@ -649,6 +655,13 @@ packages:
     engines: {node: ^18.17.0 || ^20.3.0 || >=21.0.0}
     cpu: [x64]
     os: [win32]
+
+  '@jadeja/ts@1.0.0-alpha.0':
+    resolution: {integrity: sha512-PpXRR/1guYeGtimh1Yh9yvE9JKtgZPS5ZI1M/zZnfuYhdWvWFofq/yK8/tFQqb7DZutsMolSuYwFyStuOKUqYQ==}
+    engines: {bun: please-use-pnpm, node: '>=24', npm: please-use-pnpm, pnpm: '>=10', turbo: '>=2', yarn: please-use-pnpm}
+    peerDependencies:
+      '@types/node': ^24.6.2
+      typescript: ^6.0.3
 
   '@jridgewell/gen-mapping@0.3.13':
     resolution: {integrity: sha512-2kkt/7niJ6MgEPxF0bYdQ6etZaA+fQvDcLKckhy1yIQOzaoKjBBjSj63/aLVjYE3qhRt5dvM+uUyfCg6UKCBbA==}
@@ -3258,6 +3271,11 @@ snapshots:
 
   '@img/sharp-win32-x64@0.34.5':
     optional: true
+
+  '@jadeja/ts@1.0.0-alpha.0(@types/node@24.12.2)(typescript@6.0.3)':
+    dependencies:
+      '@types/node': 24.12.2
+      typescript: 6.0.3
 
   '@jridgewell/gen-mapping@0.3.13':
     dependencies:

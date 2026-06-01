@@ -1,8 +1,7 @@
+import { throwError, deepMergeObj, isObj } from "@jadeja/ts/lib";
+
 import { RESERVED_NAMES } from "@/config/index/constants";
 import mixins from "@/config/mixins/data";
-import { throwError } from "@/lib/logger";
-import { deepMergeObj } from "@/lib/operations";
-import { isObj } from "@/lib/types";
 
 import type { ShilpConfig } from "@/types/config";
 

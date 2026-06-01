@@ -1,3 +1,4 @@
+import { freshRegex } from "@jadeja/ts/lib";
 import GithubSlugger from "github-slugger";
 import { visit } from "unist-util-visit";
 
@@ -38,8 +39,8 @@ const remarkTOC = () => (tree: Root) => {
    * - `>` to `\u003e`
    */
   const safeStr = JSON.stringify(toc)
-    .replace(new RegExp(/</g), String.raw`\u003c`)
-    .replace(new RegExp(/>/g), String.raw`\u003e`);
+    .replace(freshRegex(/</g), String.raw`\u003c`)
+    .replace(freshRegex(/>/g), String.raw`\u003e`);
 
   // export toc from `.mdx` files
   tree.children.push({

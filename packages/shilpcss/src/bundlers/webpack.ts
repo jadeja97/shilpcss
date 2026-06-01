@@ -4,13 +4,13 @@ import { resolve } from "node:path";
 // oxlint-disable import/no-namespace
 import * as webpack from "webpack";
 // oxlint-disable import/no-namespace
+import { throwError } from "@jadeja/ts/lib";
 import * as webpackSources from "webpack-sources";
 
 import preProcess from "@/bundlers/methods/pre-process";
 import process from "@/bundlers/methods/process";
 import purge from "@/bundlers/methods/purge";
 import transpile from "@/bundlers/methods/transpile";
-import { throwError } from "@/lib/logger";
 
 import type { Compiler } from "webpack";
 

@@ -1,10 +1,9 @@
+import { logDivider, logNewLine, throwError, freshRegex } from "@jadeja/ts/lib";
 import browserslist from "browserslist";
 import { transform, browserslistToTargets } from "lightningcss";
 
 import { DEFAULT_BROWSER_TARGET, LCH_COLOR_FORMAT_PATTERN } from "@/config/index/constants";
 import { lchToRgb } from "@/lib/convert";
-import { logDivider, logNewLine, throwError } from "@/lib/logger";
-import { fresh } from "@/lib/operations";
 
 import type { Options as BrowsersListOptions } from "browserslist";
 import type { CustomAtRules, TransformOptions } from "lightningcss";
@@ -41,8 +40,8 @@ const transpile = ({ css, options, filePath, colorFormat }: TranspileOptions): T
       // NOTE: due to this, can't use `@supports` with oklch support, to add any colors, as of now
       // TODO: look into this?
       finalCSS = finalCSS
-        .replace(fresh(LCH_COLOR_FORMAT_PATTERN), (lchStr) => lchToRgb({ str: lchStr }).str)
-        .replace(fresh(/oklch/g), "rgb");
+        .replace(freshRegex(LCH_COLOR_FORMAT_PATTERN), (lchStr) => lchToRgb({ str: lchStr }).str)
+        .replace(freshRegex(/oklch/g), "rgb");
     }
 
     /* ============================================================================================

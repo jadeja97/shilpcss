@@ -1,3 +1,4 @@
+import { logDivider, logNewLine, throwError } from "@jadeja/ts/lib";
 // oxlint-disable import/no-namespace
 import * as sass from "sass";
 
@@ -6,7 +7,6 @@ import { SCSS_IMPORTS } from "@/config/index/constants";
 import resolveConfig from "@/config/index/methods";
 import { resolveMixins } from "@/config/mixins/methods";
 import { resolveInlineTheme } from "@/config/theme/methods";
-import { logDivider, logNewLine, throwError } from "@/lib/logger";
 
 import type { StringOptions } from "sass";
 

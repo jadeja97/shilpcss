@@ -1,6 +1,6 @@
+import { deepMergeObj, isObj } from "@jadeja/ts/lib";
+
 import components from "@/config/components/data";
-import { deepMergeObj } from "@/lib/operations";
-import { isObj } from "@/lib/types";
 
 import type { ShilpConfig } from "@/types/config";
 

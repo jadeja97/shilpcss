@@ -1,7 +1,7 @@
 {
   "name": "shilpcss",
   "description": "an Intent-first, CSS-centric, styling engine and framework",
-  "version": "1.0.0-alpha.7",
+  "version": "1.0.0-alpha.8",
   "type": "module",
   "exports": {
     "./styles/*": "./dist/styles/*.css",
@@ -34,6 +34,7 @@
     "publish-it": "pnpm publish --tag alpha --access public --no-git-checks"
   },
   "devDependencies": {
+    "@jadeja/ts": "1.0.0-alpha.0",
     "@types/node": "^24.6.2",
     "typescript": "^6.0.3",
     "unplugin-dts": "^1.0.0",

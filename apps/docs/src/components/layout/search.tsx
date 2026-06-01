@@ -3,6 +3,7 @@
 /* ============================================================================================= */
 
 import { ChevronBarUpIcon } from "@icons";
+import { debounce } from "@jadeja/ts/lib";
 import { useState, useEffect, startTransition, useRef } from "react";
 
 import Button from "@/components/button";
@@ -13,7 +14,6 @@ import AlienLife from "@/components/loaders/alien-life";
 import ZZZZ from "@/components/loaders/zzzz";
 import Separator from "@/components/separator";
 import useSearch from "@/hooks/use-search";
-import debounce from "@/lib/debounce";
 
 import type { ReactElement } from "react";
 

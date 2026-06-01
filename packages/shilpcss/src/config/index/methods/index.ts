@@ -1,10 +1,11 @@
+import { isObj } from "@jadeja/ts/lib";
+
 import resolveComponentsConfig from "@/config/components/methods/config";
 import resolveIntentsConfig from "@/config/intents/methods/config";
 import resolveMixinsConfig from "@/config/mixins/methods/config";
 import resolvePropertiesConfig from "@/config/properties/methods/config";
 import resolveThemeConfig from "@/config/theme/methods/config";
 import resolveValuesConfig from "@/config/values/methods/config";
-import { isObj } from "@/lib/types";
 
 import type { ShilpConfig } from "@/types";
 

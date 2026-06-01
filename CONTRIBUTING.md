@@ -76,7 +76,7 @@ it.
      ```
 5. Make your code changes in the new branch.
 6. Ensure your code adheres to the project's coding style and conventions.
-   - NOTE: ⚠️ linter and formatter is not configured yet.
+   - run `pnpm check`
 7. Push the branch to your forked repository.
 8. Submit a pull request from your forked branch to the main repository (_`dev`
    branch_).
@@ -94,7 +94,8 @@ Follow the existing code style and conventions used in the project.
 
 Pay attention to naming conventions, formatting, and documentation standards.
 
-NOTE: ⚠️ linter and formatter is not configured yet.
+- `pnpm check`
+- `pnpm fix`
 
 <br>
 
@@ -108,4 +109,4 @@ contributions you make will be subject to the terms outlined in the project's
 
 Thank you for your time 🙂
 
-_Last updated on April 19, 2026_
+_Last updated on June 1, 2026_

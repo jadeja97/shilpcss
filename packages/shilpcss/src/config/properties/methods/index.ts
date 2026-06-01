@@ -1,6 +1,6 @@
+import { throwError, deepCopy, deepMergeObj } from "@jadeja/ts/lib";
+
 import { getPropertyValue } from "@/config/values/methods";
-import { throwError } from "@/lib/logger";
-import { deepCopy, deepMergeObj } from "@/lib/operations";
 
 import type { GetPropertiesOptions, PropertyConfigValues } from "@/types/config/properties";
 

@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.0.0-alpha.8
+
+### Minor Changes
+
+- refactor: integrate `@jadeja/ts`
+
 ## 1.0.0-alpha.7
 
 ## Patch Changes
@@ -33,8 +39,7 @@
 
 ### Patch Changes
 
-- fix: `shilpConfig.extend` is not extendable due to recent typescript
-  integration
+- fix: `shilpConfig.extend` is not extendable due to recent typescript integration
 
 ## 1.0.0-alpha.3
 
@@ -64,6 +69,5 @@
 
 All notable changes to this project is documented in this file.
 
-The format is loosely based on
-[Keep a Changelog](https://keepachangelog.com/en/1.0.0/), and
+The format is loosely based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), and
 [Semantic Versioning](https://semver.org/spec/v2.0.0.html).

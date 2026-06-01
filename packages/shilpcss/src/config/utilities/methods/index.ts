@@ -1,5 +1,6 @@
+import { throwError } from "@jadeja/ts/lib";
+
 import { getProperties } from "@/config/properties/methods";
-import { throwError } from "@/lib/logger";
 
 import type { PropertyConfig } from "@/types/config/properties";
 import type { ResolveUtilitiesOptions, UtilityDetails } from "@/types/config/utilities";

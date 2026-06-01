@@ -1,11 +1,10 @@
+import { throwError, deepCopy, freshRegex, isFn, isStr } from "@jadeja/ts/lib";
+
 import { RESERVED_NAMES } from "@/config/index/constants";
 import {
   FUNCTION_MIXIN_ARGS_PLACEHOLDER_PATTERN,
   MIXINS_VARIANT_PLACEHOLDER_PATTERN,
 } from "@/config/mixins/constants";
-import { throwError } from "@/lib/logger";
-import { deepCopy, fresh } from "@/lib/operations";
-import { isFn, isStr } from "@/lib/types";
 
 import type { CreateMixinOptions, Mixins, ResolveMixinOptions } from "@/types/config/mixins";
 
@@ -55,7 +54,10 @@ export const createMixin = ({ mixinConfig, mixinName, variantName, raw }: Create
   while (variant?.length) {
     const nestedVariant = (variant as string[])
       ?.pop()
-      ?.replace(fresh(FUNCTION_MIXIN_ARGS_PLACEHOLDER_PATTERN), `#{list.nth(${ARGS_NAME}, $1)}`);
+      ?.replace(
+        freshRegex(FUNCTION_MIXIN_ARGS_PLACEHOLDER_PATTERN),
+        `#{list.nth(${ARGS_NAME}, $1)}`,
+      );
 
     if (!hasArgs && nestedVariant?.includes("list.nth")) {
       hasArgs = true;
@@ -90,7 +92,7 @@ export const resolveMixins = ({ config, content, filePath }: ResolveMixinOptions
   let mixins = "";
 
   const contentWithMixins = content.replace(
-    fresh(MIXINS_VARIANT_PLACEHOLDER_PATTERN),
+    freshRegex(MIXINS_VARIANT_PLACEHOLDER_PATTERN),
     //
     (rawSelector: string, mixinName: keyof Mixins, variantName: string, fn: string = "") => {
       //

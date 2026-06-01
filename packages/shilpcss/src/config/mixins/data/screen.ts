@@ -3,7 +3,7 @@
 
 /* ============================================================================================= */
 
-import { throwError } from "@/lib/logger";
+import { throwError } from "@jadeja/ts/lib";
 
 import type { MixinConfigResolveOptions } from "@/types/config/mixins";
 

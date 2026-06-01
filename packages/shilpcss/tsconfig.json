@@ -1,20 +1,10 @@
 {
+  "extends": "@jadeja/ts/configs/ts/lib",
   "compilerOptions": {
-    "target": "ES2023",
-    "types": ["node"],
-    "module": "esnext",
-    "moduleResolution": "bundler",
-    "strict": true,
-    "declaration": true,
-    "declarationMap": true,
-    "noEmit": true,
-    "isolatedModules": true,
-    "skipLibCheck": true,
-    "noImplicitAny": true,
     "paths": {
       "@/*": ["./src/*"]
     }
   },
-  "include": ["./src", "./vite.config.ts", "./oxfmt.config.ts", "./oxlint.config.ts"],
+  "include": ["./src"],
   "exclude": ["./node_modules"]
 }

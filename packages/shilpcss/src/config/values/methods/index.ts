@@ -1,5 +1,4 @@
-import { throwError } from "@/lib/logger";
-import { isFn } from "@/lib/types";
+import { throwError, isFn } from "@jadeja/ts/lib";
 
 import type {
   GetPropertyValueOptions,

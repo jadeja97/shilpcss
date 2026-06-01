@@ -1,28 +1,6 @@
 {
+  "extends": "@jadeja/ts/configs/ts/next",
   "compilerOptions": {
-    "target": "ES2023",
-    "types": ["node", "react", "react-dom"],
-    "lib": ["dom", "dom.iterable", "ESNext"],
-    "module": "esnext",
-    "moduleResolution": "bundler",
-    "strict": true,
-    "noEmit": true,
-    "isolatedModules": true,
-    "skipLibCheck": true,
-    "jsx": "react-jsx",
-    "noImplicitAny": true,
-    "noImplicitOverride": true,
-    "esModuleInterop": true,
-    /* next-start: Next.js auto adds if not present */
-    "allowJs": false,
-    "incremental": false,
-    "resolveJsonModule": true,
-    /* next-end: Next.js auto adds if not present */
-    "plugins": [
-      {
-        "name": "next"
-      }
-    ],
     "paths": {
       "@icons": ["./src/components/assets/icons.tsx"],
       "@/*": ["./src/*"]
@@ -35,11 +13,7 @@
     "./next.config.ts",
     "./oxfmt.config.ts",
     "./oxlint.config.ts",
-    "./next-env.d.ts",
-    "dist/types/**/*.ts",
-    "dist/dev/types/**/*.ts",
-    ".next/types/**/*.ts",
-    ".next/dev/types/**/*.ts"
+    "./next-env.d.ts"
   ],
-  "exclude": ["./node_modules"]
+  "exclude": ["./node_modules", "dist", ".next"]
 }

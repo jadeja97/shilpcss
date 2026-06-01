@@ -3,10 +3,10 @@
 /* ============================================================================================= */
 
 import { CheckIcon, CopyIcon } from "@icons";
+import { debounce } from "@jadeja/ts/lib";
 import { useState } from "react";
 
 import Button from "@/components/button";
-import debounce from "@/lib/debounce";
 
 import type { ComponentProps, ReactElement } from "react";
 

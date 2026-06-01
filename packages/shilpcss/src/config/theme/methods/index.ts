@@ -1,9 +1,8 @@
+import { throwError, freshRegex, isStr } from "@jadeja/ts/lib";
+
 import { INLINE_THEME_PATTERN } from "@/config/theme/constants";
 import { createUtility } from "@/config/utilities/methods";
 import { getValuesGetterMethod } from "@/config/values/methods";
-import { throwError } from "@/lib/logger";
-import { fresh } from "@/lib/operations";
-import { isStr } from "@/lib/types";
 
 import type { ResolveInlineThemeOptions, ThemeObject } from "@/types/config/theme";
 import type { ValueResolvers } from "@/types/config/values";
@@ -27,12 +26,12 @@ export const resolveInlineTheme = ({ config, content, filePath }: ResolveInlineT
   //
 
   // return the raw content if inline theme function is not defined
-  if (!(isStr(content) && fresh(INLINE_THEME_PATTERN).test(content))) {
+  if (!(isStr(content) && freshRegex(INLINE_THEME_PATTERN).test(content))) {
     return content;
   }
 
   return content.replace(
-    fresh(INLINE_THEME_PATTERN),
+    freshRegex(INLINE_THEME_PATTERN),
     //
     (
       rawValue: string,

@@ -1,7 +1,6 @@
+import { throwError, freshRegex, isObj, isStr } from "@jadeja/ts/lib";
+
 import { LCH_COLOR_FORMAT_PATTERN } from "@/config/index/constants";
-import { throwError } from "@/lib/logger";
-import { fresh } from "@/lib/operations";
-import { isObj, isStr } from "@/lib/types";
 
 import type { ValueResolverOptions } from "@/types/config/values";
 import type { NestedObject } from "@/types/shared";
@@ -94,7 +93,7 @@ export const getColor = ({
     ...rest,
   });
 
-  const isLCHPattern = fresh(LCH_COLOR_FORMAT_PATTERN).test(rawColor);
+  const isLCHPattern = freshRegex(LCH_COLOR_FORMAT_PATTERN).test(rawColor);
 
   // value with no css variable and no oklch color pattern
   if (!rawColor.startsWith("var") && !isLCHPattern) {

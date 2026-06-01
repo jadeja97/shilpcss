@@ -1,9 +1,15 @@
+import {
+  logDivider,
+  logNewLine,
+  throwError,
+  warnNewLine,
+  freshRegex,
+  isArr,
+  isStr,
+} from "@jadeja/ts/lib";
 import { PurgeCSS } from "purgecss";
 
 import { PURGECSS_SOURCE_FOR_FRAMEWORK } from "@/config/index/constants";
-import { logDivider, logNewLine, throwError, warnNewLine } from "@/lib/logger";
-import { fresh } from "@/lib/operations";
-import { isArr, isStr } from "@/lib/types";
 
 import type { UserDefinedOptions } from "purgecss";
 
@@ -110,9 +116,12 @@ const purge = async ({
         // @ts-expect-error type issue here
         raw: finalOptions.css[0].raw
           // oxlint-disable typescript/no-unsafe-member-access, typescript/no-unsafe-assignment
-          .replace(fresh(/\.purge-ignore-start\s*\{[\s\S]*?\}/g), "/* purgecss start ignore */")
+          .replace(
+            freshRegex(/\.purge-ignore-start\s*\{[\s\S]*?\}/g),
+            "/* purgecss start ignore */",
+          )
           // oxlint-disable typescript/no-unsafe-member-access, typescript/no-unsafe-call, typescript/no-unsafe-assignment
-          .replace(fresh(/\.purge-ignore-end\s*\{[\s\S]*?\}/g), "/* purgecss end ignore */"),
+          .replace(freshRegex(/\.purge-ignore-end\s*\{[\s\S]*?\}/g), "/* purgecss end ignore */"),
       },
     ];
 

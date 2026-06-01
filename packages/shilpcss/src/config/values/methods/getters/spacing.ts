@@ -1,5 +1,4 @@
-import { throwError } from "@/lib/logger";
-import { isNum, isObj, isStr } from "@/lib/types";
+import { throwError, isNum, isObj, isStr } from "@jadeja/ts/lib";
 
 import type { ValueResolverOptions } from "@/types/config/values";
 import type { NestedObject } from "@/types/shared";

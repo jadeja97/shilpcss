@@ -55,7 +55,6 @@ export const InitialLoad = (): ReactElement<HTMLScriptElement> => (
     suppressHydrationWarning
     // oxlint-disable react/no-danger
     dangerouslySetInnerHTML={{
-      // oxlint-disable typescript/restrict-template-expressions
       __html: `
 				(function(pathname, addDataAttrToHTML) {
 					//

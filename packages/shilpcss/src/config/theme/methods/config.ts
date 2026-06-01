@@ -1,9 +1,8 @@
+import { throwError, deepMergeObj, isObj, isFn } from "@jadeja/ts/lib";
+
 import theme, { defaultTheme } from "@/config/theme/data";
 import inlineTheme from "@/config/theme/data/inline-theme";
 import values from "@/config/values/data";
-import { throwError } from "@/lib/logger";
-import { deepMergeObj } from "@/lib/operations";
-import { isObj, isFn } from "@/lib/types";
 
 import type { ShilpConfig } from "@/types/config";
 import type { InlineTheme, ThemeObject } from "@/types/config/theme";

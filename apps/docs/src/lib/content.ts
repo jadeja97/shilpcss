@@ -4,11 +4,11 @@ import { existsSync, readFileSync } from "node:fs";
 import { join, relative, resolve, sep } from "node:path";
 import { cwd } from "node:process";
 
+import { throwError } from "@jadeja/ts/lib";
 import frontMatter from "front-matter";
 
 import Search from "@/lib/search";
 import Singleton from "@/lib/singleton";
-import { throwError } from "@/lib/utils";
 
 import type {
   AddMetaOptions,

@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.0.0-alpha.11
+
+### Minor Changes
+
+- refactor: integrate `@jadeja/ts`
+
 ## 1.0.0-alpha.10
 
 ## Minor Changes

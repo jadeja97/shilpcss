@@ -1,7 +1,6 @@
+import { isObj, isStr } from "@jadeja/ts/lib";
 import browserslist from "browserslist";
 import { transform, browserslistToTargets } from "lightningcss";
-
-import { isObj, isStr } from "@/lib/types";
 
 import type { NestedObject } from "@/types";
 

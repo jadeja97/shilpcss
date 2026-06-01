@@ -1,9 +1,9 @@
+import { logDivider, logNewLine, throwError, freshRegex } from "@jadeja/ts/lib";
+
 import { RESERVED_NAMES } from "@/config/index/constants";
 import { INTENT_PATTERN } from "@/config/intents/constants";
 import { createIntent, resolveIntent } from "@/config/intents/methods";
 import { resolveInlineTheme } from "@/config/theme/methods";
-import { logDivider, logNewLine, throwError } from "@/lib/logger";
-import { fresh } from "@/lib/operations";
 
 import type { ProcessOptions } from "@/types/bundlers/methods/process";
 
@@ -31,7 +31,7 @@ const process = ({ config, content, filePath }: ProcessOptions) => {
 		============================================================================================ */
 
     const processedContent = content.replace(
-      fresh(INTENT_PATTERN),
+      freshRegex(INTENT_PATTERN),
       //
       (rawContent: string, rawIntentName: string, rawUtilities: string) => {
         //

@@ -1,5 +1,6 @@
+import { deepCopy } from "@jadeja/ts/lib";
+
 import { default as defaultValues } from "@/config/values/data";
-import { deepCopy } from "@/lib/operations";
 
 import type { ThemeFunctionOptions, ThemeShape } from "@/types/config/theme";
 

@@ -1,7 +1,6 @@
+import { throwError, deepMergeObj, isFn, isStr } from "@jadeja/ts/lib";
+
 import { IMPORT_COMPONENTS_PLACEHOLDER } from "@/config/components/constants";
-import { throwError } from "@/lib/logger";
-import { deepMergeObj } from "@/lib/operations";
-import { isFn, isStr } from "@/lib/types";
 
 import type {
   ComponentsComposeCSSOptions,
