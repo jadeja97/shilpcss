@@ -36,6 +36,7 @@ export type Tree = (FileMeta | FolderMeta)[];
 export interface CreateTreeOptions {
   dir?: string;
   parentSlugs?: string[];
+  reservedIndex?: number;
 }
 
 /* ================================================================================================
@@ -64,6 +65,7 @@ export interface AddMetaOptions {
   slugs: string[];
   file: string;
   meta: FileMeta | FolderMeta;
+  reservedIndex?: number;
 }
 
 /* ================================================================================================
@@ -99,6 +101,7 @@ export interface CreateFileMetaOptions {
   dir: string;
   parentSlugs: string[];
   file: File;
+  reservedIndex?: number;
 }
 
 export interface FileInfo {

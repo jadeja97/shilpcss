@@ -1,5 +1,12 @@
 # Changelog
 
+## 1.0.0-alpha.12
+
+### Patch Changes
+
+- fix: docs navigation is not linear for `"page": true`, in `meta.json`
+- other minor fixes
+
 ## 1.0.0-alpha.11
 
 ### Minor Changes

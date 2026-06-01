@@ -166,7 +166,11 @@ class Content {
 		NAVIGATION TREE
 	========================= */
 
-  private createTree({ dir = this.paths.ROOT, parentSlugs = [] }: CreateTreeOptions): Tree {
+  private createTree({
+    dir = this.paths.ROOT,
+    parentSlugs = [],
+    reservedIndex = -1,
+  }: CreateTreeOptions): Tree {
     //
     const meta = this.readMeta(dir);
 
@@ -187,10 +191,11 @@ class Content {
 
       // file meta
       if (!item.type || item.type === "file") {
-        return this.createFileMeta({ dir, parentSlugs, file: item });
+        return this.createFileMeta({ dir, parentSlugs, file: item, reservedIndex });
       }
 
       // queue folder - processed last
+      // this creates issue: https://github.com/JadejaHQ/shilpcss/issues/32
       if (item.type === "folder") {
         folderQueue.push(item);
       }
@@ -206,7 +211,7 @@ class Content {
     return [...files.filter((x) => x !== null), ...folders];
   }
 
-  private createFileMeta({ dir, parentSlugs, file }: CreateFileMetaOptions) {
+  private createFileMeta({ dir, parentSlugs, file, reservedIndex = -1 }: CreateFileMetaOptions) {
     // create file metadata
     const fileFromMeta = typeof file === "string" ? { name: file } : file;
 
@@ -231,7 +236,7 @@ class Content {
       url: this.getNavigationURL(slugs),
     };
 
-    this.addMeta({ dir, slugs, file: `${fileFromMeta.name}.mdx`, meta: fileMeta });
+    this.addMeta({ dir, slugs, file: `${fileFromMeta.name}.mdx`, meta: fileMeta, reservedIndex });
 
     return fileMeta;
   }
@@ -266,6 +271,9 @@ class Content {
       slugs = [...parentSlugs, slug];
     }
 
+    // https://github.com/JadejaHQ/shilpcss/issues/32
+    const reservedIndex = this.list.size;
+
     const folderMeta: FolderMeta = {
       type: "folder",
       isPage,
@@ -276,7 +284,11 @@ class Content {
       // link
       url: this.getNavigationURL(slugs),
       // childs
-      childs: this.createTree({ dir: folderPath, parentSlugs: slugs }),
+      childs: this.createTree({
+        dir: folderPath,
+        parentSlugs: slugs,
+        reservedIndex: isPage ? reservedIndex : -1,
+      }),
     };
 
     if (isPage) {
@@ -289,15 +301,25 @@ class Content {
         slugs,
         file: `${rawFolderName}${sep}${childMeta.name}.mdx`,
         meta: folderMeta,
+        reservedIndex,
       });
     }
 
     return folderMeta;
   }
 
-  private addMeta({ dir, slugs, file, meta }: AddMetaOptions) {
+  private addMeta({ dir, slugs, file, meta, reservedIndex = -1 }: AddMetaOptions) {
     //
-    const index = this.slugs.size;
+    let index = this.list.size;
+
+    if (reservedIndex >= 0) {
+      if (meta.type === "folder" && meta.isPage) {
+        index = reservedIndex;
+      } else if (index === reservedIndex) {
+        this.list.set(reservedIndex, {} as FullMeta);
+        index += 1;
+      }
+    }
 
     const relativePath = relative(this.paths.ROOT, dir);
 

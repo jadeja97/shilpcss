@@ -22,5 +22,6 @@
     @size min-w-40;
     @border thick-bottom;
     @bg color-base-100;
+    @text color-base-900;
   }
 }
