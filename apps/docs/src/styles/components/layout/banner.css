@@ -19,10 +19,6 @@
       @theme dark {
         @text color-accent-400;
       }
-
-      @motion safe {
-        @animate preset-wiggle loop-1;
-      }
     }
   }
 }

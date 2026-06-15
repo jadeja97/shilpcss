@@ -31,16 +31,6 @@ const sitemap = (): MetadataRoute.Sitemap => {
       trailingSlash,
     }),
 
-    // "/work-with-me"
-    createSiteMapEntry({
-      url: "/work-with-me",
-      filePath: resolve("./work-with-me/page.tsx"),
-      changeFrequency: "weekly",
-      priority: 0.9,
-      SITE_URL,
-      trailingSlash,
-    }),
-
     // "/docs", "/docs/*"
     ...createContentSiteMapEntries({
       priority: 0.8,
