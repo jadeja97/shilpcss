@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.0.0-alpha.9
+
+### Minor Changes
+
+- refactor: updated `@jadeja/ts`
+
 ## 1.0.0-alpha.8
 
 ### Minor Changes

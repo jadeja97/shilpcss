@@ -2,7 +2,7 @@
   "page": true,
   "name": "index",
   "label": "@flex",
-  "title": "flex intent",
+  "title": "Flex Intent",
   "items": [
     "base",
     "content",

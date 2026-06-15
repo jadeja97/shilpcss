@@ -2,7 +2,7 @@
   "page": true,
   "name": "index",
   "label": "@text",
-  "title": "text intent",
+  "title": "Text Intent",
   "items": [
     "align",
     "break",

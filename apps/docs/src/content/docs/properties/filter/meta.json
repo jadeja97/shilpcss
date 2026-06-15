@@ -2,7 +2,7 @@
   "page": true,
   "name": "index",
   "label": "@filter",
-  "title": "filter intent",
+  "title": "Filter Intent",
   "items": [
     "blur",
     "bright",

@@ -1,4 +1,7 @@
-import { SITE_URL } from "@/lib/constants";
+import { docsConfig } from "@docs";
+import { createRobotsRules } from "@jadeja/docs/lib/app/robots";
+
+import type { MetadataRoute } from "next";
 
 /* ============================================================================================= */
 
@@ -8,14 +11,9 @@ export const revalidate = false;
 
 /* ============================================================================================= */
 
-const robots = () => ({
-  rules: {
-    userAgent: "*",
-    allow: "/",
-  },
-
-  sitemap: `${SITE_URL}/sitemap.xml`,
-});
+const robots = (): MetadataRoute.Robots => {
+  return createRobotsRules(docsConfig.constants.SITE_URL);
+};
 
 /* ============================================================================================= */
 

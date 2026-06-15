@@ -2,7 +2,7 @@
   "page": true,
   "name": "index",
   "label": "@grid",
-  "title": "grid intent",
+  "title": "Grid Intent",
   "items": [
     "col",
     "cols",

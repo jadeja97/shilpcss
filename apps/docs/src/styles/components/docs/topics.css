@@ -1,3 +1,9 @@
+@import "@jadeja/docs/styles/components/docs/topics";
+
+/* ============================================================================================= */
+
+/*  */
+
 /* ================================================================================================
 	DOCS TOPICS
 ================================================================================================ */
@@ -18,40 +24,11 @@
       }
     }
   }
-
-  a {
-    @text case-capitalize;
-  }
-
-  /*
-		case for every link is lowercase. but, with styles it's converted to capitalize.
-		for below folders, the styles will change to lowercase
-	*/
-  :where(
-      [data-folder="components"],
-      [data-folder="properties"],
-      [data-folder="mixins"],
-      [data-folder="default styles"],
-      [data-folder="changelog"]
-    )
-    a {
-    @text case-inherit;
-  }
-}
-
-/* ============================================================================================= */
-
-[data-folder] {
-  @siblings match("[data-folder]") {
-    @space mt-14;
-  }
 }
 
 /* ============================================================================================= */
 
 [data-folder-page] ul {
-  @space pl-5;
-
   a {
     @position is-relative;
 

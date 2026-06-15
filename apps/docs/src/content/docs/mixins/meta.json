@@ -4,20 +4,20 @@
     {
       "name": "index",
       "label": "Overview",
-      "title": "mixins overview"
+      "title": "Mixins Overview"
     },
-    { "name": "aria", "label": "@aria", "title": "aria mixin" },
-    { "name": "childs", "label": "@childs", "title": "childs mixin" },
-    { "name": "data", "label": "@data", "title": "data mixin" },
-    { "name": "env", "label": "@env", "title": "env mixin" },
-    { "name": "form", "label": "@form", "title": "form mixin" },
-    { "name": "match", "label": "@match", "title": "match mixin" },
-    { "name": "motion", "label": "@motion", "title": "motion mixin" },
-    { "name": "screen", "label": "@screen", "title": "screen mixin" },
-    { "name": "self", "label": "@self", "title": "self mixin" },
-    { "name": "siblings", "label": "@siblings", "title": "siblings mixin" },
-    { "name": "state", "label": "@state", "title": "state mixin" },
-    { "name": "text", "label": "@text", "title": "text mixin" },
-    { "name": "theme", "label": "@theme", "title": "theme mixin" }
+    { "name": "aria", "label": "@aria", "title": "Aria Mixin" },
+    { "name": "childs", "label": "@childs", "title": "Childs Mixin" },
+    { "name": "data", "label": "@data", "title": "Data Mixin" },
+    { "name": "env", "label": "@env", "title": "Env Mixin" },
+    { "name": "form", "label": "@form", "title": "Form Mixin" },
+    { "name": "match", "label": "@match", "title": "Match Mixin" },
+    { "name": "motion", "label": "@motion", "title": "Motion Mixin" },
+    { "name": "screen", "label": "@screen", "title": "Screen Mixin" },
+    { "name": "self", "label": "@self", "title": "Self Mixin" },
+    { "name": "siblings", "label": "@siblings", "title": "Siblings Mixin" },
+    { "name": "state", "label": "@state", "title": "State Mixin" },
+    { "name": "text", "label": "@text", "title": "Text Mixin" },
+    { "name": "theme", "label": "@theme", "title": "Theme Mixin" }
   ]
 }

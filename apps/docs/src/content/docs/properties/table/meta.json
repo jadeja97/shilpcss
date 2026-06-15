@@ -2,7 +2,7 @@
   "page": true,
   "name": "index",
   "label": "@table",
-  "title": "table intent",
+  "title": "Table Intent",
   "items": [
     "border",
     "caption",

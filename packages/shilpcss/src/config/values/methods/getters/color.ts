@@ -1,9 +1,12 @@
-import { throwError, freshRegex, isObj, isStr } from "@jadeja/ts/lib";
+import { throwError } from "@jadeja/ts/lib/logger";
+import { freshRegex } from "@jadeja/ts/lib/operations";
+import { isObj, isStr } from "@jadeja/ts/lib/types";
 
 import { LCH_COLOR_FORMAT_PATTERN } from "@/config/index/constants";
 
+import type { NestedObject } from "@jadeja/ts/types/data";
+
 import type { ValueResolverOptions } from "@/types/config/values";
-import type { NestedObject } from "@/types/shared";
 
 /* ================================================================================================
 	GET RAW COLOR VALUE  (AS-IS FROM `propertyConfig.values`)
@@ -20,13 +23,13 @@ import type { NestedObject } from "@/types/shared";
  *
  * @returns The raw color value.
  *
- * @throws If the utility cannot be resolved to color value.
+ * @throws { Error } If the utility cannot be resolved to color value.
  */
 export const getRawColor = ({ values, tokens, utility, intentName }: ValueResolverOptions) => {
   //
   let value = "";
 
-  let obj = (values as NestedObject<string>) || {};
+  let obj = (values as NestedObject<string>) ?? {};
 
   let i = 0;
 
@@ -38,7 +41,7 @@ export const getRawColor = ({ values, tokens, utility, intentName }: ValueResolv
       break;
     }
 
-    const nestedObj = obj[token] || obj.DEFAULT || obj[500];
+    const nestedObj = obj[token] ?? obj.DEFAULT ?? obj[500];
 
     if (!nestedObj) {
       break;
@@ -75,7 +78,7 @@ export const getRawColor = ({ values, tokens, utility, intentName }: ValueResolv
  *
  * @returns The color value in oklch format with optional opacity.
  *
- * @throws If the propvided opacity in utility is out of range.
+ * @throws { Error } If the propvided opacity in utility is out of range.
  */
 export const getColor = ({
   values,

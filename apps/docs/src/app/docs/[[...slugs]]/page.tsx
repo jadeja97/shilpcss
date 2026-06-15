@@ -1,20 +1,19 @@
+import { resolve } from "node:path";
+
+import { docsConfig, contentConfig } from "@docs";
+import { ContentNavMobile } from "@jadeja/docs/components/docs/content-nav-mobile";
+import { Neighbours } from "@jadeja/docs/components/docs/neighbours";
+import { TOC } from "@jadeja/docs/components/docs/toc";
+import { Separator } from "@jadeja/docs/components/separator";
+import { getPageSEO } from "@jadeja/docs/lib/app/seo";
+import { getLastModified, getMostRecentDateTime } from "@jadeja/docs/lib/date-time";
+import { loadModule } from "@jadeja/docs/lib/load-module";
 import { notFound } from "next/navigation";
 
-import ContentNavMobile from "@/components/docs/content-nav-mobile";
-import Neighbours from "@/components/docs/neighbours";
-import TOC from "@/components/docs/toc";
-import Separator from "@/components/separator";
-import { authorLinks } from "@/data/links";
-import Content from "@/lib/content";
-import loadDocsModule from "@/lib/load-docs-module";
+import DateTime from "@/components/docs/date-time";
 
 import type { Metadata } from "next";
 import type { ReactElement } from "react";
-
-/* ============================================================================================= */
-
-// docs content info
-const content = Content.create("src/content", "docs");
 
 /* ============================================================================================= */
 
@@ -27,7 +26,9 @@ interface Params {
 }
 
 // generate all paths at build time
-export const generateStaticParams = (): Params[] => content.getAllSlugs();
+export const generateStaticParams = (): Params[] => {
+  return contentConfig.docs.getAllSlugs();
+};
 
 /* ============================================================================================= */
 
@@ -39,66 +40,36 @@ export const generateMetadata = async ({ params }: GenerateMetadataOptions): Pro
   //
   const { slugs = [] } = await params;
 
-  const docsModule = await loadDocsModule({
-    content,
-    slugs,
-  });
+  const docsModule = await loadModule({ content: contentConfig.docs, slugs });
 
   if (!docsModule) {
     return notFound();
   }
 
-  const { metadata, meta, filePath } = docsModule;
+  const { meta, filePath } = docsModule;
 
-  const title = metadata.title || meta?.metaTitle;
-  const description = (metadata.description || meta?.metaDescription) ?? "";
+  // oxlint-disable-next-line typescript/no-non-null-assertion
+  const { frontMatter, url } = meta!;
 
-  return {
-    title,
-    description,
-    keywords: (metadata.keywords || meta?.metaKeywords) ?? [],
-
-    authors: [
-      {
-        name: metadata.author || authorLinks.jadeja.name,
-        url: metadata.url || authorLinks.jadeja.url,
-      },
-    ],
-
-    alternates: {
-      canonical: meta?.url,
-      types: {
-        "text/markdown": `https://raw.githubusercontent.com/JadejaHQ/shilpcss/refs/heads/main/apps/docs/src/content/docs/${filePath}`,
-      },
+  return getPageSEO({
+    app: docsConfig.app,
+    authors: docsConfig.authors,
+    // oxlint-disable-next-line typescript/no-non-null-assertion
+    canonicalURL: url!,
+    // oxlint-disable-next-line typescript/no-non-null-assertion
+    url: url!,
+    frontMatter: {
+      ...frontMatter,
+      lastModifiedAt: getMostRecentDateTime([
+        frontMatter.lastModifiedAt,
+        getLastModified(resolve("./page.tsx")),
+        getLastModified(resolve("../layout.tsx")),
+      ]),
     },
-
-    openGraph: {
-      title,
-      description,
-      url: meta?.url,
-      type: "article",
-      siteName: "Shilp CSS",
-      locale: "en_US",
-      images: [
-        {
-          url: "/og.png",
-          width: 1200,
-          height: 630,
-        },
-      ],
-    },
-
-    twitter: {
-      title,
-      description,
-      card: "summary_large_image",
-      images: ["/og.png"],
-      site: "@shilpcss",
-      siteId: "2030301913112285184",
-      creator: "@jadeja97_",
-      creatorId: "1951893079608160256",
-    },
-  };
+    SITE_URL: docsConfig.constants.SITE_URL,
+    trailingSlash: docsConfig.trailingSlash,
+    markdown: `https://raw.githubusercontent.com/JadejaHQ/shilpcss/refs/heads/main/apps/docs/src/content/docs/${filePath}`,
+  });
 };
 
 /* ============================================================================================= */
@@ -112,28 +83,32 @@ const DocPage = async ({ params }: DocsPageProps): Promise<ReactElement> => {
   // empty string in array is `/docs` page
   const { slugs = [] } = await params;
 
-  const docsModule = await loadDocsModule({
-    content,
-    slugs,
-  });
+  const docsModule = await loadModule({ content: contentConfig.docs, slugs });
 
   if (!docsModule) {
     return notFound();
   }
 
-  const { MDXComponent, toc, neighbours } = docsModule;
+  const { MDXComponent, toc, neighbours, meta } = docsModule;
 
   return (
     <>
       <div className="content__wrapper">
         {/* mobile navigation */}
-        <ContentNavMobile topics={content.getTree()} toc={toc} />
+        <ContentNavMobile topics={contentConfig.docs.getTree()} toc={toc} />
 
-        {/* render mdx contetn */}
+        {/* render mdx content */}
         <main>
           <article className="typography">
             <MDXComponent />
           </article>
+
+          <Separator />
+
+          <DateTime
+            publishedAt={meta?.frontMatter.publishedAt}
+            lastModifiedAt={meta?.frontMatter.lastModifiedAt}
+          />
 
           <Separator />
 

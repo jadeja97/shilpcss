@@ -1,4 +1,6 @@
-import { throwError, freshRegex, isStr } from "@jadeja/ts/lib";
+import { throwError } from "@jadeja/ts/lib/logger";
+import { freshRegex } from "@jadeja/ts/lib/operations";
+import { isStr } from "@jadeja/ts/lib/types";
 
 import { INLINE_THEME_PATTERN } from "@/config/theme/constants";
 import { createUtility } from "@/config/utilities/methods";
@@ -19,9 +21,8 @@ import type { ValueResolvers } from "@/types/config/values";
  *
  * @returns Resolved css property value.
  *
- * @throws If the specified value resolver function is not found.
+ * @throws { Error } If the specified value resolver function is not found.
  */
-// oxlint-disable import/prefer-default-export
 export const resolveInlineTheme = ({ config, content, filePath }: ResolveInlineThemeOptions) => {
   //
 
@@ -35,7 +36,7 @@ export const resolveInlineTheme = ({ config, content, filePath }: ResolveInlineT
     //
     (
       rawValue: string,
-      // oxlint-disable eslint/default-param-last
+      // oxlint-disable-next-line eslint/default-param-last
       inlineValueResolveFn: keyof ValueResolvers = "default",
       inlineTokens: string,
     ) => {

@@ -1,4 +1,6 @@
-import { throwError, deepCopy, freshRegex, isFn, isStr } from "@jadeja/ts/lib";
+import { throwError } from "@jadeja/ts/lib/logger";
+import { deepCopy, freshRegex } from "@jadeja/ts/lib/operations";
+import { isFn, isStr } from "@jadeja/ts/lib/types";
 
 import { RESERVED_NAMES } from "@/config/index/constants";
 import {
@@ -50,7 +52,7 @@ export const createMixin = ({ mixinConfig, mixinName, variantName, raw }: Create
   variant = deepCopy(variant);
 
   // check for `<number>` pattern, if found, use mixin as function else use plain mixin
-  // oxlint-disable eslint/no-unmodified-loop-condition
+  // oxlint-disable-next-line eslint/no-unmodified-loop-condition
   while (variant?.length) {
     const nestedVariant = (variant as string[])
       ?.pop()

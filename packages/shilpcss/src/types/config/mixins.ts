@@ -1,6 +1,6 @@
 import type mixins from "@/config/mixins/data";
 import type { ShilpConfig } from "@/types/config";
-import type { PreventReservedKeys } from "@/types/shared";
+import type { PreventReservedKeys } from "@/types/utils";
 
 /* ================================================================================================
 	MIXIN METHODS

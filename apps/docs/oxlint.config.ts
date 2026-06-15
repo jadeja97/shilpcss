@@ -1,20 +1,11 @@
-import { next } from "@jadeja/ts/configs/oxlint";
+import oxlintNext from "@jadeja/ts/configs/oxlint/next";
 import { defineConfig } from "oxlint";
 
-import type { OxlintConfig } from "@jadeja/ts/configs/oxlint/types";
+import type { OxlintConfig } from "oxlint";
 
 /* ============================================================================================= */
 
-const eslintIdLength = next.rules["eslint/id-length"];
-eslintIdLength[1].exceptions = [...eslintIdLength[1].exceptions, "h", "m", "p", "w", "y", "z"];
-
-const oxlintConfig: OxlintConfig = defineConfig({
-  ...next,
-  rules: {
-    ...next.rules,
-    "eslint/id-length": eslintIdLength,
-  },
-});
+const oxlintConfig: OxlintConfig = defineConfig({ ...oxlintNext });
 
 /* ============================================================================================= */
 

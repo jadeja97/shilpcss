@@ -3,7 +3,8 @@
 
 /* ============================================================================================= */
 
-import type { NestedObject } from "@/types";
+import type { NestedObject } from "@jadeja/ts/types/data";
+
 import type { ComponentConfig, ComponentGenerateTreeOptions } from "@/types/config/components";
 
 /* ================================================================================================

@@ -4,22 +4,22 @@
     {
       "name": "index",
       "label": "Overview",
-      "title": "components overview"
+      "title": "Components Overview"
     },
     {
       "name": "container",
       "label": ".container",
-      "title": "container component"
+      "title": "Container Component"
     },
     {
       "name": "limit-lines",
       "label": ".limit-lines",
-      "title": "limit lines component"
+      "title": "Limit Lines Component"
     },
     {
       "name": "screen-reader",
       "label": ".screen-reader",
-      "title": "screen reader component"
+      "title": "Screen Reader Component"
     }
   ]
 }

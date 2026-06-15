@@ -1,4 +1,10 @@
+import { deepMergeObj } from "@jadeja/ts/lib/operations";
+
+import { docsConfig } from "./docs.config";
+
 import type { ShilpConfig } from "shilpcss/types";
+
+/* ============================================================================================= */
 
 const shilpConfig: ShilpConfig = {
   //
@@ -22,27 +28,10 @@ const shilpConfig: ShilpConfig = {
       },
     },
 
-    properties: {
-      layout: {
-        scroll: {
-          fade: {
-            DEFAULT: {
-              property: "--scroll-fade-direction: <v><i>;",
-              values: {
-                x: "to right",
-                y: "to bottom",
-              },
-            },
-            size: {
-              property: "--scroll-fade-size: <v><i>;",
-              resolve: "spacing",
-              themeKey: "spacing",
-            },
-          },
-        },
-      },
-    },
+    properties: deepMergeObj(docsConfig.shilpConfig.extend?.properties ?? {}, {}),
   },
 };
+
+/* ============================================================================================= */
 
 export default shilpConfig;

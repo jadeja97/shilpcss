@@ -3,22 +3,52 @@
   "items": [
     {
       "name": "index",
-      "label": "overview",
-      "title": "values overview"
+      "label": "Overview",
+      "title": "Values Overview"
     },
-    "angles",
-    "blend",
-    "border",
-    "colors",
-    "filter",
+    {
+      "name": "angles",
+      "label": "Angles"
+    },
+    {
+      "name": "blend",
+      "label": "Blend"
+    },
+    {
+      "name": "border",
+      "label": "Border"
+    },
+    {
+      "name": "colors",
+      "label": "Colors"
+    },
+    {
+      "name": "filter",
+      "label": "Filter"
+    },
     {
       "name": "flex-grid",
       "label": "Flex & Grid"
     },
-    "flow",
-    "global-values",
-    "numbers",
-    "spacing",
-    "time"
+    {
+      "name": "flow",
+      "label": "Flow"
+    },
+    {
+      "name": "global-values",
+      "label": "Global Values"
+    },
+    {
+      "name": "numbers",
+      "label": "Numbers"
+    },
+    {
+      "name": "spacing",
+      "label": "Spacing"
+    },
+    {
+      "name": "time",
+      "label": "Time"
+    }
   ]
 }

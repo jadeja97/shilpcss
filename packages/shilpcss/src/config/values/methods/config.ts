@@ -1,4 +1,5 @@
-import { deepMergeObj, isObj } from "@jadeja/ts/lib";
+import { deepMergeObj } from "@jadeja/ts/lib/operations";
+import { isObj } from "@jadeja/ts/lib/types";
 
 import values from "@/config/values/data";
 import valueResolvers from "@/config/values/methods/resolvers";

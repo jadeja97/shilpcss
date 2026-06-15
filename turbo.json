@@ -17,6 +17,10 @@
 		"fix": {
 			"cache": false
 		},
+		"build:nc": {
+			"dependsOn": ["^build:nc"],
+			"outputs": [".next/**", "!.next/cache/**", "!.next/dev/**", "dist/**"]
+		},
 		"build": {
 			"dependsOn": ["check"],
 			"outputs": [".next/**", "!.next/cache/**", "!.next/dev/**", "dist/**"]

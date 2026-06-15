@@ -1,4 +1,5 @@
-import { throwError, deepCopy, deepMergeObj } from "@jadeja/ts/lib";
+import { throwError } from "@jadeja/ts/lib/logger";
+import { deepCopy, deepMergeObj } from "@jadeja/ts/lib/operations";
 
 import { getPropertyValue } from "@/config/values/methods";
 
@@ -20,7 +21,6 @@ import type { GetPropertiesOptions, PropertyConfigValues } from "@/types/config/
  *
  * @returns The generated property(ies) string.
  */
-// oxlint-disable import/prefer-default-export
 export const getProperties = ({
   config,
   propertyConfig,
@@ -34,7 +34,7 @@ export const getProperties = ({
 		RESOLVE PROPERTY VALUES OBJECT
 	============================================================================================== */
 
-  propertyConfig.values ??= {};
+  propertyConfig.values ??= {} as PropertyConfigValues;
 
   // special --> { property: "<v>", values: { ... } }
   // no `;` semicolon, no `<i>` important flag and no `<n>` negative. this will be provided in value.
@@ -42,7 +42,9 @@ export const getProperties = ({
   // NOTE: special property just don't support global values.
   if (!propertyConfig.special) {
     //
-    const values = deepCopy(config.theme?.["globalValues" as keyof typeof config.theme] ?? {});
+    const values: PropertyConfigValues = deepCopy(
+      config.theme?.["globalValues" as keyof typeof config.theme] ?? {},
+    );
 
     if (propertyConfig.themeKey) {
       //
@@ -63,9 +65,9 @@ export const getProperties = ({
     }
 
     // then extend or override with values defined in property config values
-    deepMergeObj(values, propertyConfig.values || {});
+    deepMergeObj(values, propertyConfig.values ?? ({} as PropertyConfigValues));
     // update the values
-    propertyConfig.values = values as PropertyConfigValues;
+    propertyConfig.values = values;
   }
 
   /* ==============================================================================================

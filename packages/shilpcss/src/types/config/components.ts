@@ -1,6 +1,7 @@
+import type { NestedObject } from "@jadeja/ts/types/data";
+
 import type components from "@/config/components/data";
 import type { ShilpConfig } from "@/types/config";
-import type { NestedObject } from "@/types/shared";
 
 /* ================================================================================================
 	COMPONENT METHODS

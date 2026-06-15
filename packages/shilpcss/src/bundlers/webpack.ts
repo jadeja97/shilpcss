@@ -1,11 +1,13 @@
 import { readFileSync, writeFileSync } from "node:fs";
 import { resolve } from "node:path";
 
-// oxlint-disable import/no-namespace
+// oxlint-disable-next-line import/no-namespace
 import * as webpack from "webpack";
-// oxlint-disable import/no-namespace
-import { throwError } from "@jadeja/ts/lib";
+// oxlint-disable-next-line import/no-namespace
 import * as webpackSources from "webpack-sources";
+
+//
+import { throwError } from "@jadeja/ts/lib/logger";
 
 import preProcess from "@/bundlers/methods/pre-process";
 import process from "@/bundlers/methods/process";
@@ -21,7 +23,7 @@ import type { ShilpConfig } from "@/types/config";
 // fix cjs and esm conflict
 const { Compilation } = webpack.default;
 // @ts-expect-error conflict between actual exports and typescript types
-// oxlint-disable typescript/no-unsafe-assignment
+// oxlint-disable-next-line typescript/no-unsafe-assignment
 const { RawSource } = webpackSources.default;
 
 /* ============================================================================================= */
@@ -59,10 +61,11 @@ class WebpackPluginShilpCSS {
     //
     compiler.options.optimization.minimizer ??= [];
 
-    compiler.options.optimization.minimizer.filter(
-      (plugin) =>
-        !["CssMinimizerPlugin", "LightningCssMinimizerPlugin"].includes(plugin.constructor?.name),
-    );
+    compiler.options.optimization.minimizer.filter((plugin) => {
+      return !["CssMinimizerPlugin", "LightningCssMinimizerPlugin"].includes(
+        plugin.constructor?.name,
+      );
+    });
   }
 
   /* ==============================================================================================
@@ -101,7 +104,7 @@ class WebpackPluginShilpCSS {
                 content: preProcessedContent ?? "",
               });
 
-              // oxlint-disable typescript/no-unsafe-call, typescript/no-unsafe-argument
+              // oxlint-disable-next-line typescript/no-unsafe-call, typescript/no-unsafe-argument
               compilation.updateAsset(filePath, new RawSource(processedContent ?? ""));
             }
           }
@@ -140,14 +143,14 @@ class WebpackPluginShilpCSS {
             const css = readFileSync(resolvedFilePath, "utf8");
 
             // NOTE: There's issue if using async/await here.
-            // oxlint-disable promise/catch-or-return, promise/no-floating-promises
+            // oxlint-disable-next-line promise/catch-or-return, promise/no-floating-promises
             purge({
               filePath: resolvedFilePath,
               css,
               options: this.config.purge,
               source: this.config.source,
               //
-              // oxlint-disable promise/always-return, promise/prefer-await-to-then
+              // oxlint-disable-next-line promise/always-return, promise/prefer-await-to-then
             }).then((purged) => {
               //
               const transpiled = transpile({

@@ -1,5 +1,15 @@
 # Changelog
 
+## 1.0.0-alpha.10
+
+### Minor Changes
+
+- refactor: infra.
+  - add no check script
+  - update oxlint to fix memeory issue
+  - fix `docs.yml` to remove additional checking
+  - fix lint staged
+
 ## 1.0.0-alpha.9
 
 ### Minor Changes

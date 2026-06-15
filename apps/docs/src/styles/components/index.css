@@ -1,12 +1,13 @@
 @import "./docs";
-@import "./layouts";
-@import "./loaders";
+@import "./layout";
 
-@import "./button";
-@import "./copy-to-clipboard";
-@import "./dialog";
-@import "./dropdown";
-@import "./list";
-@import "./scroll-fade";
-@import "./separator";
-@import "./sheet";
+@import "@jadeja/docs/styles/components/loaders/index";
+
+@import "@jadeja/docs/styles/components/button";
+@import "@jadeja/docs/styles/components/copy-to-clipboard";
+@import "@jadeja/docs/styles/components/dialog";
+@import "@jadeja/docs/styles/components/dropdown";
+@import "@jadeja/docs/styles/components/list";
+@import "@jadeja/docs/styles/components/scroll-fade";
+@import "@jadeja/docs/styles/components/separator";
+@import "@jadeja/docs/styles/components/sheet";

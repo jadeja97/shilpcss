@@ -1,4 +1,5 @@
-import { logDivider, logNewLine, throwError, freshRegex } from "@jadeja/ts/lib";
+import { error, printBlankLine, printSeparator, throwError } from "@jadeja/ts/lib/logger";
+import { freshRegex } from "@jadeja/ts/lib/operations";
 
 import { RESERVED_NAMES } from "@/config/index/constants";
 import { INTENT_PATTERN } from "@/config/intents/constants";
@@ -19,7 +20,7 @@ import type { ProcessOptions } from "@/types/bundlers/methods/process";
  *
  * @returns The processed content.
  *
- * @throws If an error occurs during processing or intent config not found.
+ * @throws { Error } If an error occurs during processing or intent config not found.
  */
 const process = ({ config, content, filePath }: ProcessOptions) => {
   //
@@ -78,12 +79,14 @@ const process = ({ config, content, filePath }: ProcessOptions) => {
     // 2. after processing all utilities
     return resolveInlineTheme({ config, content: processedContent, filePath });
     //
-  } catch (error) {
+  } catch (err) {
     //
-    logDivider();
-    logNewLine(`Error: Processing :: ${filePath}`);
-    logDivider();
-    return throwError(error);
+    printSeparator();
+    printBlankLine();
+    error(`Error: Processing :: ${filePath}`);
+    printBlankLine();
+    printSeparator();
+    return throwError(err);
   }
 };
 

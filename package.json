@@ -1,7 +1,7 @@
 {
 	"name": "shilpcss-monorepo",
 	"description": "Shilp CSS monorepo",
-	"version": "1.0.0-alpha.9",
+	"version": "1.0.0-alpha.10",
 	"private": true,
 	"type": "module",
 	"scripts": {
@@ -10,13 +10,14 @@
 		"check": "turbo run check",
 		"fix": "turbo run fix",
 		"build": "turbo run build",
+		"build:nc": "turbo run build:nc",
 		"pkg:publish": "turbo run publish-it"
 	},
 	"devDependencies": {
 		"husky": "^9.1.7",
 		"lint-staged": "^17.0.5",
 		"oxfmt": "^0.48.0",
-		"oxlint": "^1.63.0",
+		"oxlint": "~1.65.0",
 		"oxlint-tsgolint": "^0.22.1",
 		"turbo": "^2.9.14"
 	},

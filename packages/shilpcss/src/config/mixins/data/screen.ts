@@ -3,7 +3,7 @@
 
 /* ============================================================================================= */
 
-import { throwError } from "@jadeja/ts/lib";
+import { throwError } from "@jadeja/ts/lib/logger";
 
 import type { MixinConfigResolveOptions } from "@/types/config/mixins";
 
@@ -22,7 +22,7 @@ import type { MixinConfigResolveOptions } from "@/types/config/mixins";
  *
  * @returns The resolved media query string for the breakpoint singel or range.
  *
- * @throws If the specified breakpoints are not found in the values.
+ * @throws { Error } If the specified breakpoints are not found in the values.
  */
 const getBreakpointRange = ({
   values,
@@ -65,7 +65,7 @@ const getBreakpointRange = ({
  *
  * @returns The resolved media query string for the breakpoint.
  *
- * @throws If breakpoint not found.
+ * @throws { Error } If breakpoint not found.
  */
 const getSingleBreakpoint = ({
   values,
@@ -112,7 +112,7 @@ const getSingleBreakpoint = ({
  *
  * @returns The resolved breakpoint mixin selector and/or definition.
  *
- * @throws If range breakpoints uses `max-*` breakpoint.
+ * @throws { Error } If range breakpoints uses `max-*` breakpoint.
  */
 const resolveScreen = ({ config, variantName, raw }: MixinConfigResolveOptions) => {
   //

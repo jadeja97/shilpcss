@@ -53,10 +53,13 @@ export const resolveIntent = ({
   intentName,
   important,
   rawUtilities,
-}: ResolveIntentOptions) =>
-  resolveUtilities({
+}: ResolveIntentOptions) => {
+  return resolveUtilities({
     config,
     intentName,
     important,
-    utilities: rawUtilities.split(" ").map((utility) => createUtility(utility)),
+    utilities: rawUtilities.split(" ").map((utility) => {
+      return createUtility(utility);
+    }),
   });
+};

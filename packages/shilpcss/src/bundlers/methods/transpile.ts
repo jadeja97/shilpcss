@@ -1,4 +1,5 @@
-import { logDivider, logNewLine, throwError, freshRegex } from "@jadeja/ts/lib";
+import { error, printBlankLine, printSeparator, throwError } from "@jadeja/ts/lib/logger";
+import { freshRegex } from "@jadeja/ts/lib/operations";
 import browserslist from "browserslist";
 import { transform, browserslistToTargets } from "lightningcss";
 
@@ -23,7 +24,7 @@ import type { TranspileOptions, TranspileOutput } from "@/types/bundlers/methods
  *
  * @returns An object containing the transpiled CSS code and source map.
  *
- * @throws If an error occurs during transpilation.
+ * @throws { Error } If an error occurs during transpilation.
  */
 const transpile = ({ css, options, filePath, colorFormat }: TranspileOptions): TranspileOutput => {
   //
@@ -40,7 +41,9 @@ const transpile = ({ css, options, filePath, colorFormat }: TranspileOptions): T
       // NOTE: due to this, can't use `@supports` with oklch support, to add any colors, as of now
       // TODO: look into this?
       finalCSS = finalCSS
-        .replace(freshRegex(LCH_COLOR_FORMAT_PATTERN), (lchStr) => lchToRgb({ str: lchStr }).str)
+        .replace(freshRegex(LCH_COLOR_FORMAT_PATTERN), (lchStr) => {
+          return lchToRgb({ str: lchStr }).str;
+        })
         .replace(freshRegex(/oklch/g), "rgb");
     }
 
@@ -87,19 +90,22 @@ const transpile = ({ css, options, filePath, colorFormat }: TranspileOptions): T
 
     return { css: code.toString(), map };
     //
-  } catch (error) {
+  } catch (err) {
     //
-    logDivider();
-    logNewLine(`Error: Transpiling :: ${filePath}`);
-    logDivider();
-    return throwError(error);
+    printSeparator();
+    printBlankLine();
+    error(`Error: Transpiling :: ${filePath}`);
+    printBlankLine();
+    printSeparator();
+    return throwError(err);
   }
 };
 
 /* ============================================================================================= */
 
-const createCSSTargets = (cssTarget: string, opts?: BrowsersListOptions) =>
-  browserslistToTargets(browserslist(cssTarget, opts));
+const createCSSTargets = (cssTarget: string, opts?: BrowsersListOptions) => {
+  return browserslistToTargets(browserslist(cssTarget, opts));
+};
 
 /* ============================================================================================= */
 

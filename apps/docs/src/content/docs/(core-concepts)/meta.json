@@ -4,14 +4,32 @@
     {
       "name": "index",
       "slug": "core-concepts",
-      "label": "overview",
-      "title": "core concepts overview"
+      "label": "Overview",
+      "title": "Core Concepts Overview"
     },
-    "browser-compatibility",
-    "styling-with-intent",
-    "colors",
-    "dark-mode",
-    "responsive-design",
-    "theming"
+    {
+      "name": "browser-compatibility",
+      "label": "Browser Compatibility"
+    },
+    {
+      "name": "styling-with-intent",
+      "label": "Styling With Intent"
+    },
+    {
+      "name": "colors",
+      "label": "Colors"
+    },
+    {
+      "name": "dark-mode",
+      "label": "Dark Mode"
+    },
+    {
+      "name": "responsive-design",
+      "label": "Responsive Design"
+    },
+    {
+      "name": "theming",
+      "label": "Theming"
+    }
   ]
 }

@@ -2,6 +2,6 @@
   "page": true,
   "name": "index",
   "label": "@svg",
-  "title": "svg intent",
+  "title": "SVG Intent",
   "items": ["fill", "stroke"]
 }

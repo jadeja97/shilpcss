@@ -2,18 +2,10 @@
   "extends": "@jadeja/ts/configs/ts/next",
   "compilerOptions": {
     "paths": {
-      "@icons": ["./src/components/assets/icons.tsx"],
-      "@/*": ["./src/*"]
+      "@/*": ["./src/*"],
+      "@docs": ["./docs.config.ts"]
     }
   },
-  "include": [
-    "./src",
-    "./scripts",
-    "./shilp.config.ts",
-    "./next.config.ts",
-    "./oxfmt.config.ts",
-    "./oxlint.config.ts",
-    "./next-env.d.ts"
-  ],
+  "include": ["./src", "./next-env.d.ts"],
   "exclude": ["./node_modules", "dist", ".next"]
 }

@@ -1,4 +1,4 @@
-import { throwError } from "@jadeja/ts/lib";
+import { throwError } from "@jadeja/ts/lib/logger";
 
 import { getProperties } from "@/config/properties/methods";
 
@@ -41,7 +41,7 @@ export const createUtility = (rawUtility: string): UtilityDetails => {
   //
   // property config explicitely need to add `variant: true` flag to make this count as variant.
   if (value.includes("/")) {
-    // oxlint-disable eslint/no-inline-comments
+    // oxlint-disable-next-line eslint/no-inline-comments
     const [_value, _variant /* , ..._rest */] = value.split("/");
     value = _value;
     variant = _variant;
@@ -65,7 +65,7 @@ export const createUtility = (rawUtility: string): UtilityDetails => {
  *
  * @returns The generated CSS as a string.
  *
- * @throws If property configuration cannot be resolved or if theme-key is invalid.
+ * @throws { Error } If property configuration cannot be resolved or if theme-key is invalid.
  */
 export const resolveUtilities = ({
   config,
@@ -97,7 +97,7 @@ export const resolveUtilities = ({
     const tokens = utility.value.split("-");
 
     // obj --> { property: "...", values: { ... } };
-    let propertyConfig: PropertyConfig = {} as PropertyConfig;
+    let propertyConfig = {} as PropertyConfig;
 
     // overflow-x-hidden --> ["hidden"]; color-blue-500 --> ["blue", "500"];
     let valueTokens: string[] = [];

@@ -1,4 +1,5 @@
-import { throwError, isFn } from "@jadeja/ts/lib";
+import { throwError } from "@jadeja/ts/lib/logger";
+import { isFn } from "@jadeja/ts/lib/types";
 
 import type {
   GetPropertyValueOptions,
@@ -21,7 +22,7 @@ import type {
  *
  * @returns The selected value getter function.
  *
- * @throws If the specified resolver function does not exist.
+ * @throws { Error } If the specified resolver function does not exist.
  */
 export const getValuesGetterMethod = ({
   resolveFn = "default",
@@ -59,7 +60,7 @@ export const getValuesGetterMethod = ({
  *
  * @returns The resolved property value.
  *
- * @throws If the specified resolver function is not found.
+ * @throws { Error } If the specified resolver function is not found.
  */
 export const getPropertyValue = ({
   config,

@@ -1,4 +1,6 @@
-import { throwError, deepMergeObj, isFn, isStr } from "@jadeja/ts/lib";
+import { throwError } from "@jadeja/ts/lib/logger";
+import { deepMergeObj } from "@jadeja/ts/lib/operations";
+import { isFn, isStr } from "@jadeja/ts/lib/types";
 
 import { IMPORT_COMPONENTS_PLACEHOLDER } from "@/config/components/constants";
 
@@ -56,9 +58,9 @@ const composeGeneratedCSS = ({ config, componentName, tree }: ComponentsComposeC
  *
  * @returns The content with component CSS injected.
  */
-// oxlint-disable import/prefer-default-export
-export const generateComponents = ({ config, content }: ComponentsGenerateCSSOptions) =>
-  content.replace(IMPORT_COMPONENTS_PLACEHOLDER, () => {
+
+export const generateComponents = ({ config, content }: ComponentsGenerateCSSOptions) => {
+  return content.replace(IMPORT_COMPONENTS_PLACEHOLDER, () => {
     //
     let defineComponents = "";
 
@@ -104,7 +106,7 @@ export const generateComponents = ({ config, content }: ComponentsGenerateCSSOpt
             content,
             componentName,
             componentConfig,
-          }) || {};
+          }) ?? {};
 
         const mergeTree =
           componentConfig.mergeTree?.({
@@ -136,6 +138,7 @@ export const generateComponents = ({ config, content }: ComponentsGenerateCSSOpt
 
     return defineComponents;
   });
+};
 
 /* ================================================================================================
 	RESOLVE TREE

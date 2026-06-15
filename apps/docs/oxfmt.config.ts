@@ -1,11 +1,11 @@
-import { next } from "@jadeja/ts/configs/oxfmt";
+import oxfmtNext from "@jadeja/ts/configs/oxfmt/next";
 import { defineConfig } from "oxfmt";
 
-import type { OxfmtConfig } from "@jadeja/ts/configs/oxfmt/types";
+import type { OxfmtConfig } from "oxfmt";
 
 /* ============================================================================================= */
 
-const oxfmtConfig: OxfmtConfig = defineConfig({ ...next });
+const oxfmtConfig: OxfmtConfig = defineConfig({ ...oxfmtNext });
 
 /* ============================================================================================= */
 

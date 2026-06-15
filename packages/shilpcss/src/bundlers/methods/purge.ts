@@ -1,12 +1,6 @@
-import {
-  logDivider,
-  logNewLine,
-  throwError,
-  warnNewLine,
-  freshRegex,
-  isArr,
-  isStr,
-} from "@jadeja/ts/lib";
+import { error, printBlankLine, printSeparator, throwError, warn } from "@jadeja/ts/lib/logger";
+import { freshRegex } from "@jadeja/ts/lib/operations";
+import { isArr, isStr } from "@jadeja/ts/lib/types";
 import { PurgeCSS } from "purgecss";
 
 import { PURGECSS_SOURCE_FOR_FRAMEWORK } from "@/config/index/constants";
@@ -31,7 +25,7 @@ import type { PurgeConfigOutput, PurgeOptions } from "@/types/bundlers/methods/p
  *
  * @returns An object containing the purged CSS and rejected CSS.
  *
- * @throws If an error occurs during purging.
+ * @throws { Error } If an error occurs during purging.
  */
 const purge = async ({
   css,
@@ -71,9 +65,7 @@ const purge = async ({
 		============================================================================================ */
 
     // add purge sources to scan
-    const preDefinedSource = isStr(source)
-      ? PURGECSS_SOURCE_FOR_FRAMEWORK[source as keyof typeof PURGECSS_SOURCE_FOR_FRAMEWORK]
-      : source;
+    const preDefinedSource = isStr(source) ? PURGECSS_SOURCE_FOR_FRAMEWORK[source] : source;
     if (isArr(preDefinedSource) && preDefinedSource.length > 0) {
       defaultOptions.content = preDefinedSource;
     }
@@ -98,12 +90,14 @@ const purge = async ({
 
     if (
       // @ts-expect-error type issue here
-      finalOptions.css[0].raw
-        // oxlint-disable typescript/no-unsafe-member-access, typescript/no-unsafe-call
-        .trim() === ""
+      // oxlint-disable-next-line typescript/no-unsafe-member-access, typescript/no-unsafe-call
+      finalOptions.css[0].raw.trim() === ""
     ) {
-      logDivider();
-      warnNewLine(`Warning: Empty CSS file :: ${filePath}`);
+      printSeparator();
+      printBlankLine();
+      warn(`Warning: Empty CSS file :: ${filePath}`);
+      printBlankLine();
+      printSeparator();
       return { css: "" };
     }
 
@@ -114,13 +108,14 @@ const purge = async ({
     finalOptions.css = [
       {
         // @ts-expect-error type issue here
+        // oxlint-disable-next-line typescript/no-unsafe-call, typescript/no-unsafe-assignment
         raw: finalOptions.css[0].raw
-          // oxlint-disable typescript/no-unsafe-member-access, typescript/no-unsafe-assignment
+          // oxlint-disable-next-line typescript/no-unsafe-member-access
           .replace(
             freshRegex(/\.purge-ignore-start\s*\{[\s\S]*?\}/g),
             "/* purgecss start ignore */",
           )
-          // oxlint-disable typescript/no-unsafe-member-access, typescript/no-unsafe-call, typescript/no-unsafe-assignment
+          // oxlint-disable-next-line typescript/no-unsafe-member-access
           .replace(freshRegex(/\.purge-ignore-end\s*\{[\s\S]*?\}/g), "/* purgecss end ignore */"),
       },
     ];
@@ -136,9 +131,13 @@ const purge = async ({
     const rejectedCSS = purged[0]?.rejectedCss;
 
     if (rejectedCSS) {
-      logDivider();
-      warnNewLine("Warning: Rejected CSS while Purging");
-      warnNewLine(rejectedCSS);
+      printSeparator();
+      printBlankLine();
+      warn("Warning: Rejected CSS while Purging");
+      printBlankLine();
+      warn(rejectedCSS);
+      printSeparator();
+      printBlankLine();
     }
 
     if (!(isStr(purgedCSS) && purgedCSS.trim().length > 0)) {
@@ -147,12 +146,14 @@ const purge = async ({
 
     return { css: purgedCSS, rejectedCSS };
     //
-  } catch (error) {
+  } catch (err) {
     //
-    logDivider();
-    logNewLine(`Error: Purging :: ${filePath}`);
-    logDivider();
-    return throwError(error);
+    printSeparator();
+    printBlankLine();
+    error(`Error: Purging :: ${filePath}`);
+    printBlankLine();
+    printSeparator();
+    return throwError(err);
   }
 };
 

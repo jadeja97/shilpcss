@@ -1,33 +1,29 @@
+import { resolve } from "node:path";
+
+import createMDX from "@next/mdx";
 import ShilpCSS from "shilpcss/bundlers/webpack";
 
+import { docsConfig } from "./docs.config";
 import shilpConfig from "./shilp.config";
-import processMDX from "./src/markdown/lib/process-mdx";
 
 import type { NextConfig } from "next";
-import type { Configuration, ResolveOptions } from "webpack";
+import type { Configuration } from "webpack";
 
 /* ============================================================================================= */
 
-const nextConfig: NextConfig = {
-  //
-  reactCompiler: true,
-  reactStrictMode: false,
-  devIndicators: false,
-  output: "export",
-  distDir: "dist",
-  pageExtensions: ["ts", "tsx", "mdx"],
-  typescript: {
-    ignoreBuildErrors: true,
-  },
+/**
+ * configures the MDX parser with Markdown and HTML processing plugins.
+ */
+const processMDX = createMDX(docsConfig.mdxConfig);
 
+/* ============================================================================================= */
+
+const nextConfig: NextConfig = processMDX({
   /* ==============================================================================================
-		STATIC HOST SETUP - GITHUB PAGES
+		NEXT CONFIG PRESET
 	============================================================================================== */
 
-  trailingSlash: true,
-  images: {
-    unoptimized: true,
-  },
+  ...docsConfig.getNextConfig({ githubPages: true }),
 
   /* ==============================================================================================
 		CUSTOMIZE BUNDLER
@@ -35,28 +31,22 @@ const nextConfig: NextConfig = {
 
   webpack: (config: Configuration) => {
     //
-    config.plugins?.push(new ShilpCSS(shilpConfig));
+    const webpackConfig = docsConfig.getWebpackConfig(config, {
+      plugins: [new ShilpCSS(shilpConfig)],
+      alias: {
+        // webpack can't resolve the dynamic module without this
+        "@/content": resolve(import.meta.dirname, "src/content"),
 
-    config.resolve ??= {} as ResolveOptions;
-
-    config.resolve.alias = Object.assign(config.resolve.alias ?? {}, {
-      "@icons": "./src/components/assets/icons.jsx",
-      "@": "./src",
+        // normal alias (also defined in `tsconfig.json`)
+        "@docs": "./docs.config.ts",
+        "@": "./src",
+      },
     });
 
-    return config;
+    return webpackConfig;
   },
-
-  /* ==============================================================================================
-		EXPERIMENTAL FEATURES
-	============================================================================================== */
-
-  experimental: {
-    turbopackFileSystemCacheForDev: false,
-    turbopackFileSystemCacheForBuild: false,
-  },
-};
+});
 
 /* ============================================================================================= */
 
-export default processMDX(nextConfig);
+export default nextConfig;

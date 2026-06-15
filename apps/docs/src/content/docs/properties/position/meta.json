@@ -2,6 +2,6 @@
   "page": true,
   "name": "index",
   "label": "@position",
-  "title": "position intent",
+  "title": "Position Intent",
   "items": ["is", "inset", "top", "bottom", "left", "right", "x", "y"]
 }

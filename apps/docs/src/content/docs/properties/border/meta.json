@@ -2,6 +2,6 @@
   "page": true,
   "name": "index",
   "label": "@border",
-  "title": "border intent",
+  "title": "Border Intent",
   "items": ["color", "rounded", "style", "thick"]
 }

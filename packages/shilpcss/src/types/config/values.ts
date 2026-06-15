@@ -1,10 +1,11 @@
+import type { NestedObject } from "@jadeja/ts/types/data";
+
 import type values from "@/config/values/data";
 import type valueResolvers from "@/config/values/methods/resolvers";
 import type { ShilpConfig } from "@/types/config";
-import type { Properties, PropertyConfig } from "@/types/config/properties";
+import type { Properties, PropertyConfig, PropertyConfigValues } from "@/types/config/properties";
 import type { InlineThemeConfig } from "@/types/config/theme";
 import type { UtilityDetails } from "@/types/config/utilities";
-import type { NestedObject } from "@/types/shared";
 
 /* ================================================================================================
 	VALUE METHODS
@@ -52,7 +53,7 @@ export interface GetPropertyValueOptions {
   /**
    * values object used for lookup.
    */
-  values: PropertyConfig["values"];
+  values: PropertyConfigValues;
   /**
    * split utility details.
    */

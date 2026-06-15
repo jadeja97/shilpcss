@@ -2,7 +2,7 @@
   "page": true,
   "name": "index",
   "label": "@mask",
-  "title": "mask intent",
+  "title": "Mask Intent",
   "items": [
     "clip",
     "combine",

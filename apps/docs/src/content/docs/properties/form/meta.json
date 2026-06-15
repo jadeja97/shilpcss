@@ -2,6 +2,6 @@
   "page": true,
   "name": "index",
   "label": "@form",
-  "title": "form intent",
+  "title": "Form Intent",
   "items": ["accent", "resize", "skin"]
 }

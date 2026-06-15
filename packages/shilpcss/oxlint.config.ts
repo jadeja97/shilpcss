@@ -1,17 +1,17 @@
-import { lib } from "@jadeja/ts/configs/oxlint";
+import oxlintLib from "@jadeja/ts/configs/oxlint/lib";
 import { defineConfig } from "oxlint";
 
-import type { OxlintConfig } from "@jadeja/ts/configs/oxlint/types";
+import type { OxlintConfig } from "oxlint";
 
 /* ============================================================================================= */
 
-const eslintIdLength = lib.rules["eslint/id-length"];
+const eslintIdLength = oxlintLib.rules["eslint/id-length"];
 eslintIdLength[1].exceptions = [...eslintIdLength[1].exceptions, "h", "m", "p", "w", "y", "z"];
 
 const oxlintConfig: OxlintConfig = defineConfig({
-  ...lib,
+  ...oxlintLib,
   rules: {
-    ...lib.rules,
+    ...oxlintLib.rules,
     "eslint/id-length": eslintIdLength,
   },
 });

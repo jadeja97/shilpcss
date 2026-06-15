@@ -1,6 +1,6 @@
 // oxlint-disable oxc/no-barrel-file
 
-export type * from "@/types/shared";
+export type * from "@/types/utils";
 
 export type * from "@/types/config";
 export type * from "@/types/config/components";

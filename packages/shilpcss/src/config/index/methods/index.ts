@@ -1,4 +1,4 @@
-import { isObj } from "@jadeja/ts/lib";
+import { isObj } from "@jadeja/ts/lib/types";
 
 import resolveComponentsConfig from "@/config/components/methods/config";
 import resolveIntentsConfig from "@/config/intents/methods/config";

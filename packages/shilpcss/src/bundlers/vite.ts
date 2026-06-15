@@ -1,7 +1,7 @@
 import { readFileSync, writeFileSync } from "node:fs";
 import { resolve } from "node:path";
 
-import { throwError } from "@jadeja/ts/lib";
+import { throwError } from "@jadeja/ts/lib/logger";
 
 import preProcess from "@/bundlers/methods/pre-process";
 import process from "@/bundlers/methods/process";
@@ -21,15 +21,17 @@ import type { ShilpConfig } from "@/types/config";
  *
  * @returns Plain css and it's mapping.
  */
-const vitePluginShilpCSS = (config: ShilpConfig) => ({
-  //
-  name: "vite-plugin-shilpcss",
+const vitePluginShilpCSS = (config: ShilpConfig) => {
+  return {
+    //
+    name: "vite-plugin-shilpcss",
 
-  configResolved: disableDefaultCSSMinification.bind(null),
+    configResolved: disableDefaultCSSMinification.bind(null),
 
-  transform: transform.bind(null, config),
-  writeBundle: writeBundle.bind(null, config),
-});
+    transform: transform.bind(null, config),
+    writeBundle: writeBundle.bind(null, config),
+  };
+};
 
 /* ================================================================================================
 	DISABLE DEFAULT CSS MINIFICATION - MODIFY VITE CONFIG

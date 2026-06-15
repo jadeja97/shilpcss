@@ -2,6 +2,6 @@
   "page": true,
   "name": "index",
   "label": "@list",
-  "title": "list intent",
+  "title": "List Intent",
   "items": ["align", "marker"]
 }

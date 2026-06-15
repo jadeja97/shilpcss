@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.0.0-alpha.13
+
+### Minor Changes
+
+- refactor: integrated `@jadeja/docs` and updated `@jadeja/ts`
+
 ## 1.0.0-alpha.12
 
 ### Patch Changes

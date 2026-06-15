@@ -68,7 +68,7 @@ const inset = {
 /* ============================================================================================= */
 
 type DeepExpand<T> = T extends object
-  ? // oxlint-disable typescript/no-explicit-any
+  ? // oxlint-disable-next-line typescript/no-explicit-any
     T extends (...args: any[]) => any
     ? T
     : {

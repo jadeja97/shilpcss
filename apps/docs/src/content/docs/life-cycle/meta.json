@@ -3,12 +3,24 @@
   "items": [
     {
       "name": "index",
-      "label": "overview",
-      "title": "life cycle's overview"
+      "label": "Overview",
+      "title": "Life Cycle's Overview"
     },
-    "pre-processing",
-    "processing",
-    "purging",
-    "transpiling"
+    {
+      "name": "pre-processing",
+      "label": "Pre Processing"
+    },
+    {
+      "name": "processing",
+      "label": "Processing"
+    },
+    {
+      "name": "purging",
+      "label": "Purging"
+    },
+    {
+      "name": "transpiling",
+      "label": "Transpiling"
+    }
   ]
 }

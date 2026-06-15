@@ -1,0 +1,22 @@
+.date-time {
+  @layout is-flex;
+  @flex flow-col;
+  @space gap-2 py-4;
+  @text color-muted-fg size-sm;
+
+  time {
+    @text style-italic;
+  }
+
+  @childs last {
+    @space ml-auto;
+  }
+
+  @screen sm {
+    @flex flow-row;
+  }
+
+  @screen xl {
+    @space px-8;
+  }
+}

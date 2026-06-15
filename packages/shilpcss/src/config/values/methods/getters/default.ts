@@ -1,7 +1,9 @@
-import { throwError, isNum, isObj, isStr } from "@jadeja/ts/lib";
+import { throwError } from "@jadeja/ts/lib/logger";
+import { isObj, isStr, isNum } from "@jadeja/ts/lib/types";
+
+import type { NestedObject } from "@jadeja/ts/types/data";
 
 import type { ValueResolverOptions } from "@/types/config/values";
-import type { NestedObject } from "@/types/shared";
 
 /* ============================================================================================= */
 
@@ -18,9 +20,8 @@ import type { NestedObject } from "@/types/shared";
  *
  * @returns The resolved value.
  *
- * @throws If the utility cannot be resolved to value.
+ * @throws { Error } If the utility cannot be resolved to value.
  */
-// oxlint-disable import/prefer-default-export
 export const getDefaultValue = ({ values, tokens, utility, intentName }: ValueResolverOptions) => {
   //
   let value: string | number = "";

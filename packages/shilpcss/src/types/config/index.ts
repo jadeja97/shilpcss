@@ -1,3 +1,5 @@
+import type { Extend } from "@jadeja/ts/types/utils";
+
 import type { SCSSConfig } from "@/types/bundlers/methods/pre-process";
 import type { PurgeConfig, PurgeConfigSource } from "@/types/bundlers/methods/purge";
 import type { TranspileColorFormat, TranspileConfig } from "@/types/bundlers/methods/transpile";
@@ -18,7 +20,6 @@ import type {
   Values,
   ValuesShape,
 } from "@/types/config/values";
-import type { Extend } from "@/types/shared";
 
 /* ================================================================================================
 	SHILP CONFIG

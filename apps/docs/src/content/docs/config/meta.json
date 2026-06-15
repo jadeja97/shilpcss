@@ -3,16 +3,40 @@
   "items": [
     {
       "name": "index",
-      "label": "overview",
-      "title": "configuration's overview"
+      "label": "Overview",
+      "title": "Configuration's Overview"
     },
-    "shilp-config-file",
-    "intents",
-    "utilities",
-    "properties",
-    "values",
-    "theme",
-    "mixins",
-    "components"
+    {
+      "name": "shilp-config-file",
+      "label": "Shilp Config File"
+    },
+    {
+      "name": "intents",
+      "label": "Intents"
+    },
+    {
+      "name": "utilities",
+      "label": "Utilities"
+    },
+    {
+      "name": "properties",
+      "label": "Properties"
+    },
+    {
+      "name": "values",
+      "label": "Values"
+    },
+    {
+      "name": "theme",
+      "label": "Theme"
+    },
+    {
+      "name": "mixins",
+      "label": "Mixins"
+    },
+    {
+      "name": "components",
+      "label": "Components"
+    }
   ]
 }

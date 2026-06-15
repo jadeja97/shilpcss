@@ -1,11 +1,15 @@
+@import "@jadeja/docs/styles/components/docs/toc";
+
+/* ============================================================================================= */
+
+/*  */
+
 /* ================================================================================================
 	DOCS TOC
 ================================================================================================ */
 
 .toc {
   li {
-    @space py-0.5;
-
     @position is-relative;
 
     /* data-level added for h3-h6 */
@@ -15,8 +19,8 @@
       @self before {
         content: "-";
 
-        @position is-absolute top-5;
-        @adjust preset -move-y-1/2 -move-x-1.5;
+        @position is-absolute top-2.5;
+        @adjust preset -move-x-1.5;
       }
     }
 

@@ -1,8 +1,9 @@
+import type { NestedObject } from "@jadeja/ts/types/data";
+
 import type { defaultTheme } from "@/config/theme/data";
 import type inlineTheme from "@/config/theme/data/inline-theme";
 import type { ShilpConfig } from "@/types/config";
 import type { ValueResolvers, Values, ValuesShape } from "@/types/config/values";
-import type { NestedObject } from "@/types/shared";
 
 /* ================================================================================================
 	THEME METHODS

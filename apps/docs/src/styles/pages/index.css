@@ -1,4 +1,5 @@
-@import "./home";
+@import "@jadeja/docs/styles/pages/home";
 @import "./docs";
+@import "./work-with-me";
 
-@import "./not-found";
+@import "@jadeja/docs/styles/pages/not-found";

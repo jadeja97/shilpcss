@@ -21,6 +21,12 @@ on:
 permissions: {}
 
 #
+env:
+  NEXT_TELEMETRY_DISABLED: 1
+  TURBO_TELEMETRY_DISABLED: 1
+  DO_NOT_TRACK: 1
+
+#
 jobs:
   #
   #
@@ -144,8 +150,8 @@ jobs:
         run: pnpm i --frozen-lockfile
 
       # 5 FYI: `pnpm check` already run at `ci.yml`
-      - name: Build docs
-        run: pnpm build --filter=shilpcss-docs
+      - name: Build docs (no checking)
+        run: pnpm build:nc --filter=shilpcss-docs
 
       # 6
       - name: Setup Pages

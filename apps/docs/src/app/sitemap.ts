@@ -1,10 +1,9 @@
-import { SITE_URL } from "@/lib/constants";
-import Content from "@/lib/content";
+import { resolve } from "node:path";
 
-/* ============================================================================================= */
+import { docsConfig, contentConfig } from "@docs";
+import { createContentSiteMapEntries, createSiteMapEntry } from "@jadeja/docs/lib/app/sitemap";
 
-// docs content info
-const content = Content.create("src/content", "docs");
+import type { MetadataRoute } from "next";
 
 /* ============================================================================================= */
 
@@ -14,36 +13,41 @@ export const revalidate = false;
 
 /* ============================================================================================= */
 
-const sitemap = () => {
+const sitemap = (): MetadataRoute.Sitemap => {
   //
-  const slugsWrapper = content.getAllSlugs();
-
-  // create sitemap entries for docs pages
-  // here trailing slash is important for correct URL structure and SEO for github pages,
-  // as it treats URLs with and without trailing slash as different pages
-  const docsPages = slugsWrapper.map(({ slugs }) => ({
-    url: slugs[0] === "" ? `${SITE_URL}/docs/` : `${SITE_URL}/docs/${slugs.join("/")}/`,
-    lastModified: new Date(),
-    changeFrequency: "monthly",
-    priority: 0.8,
-  }));
-
   // trailing slash is important for correct URL structure and SEO for github pages,
   // as it treats URLs with and without trailing slash as different pages
+
+  const { trailingSlash, constants } = docsConfig;
+  const { SITE_URL } = constants;
+
   return [
-    {
-      url: `${SITE_URL}/`,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
+    // "/"
+    createSiteMapEntry({
+      url: "/",
+      filePath: resolve("./page.tsx"),
       priority: 1,
-    },
-    {
-      url: `${SITE_URL}/work-with-me/`,
-      lastModified: new Date(),
+      SITE_URL,
+      trailingSlash,
+    }),
+
+    // "/work-with-me"
+    createSiteMapEntry({
+      url: "/work-with-me",
+      filePath: resolve("./work-with-me/page.tsx"),
       changeFrequency: "weekly",
       priority: 0.9,
-    },
-    ...docsPages,
+      SITE_URL,
+      trailingSlash,
+    }),
+
+    // "/docs", "/docs/*"
+    ...createContentSiteMapEntries({
+      priority: 0.8,
+      content: contentConfig.docs,
+      SITE_URL,
+      trailingSlash,
+    }),
   ];
 };
 

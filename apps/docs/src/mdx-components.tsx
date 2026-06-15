@@ -1,5 +1,12 @@
-import mdxComponents from "@/markdown/components";
+import { docsConfig } from "@docs";
+
+/* ============================================================================================= */
 
 // handled by `@next/mdx` module
-// oxlint-disable import/prefer-default-export
-export const useMDXComponents = () => mdxComponents;
+
+export const useMDXComponents = () => {
+  return {
+    ...docsConfig.mdxComponents?.HTMLElements,
+    ...docsConfig.mdxComponents?.TSXComponents,
+  };
+};

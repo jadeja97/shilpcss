@@ -1,4 +1,6 @@
-import { deepCopy } from "@jadeja/ts/lib";
+// oxlint-disable eslint/max-lines
+
+import { deepCopy } from "@jadeja/ts/lib/operations";
 
 import { default as defaultValues } from "@/config/values/data";
 
@@ -17,9 +19,10 @@ import type { ThemeFunctionOptions, ThemeShape } from "@/types/config/theme";
  *
  * @returns A theme object with resolved values (default).
  */
-// oxlint-disable eslint/max-lines-per-function
-const theme = ({ values = {} }: ThemeFunctionOptions) =>
-  deepCopy({
+// oxlint-disable-next-line eslint/max-lines-per-function
+const theme = ({ values = {} }: ThemeFunctionOptions) => {
+  //
+  return deepCopy({
     //
 
     /* ============================================================================================
@@ -284,6 +287,7 @@ const theme = ({ values = {} }: ThemeFunctionOptions) =>
       },
     }),
   } as const);
+};
 
 /* ============================================================================================= */
 

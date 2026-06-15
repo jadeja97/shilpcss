@@ -1,8 +1,10 @@
+import type { NestedObject } from "@jadeja/ts/types/data";
+
 import type propereties from "@/config/properties/data";
 import type { ShilpConfig } from "@/types/config";
 import type { UtilityDetails } from "@/types/config/utilities";
 import type { ValueResolvers } from "@/types/config/values";
-import type { NestedObject, PreventReservedKeys } from "@/types/shared";
+import type { PreventReservedKeys } from "@/types/utils";
 
 /* ================================================================================================
 	PROPERTY METHODS

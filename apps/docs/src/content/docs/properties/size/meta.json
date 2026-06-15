@@ -2,6 +2,6 @@
   "page": true,
   "name": "index",
   "label": "@size",
-  "title": "size intent",
+  "title": "Size Intent",
   "items": ["h", "is", "max", "min", "w"]
 }

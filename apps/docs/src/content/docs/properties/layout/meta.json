@@ -2,7 +2,7 @@
   "page": true,
   "name": "index",
   "label": "@layout",
-  "title": "layout intent",
+  "title": "Layout Intent",
   "items": [
     "blend",
     "box",

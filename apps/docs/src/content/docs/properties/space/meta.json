@@ -2,6 +2,6 @@
   "page": true,
   "name": "index",
   "label": "@space",
-  "title": "space intent",
+  "title": "Space Intent",
   "items": ["gap", "m", "p"]
 }

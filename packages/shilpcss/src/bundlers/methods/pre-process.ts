@@ -1,5 +1,5 @@
-import { logDivider, logNewLine, throwError } from "@jadeja/ts/lib";
-// oxlint-disable import/no-namespace
+import { error, printBlankLine, printSeparator, throwError } from "@jadeja/ts/lib/logger";
+// oxlint-disable-next-line import/no-namespace
 import * as sass from "sass";
 
 import { generateComponents } from "@/config/components/methods";
@@ -26,7 +26,7 @@ import type { PreProcessOptions } from "@/types/bundlers/methods/pre-process";
  *
  * @returns The pre-processed content.
  *
- * @throws If an error occurs during pre-processing.
+ * @throws { Error } If an error occurs during pre-processing.
  */
 const preProcess = ({ config, content, filePath }: PreProcessOptions) => {
   //
@@ -85,12 +85,14 @@ const preProcess = ({ config, content, filePath }: PreProcessOptions) => {
 
     return compiledCSS || content;
     //
-  } catch (error) {
+  } catch (err) {
     //
-    logDivider();
-    logNewLine(`Error: Pre-processing :: ${filePath}`);
-    logDivider();
-    return throwError(error);
+    printSeparator();
+    printBlankLine();
+    error(`Error: Pre-processing :: ${filePath}`);
+    printBlankLine();
+    printSeparator();
+    return throwError(err);
   }
 };
 

@@ -1,6 +1,6 @@
 import { resolve } from "node:path";
 
-import { copyFolders } from "@jadeja/ts/plugins/vite";
+import copyFolders from "@jadeja/ts/plugins/vite/copy-folders";
 import dts from "unplugin-dts/vite";
 import { defineConfig } from "vite";
 

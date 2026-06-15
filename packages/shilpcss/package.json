@@ -1,10 +1,13 @@
 {
   "name": "shilpcss",
   "description": "an Intent-first, CSS-centric, styling engine and framework",
-  "version": "1.0.0-alpha.8",
+  "version": "1.0.0-alpha.9",
   "type": "module",
   "exports": {
-    "./styles/*": "./dist/styles/*.css",
+    "./styles/*": {
+      "import": "./dist/styles/*.css",
+      "default": "./dist/styles/*.css"
+    },
     "./lib": {
       "types": "./dist/src/lib/index.d.ts",
       "import": "./dist/lib.js",
@@ -24,17 +27,20 @@
       "require": "./dist/webpack.js"
     },
     "./types": {
-      "types": "./dist/src/types/index.d.ts"
+      "types": "./dist/src/types/index.d.ts",
+      "default": "./dist/src/types/index.d.ts",
+      "import": "./dist/src/types/index.d.ts"
     }
   },
   "scripts": {
     "check": "tsc && oxfmt --check --disable-nested-config && oxlint --disable-nested-config",
     "fix": "oxlint --fix --disable-nested-config && oxfmt --disable-nested-config",
-    "build": "vite build",
+    "build:nc": "vite build",
+    "build": "pnpm build:nc",
     "publish-it": "pnpm publish --tag alpha --access public --no-git-checks"
   },
   "dependencies": {
-    "@jadeja/ts": "1.0.0-alpha.0"
+    "@jadeja/ts": "1.0.0-alpha.7"
   },
   "devDependencies": {
     "@types/node": "^24.6.2",

@@ -3,21 +3,39 @@
   "items": [
     {
       "name": "index",
-      "label": "introduction"
+      "label": "Introduction"
     },
     {
       "name": "why-shilp-css",
-      "label": "why shilp CSS"
+      "label": "Why Shilp CSS"
     },
-    "mental-model",
-    "quick-overview",
-    "benchmarks",
-    "credits",
-    "status",
+    {
+      "name": "mental-model",
+      "label": "Mental Model"
+    },
+    {
+      "name": "quick-overview",
+      "label": "Quick Overview"
+    },
+    {
+      "name": "benchmarks",
+      "label": "Benchmarks"
+    },
+    {
+      "name": "credits",
+      "label": "Credits"
+    },
+    {
+      "name": "status",
+      "label": "Status"
+    },
     {
       "name": "setup",
-      "label": "setup shilp CSS"
+      "label": "Setup Shilp CSS"
     },
-    "changelog"
+    {
+      "name": "changelog",
+      "label": "Changelog"
+    }
   ]
 }

@@ -2,7 +2,7 @@
   "page": true,
   "name": "index",
   "label": "@live",
-  "title": "live intent",
+  "title": "Live Intent",
   "items": [
     "caret",
     "cursor",
@@ -12,16 +12,17 @@
     {
       "name": "scroll-m",
       "label": "scroll-m",
-      "title": "scroll margin"
+      "title": "Scroll Margin"
     },
     {
       "name": "scroll-p",
       "label": "scroll-p",
-      "title": "scroll padding"
+      "title": "Scroll Padding"
     },
     {
       "name": "scroll-snap",
-      "label": "scroll-snap"
+      "label": "scroll-snap",
+      "title": "Scroll Snap"
     },
     "select",
     "touch"

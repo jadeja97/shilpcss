@@ -1,4 +1,6 @@
-import { throwError, deepMergeObj, isObj } from "@jadeja/ts/lib";
+import { throwError } from "@jadeja/ts/lib/logger";
+import { deepMergeObj } from "@jadeja/ts/lib/operations";
+import { isObj } from "@jadeja/ts/lib/types";
 
 import { RESERVED_NAMES } from "@/config/index/constants";
 import mixins from "@/config/mixins/data";

@@ -1,0 +1,14 @@
+/* ================================================================================================
+	PAGE SPECIFIC CSS VARIABLES  (/work-with-me)
+================================================================================================ */
+
+html[data-path="/work-with-me"] {
+  /* /work-with-me `main` element's top padding */
+  --main-pt: theme(spacing|spacing-4);
+
+  @screen xl {
+    main {
+      @space px-8;
+    }
+  }
+}

@@ -2,6 +2,6 @@
   "page": true,
   "name": "index",
   "label": "@bg",
-  "title": "bg (a.k.a. background) intent",
+  "title": "Background Intent",
   "items": ["attachment", "blend", "clip", "color", "gradient", "img"]
 }

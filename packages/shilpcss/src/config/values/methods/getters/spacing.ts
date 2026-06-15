@@ -1,7 +1,9 @@
-import { throwError, isNum, isObj, isStr } from "@jadeja/ts/lib";
+import { throwError } from "@jadeja/ts/lib/logger";
+import { isObj, isStr, isNum } from "@jadeja/ts/lib/types";
+
+import type { NestedObject } from "@jadeja/ts/types/data";
 
 import type { ValueResolverOptions } from "@/types/config/values";
-import type { NestedObject } from "@/types/shared";
 
 /* ================================================================================================
 	GET RAW SPACING VALUE  (AS-IS FROM `propertyConfig.values`)
@@ -18,7 +20,7 @@ import type { NestedObject } from "@/types/shared";
  *
  * @returns The raw spacing value.
  *
- * @throws If the utility cannot be resolved to spacing value.
+ * @throws { Error } If the utility cannot be resolved to spacing value.
  */
 export const getRawSpacing = ({ values, tokens, utility, intentName }: ValueResolverOptions) => {
   //

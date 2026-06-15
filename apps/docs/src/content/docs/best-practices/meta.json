@@ -3,14 +3,17 @@
   "items": [
     {
       "name": "index",
-      "label": "overview",
-      "title": "best practices overview"
+      "label": "Overview",
+      "title": "Best Practices Overview"
     },
     {
       "name": "writing-shilp-css",
-      "label": "writing shilp CSS"
+      "label": "Writing Shilp CSS"
     },
-    "property-config-patterns",
+    {
+      "name": "property-config-patterns",
+      "label": "Property Config Patterns"
+    },
     {
       "name": "multi-theme",
       "label": "Multiple Themes",

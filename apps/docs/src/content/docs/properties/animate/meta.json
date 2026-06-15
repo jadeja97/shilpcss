@@ -2,7 +2,7 @@
   "page": true,
   "name": "index",
   "label": "@animate",
-  "title": "animate intent",
+  "title": "Animate Intent",
   "items": [
     "delay",
     "direction",

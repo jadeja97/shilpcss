@@ -2,6 +2,6 @@
   "page": true,
   "name": "index",
   "label": "@adjust",
-  "title": "adjust intent",
+  "title": "Adjust Intent",
   "items": ["backside", "distance", "move", "origin", "preset", "rotate", "scale", "shape", "skew"]
 }
