@@ -128,7 +128,7 @@ export const docsConfig: DocsConfig = defineConfig({
 /* ============================================================================================= */
 
 export const contentBaseOptions: ContentBaseOptions = {
-  fetchAlwaysLastModified: docsConfig.constants.PROD,
+  fetchAlwaysLastModified: false,
   frontMatterFormatting: { indent: 2, lineWidth: 100, quotingType: '"' },
   search: {
     SEARCH_INDEX_FIELDS: docsConfig.constants.SEARCH_INDEX_FIELDS,

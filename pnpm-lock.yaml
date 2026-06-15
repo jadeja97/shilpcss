@@ -33,8 +33,8 @@ importers:
         specifier: ^1.3.0
         version: 1.3.0(@types/react@19.2.14)(react-dom@19.2.7(react@19.2.7))(react@19.2.7)
       '@jadeja/docs':
-        specifier: 1.0.0-alpha.7
-        version: 1.0.0-alpha.7(@base-ui/react@1.3.0(@types/react@19.2.14)(react-dom@19.2.7(react@19.2.7))(react@19.2.7))(@next/mdx@16.2.2(@mdx-js/loader@3.1.1(webpack@5.106.2))(@mdx-js/react@3.1.1(@types/react@19.2.14)(react@19.2.7)))(@next/third-parties@16.2.6(next@16.2.6(@babel/core@7.29.0)(babel-plugin-react-compiler@1.0.0)(react-dom@19.2.7(react@19.2.7))(react@19.2.7)(sass@1.99.0))(react@19.2.7))(glob@13.0.6)(next@16.2.6(@babel/core@7.29.0)(babel-plugin-react-compiler@1.0.0)(react-dom@19.2.7(react@19.2.7))(react@19.2.7)(sass@1.99.0))(oxfmt@0.48.0)(oxlint-tsgolint@0.22.1)(oxlint@1.65.0(oxlint-tsgolint@0.22.1))(react-dom@19.2.7(react@19.2.7))(react@19.2.7)(shilpcss@packages+shilpcss)
+        specifier: 1.0.0-alpha.8
+        version: 1.0.0-alpha.8(@base-ui/react@1.3.0(@types/react@19.2.14)(react-dom@19.2.7(react@19.2.7))(react@19.2.7))(@next/mdx@16.2.2(@mdx-js/loader@3.1.1(webpack@5.106.2))(@mdx-js/react@3.1.1(@types/react@19.2.14)(react@19.2.7)))(@next/third-parties@16.2.6(next@16.2.6(@babel/core@7.29.0)(babel-plugin-react-compiler@1.0.0)(react-dom@19.2.7(react@19.2.7))(react@19.2.7)(sass@1.99.0))(react@19.2.7))(glob@13.0.6)(next@16.2.6(@babel/core@7.29.0)(babel-plugin-react-compiler@1.0.0)(react-dom@19.2.7(react@19.2.7))(react@19.2.7)(sass@1.99.0))(oxfmt@0.48.0)(oxlint-tsgolint@0.22.1)(oxlint@1.65.0(oxlint-tsgolint@0.22.1))(react-dom@19.2.7(react@19.2.7))(react@19.2.7)(shilpcss@packages+shilpcss)
       '@jadeja/ts':
         specifier: 1.0.0-alpha.7
         version: 1.0.0-alpha.7(glob@13.0.6)(oxfmt@0.48.0)(oxlint-tsgolint@0.22.1)(oxlint@1.65.0(oxlint-tsgolint@0.22.1))
@@ -623,8 +623,8 @@ packages:
     cpu: [x64]
     os: [win32]
 
-  '@jadeja/docs@1.0.0-alpha.7':
-    resolution: {integrity: sha512-2NoObhme0jMJB1mKn0iMbB6gyI7yt0vtJUt2wQEK5M0J63+CHgkN3HgaBxeLy4D5b88xB5WcAuHTsjbZeeXgFw==}
+  '@jadeja/docs@1.0.0-alpha.8':
+    resolution: {integrity: sha512-a3ipZX0iQsO47zGY423J1PDnmI9n3aQeyEE0IPtshXnyv6Pl3QHaKVP3DgdN8EA/YpKEWdQEtrZpKLAwjYDllg==}
     engines: {bun: please-use-pnpm, node: '>=24', npm: please-use-pnpm, pnpm: '>=10', turbo: '>=2', yarn: please-use-pnpm}
     peerDependencies:
       '@base-ui/react': ^1.5.0
@@ -3259,7 +3259,7 @@ snapshots:
   '@img/sharp-win32-x64@0.34.5':
     optional: true
 
-  '@jadeja/docs@1.0.0-alpha.7(@base-ui/react@1.3.0(@types/react@19.2.14)(react-dom@19.2.7(react@19.2.7))(react@19.2.7))(@next/mdx@16.2.2(@mdx-js/loader@3.1.1(webpack@5.106.2))(@mdx-js/react@3.1.1(@types/react@19.2.14)(react@19.2.7)))(@next/third-parties@16.2.6(next@16.2.6(@babel/core@7.29.0)(babel-plugin-react-compiler@1.0.0)(react-dom@19.2.7(react@19.2.7))(react@19.2.7)(sass@1.99.0))(react@19.2.7))(glob@13.0.6)(next@16.2.6(@babel/core@7.29.0)(babel-plugin-react-compiler@1.0.0)(react-dom@19.2.7(react@19.2.7))(react@19.2.7)(sass@1.99.0))(oxfmt@0.48.0)(oxlint-tsgolint@0.22.1)(oxlint@1.65.0(oxlint-tsgolint@0.22.1))(react-dom@19.2.7(react@19.2.7))(react@19.2.7)(shilpcss@packages+shilpcss)':
+  '@jadeja/docs@1.0.0-alpha.8(@base-ui/react@1.3.0(@types/react@19.2.14)(react-dom@19.2.7(react@19.2.7))(react@19.2.7))(@next/mdx@16.2.2(@mdx-js/loader@3.1.1(webpack@5.106.2))(@mdx-js/react@3.1.1(@types/react@19.2.14)(react@19.2.7)))(@next/third-parties@16.2.6(next@16.2.6(@babel/core@7.29.0)(babel-plugin-react-compiler@1.0.0)(react-dom@19.2.7(react@19.2.7))(react@19.2.7)(sass@1.99.0))(react@19.2.7))(glob@13.0.6)(next@16.2.6(@babel/core@7.29.0)(babel-plugin-react-compiler@1.0.0)(react-dom@19.2.7(react@19.2.7))(react@19.2.7)(sass@1.99.0))(oxfmt@0.48.0)(oxlint-tsgolint@0.22.1)(oxlint@1.65.0(oxlint-tsgolint@0.22.1))(react-dom@19.2.7(react@19.2.7))(react@19.2.7)(shilpcss@packages+shilpcss)':
     dependencies:
       '@base-ui/react': 1.3.0(@types/react@19.2.14)(react-dom@19.2.7(react@19.2.7))(react@19.2.7)
       '@jadeja/ts': 1.0.0-alpha.7(glob@13.0.6)(oxfmt@0.48.0)(oxlint-tsgolint@0.22.1)(oxlint@1.65.0(oxlint-tsgolint@0.22.1))
