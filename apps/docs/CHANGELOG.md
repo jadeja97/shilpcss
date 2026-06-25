@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.0.0-alpha.14
+
+### Minor Changes
+
+- fix: css specificity issue due to next.js css chunking, wrong ordering and merging
+
 ## 1.0.0-alpha.13
 
 ### Minor Changes

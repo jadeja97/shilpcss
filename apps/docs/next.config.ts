@@ -29,7 +29,7 @@ const nextConfig: NextConfig = processMDX({
 		CUSTOMIZE BUNDLER
 	============================================================================================== */
 
-  webpack: (config: Configuration) => {
+  webpack: (config: Configuration, { isServer }) => {
     //
     const webpackConfig = docsConfig.getWebpackConfig(config, {
       plugins: [new ShilpCSS(shilpConfig)],
@@ -43,7 +43,33 @@ const nextConfig: NextConfig = processMDX({
       },
     });
 
+    // prevent next.js from chunking, wrong ordering and merging
+    // this will make sure that, there's no specificity issue due to wrong ordering
+    // @ts-expect-error  type issue
+    if (!isServer && config.optimization?.splitChunks?.cacheGroups) {
+      // @ts-expect-error  type issue
+      // oxlint-disable-next-line typescript/no-unsafe-member-access
+      config.optimization.splitChunks.cacheGroups.styles = {
+        name: "styles",
+        test: /\.css$/,
+        chunks: "all",
+        // tells webpack to ignore size constraints and force a single file
+        enforce: true,
+      };
+    }
+
     return webpackConfig;
+  },
+
+  /* ==============================================================================================
+		EXPERIMENTAL
+	============================================================================================== */
+
+  experimental: {
+    cssChunking: "strict",
+    inlineCss: false,
+    optimizeCss: false,
+    useLightningcss: false,
   },
 });
 
