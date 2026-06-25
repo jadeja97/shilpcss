@@ -46,10 +46,10 @@ const nextConfig: NextConfig = processMDX({
     // prevent next.js from chunking, wrong ordering and merging
     // this will make sure that, there's no specificity issue due to wrong ordering
     // @ts-expect-error  type issue
-    if (!isServer && config.optimization?.splitChunks?.cacheGroups) {
+    if (!isServer && webpackConfig.optimization?.splitChunks?.cacheGroups) {
       // @ts-expect-error  type issue
       // oxlint-disable-next-line typescript/no-unsafe-member-access
-      config.optimization.splitChunks.cacheGroups.styles = {
+      webpackConfig.optimization.splitChunks.cacheGroups.styles = {
         name: "styles",
         test: /\.css$/,
         chunks: "all",
