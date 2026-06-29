@@ -133,7 +133,7 @@ export const contentBaseOptions: ContentBaseOptions = {
   search: {
     SEARCH_INDEX_FIELDS: docsConfig.constants.SEARCH_INDEX_FIELDS,
     SEARCH_INDEX_FILE_NAME: docsConfig.constants.SEARCH_INDEX_FILE_NAME,
-    SEARCH_INDEX_RETURN_FIELDS: docsConfig.constants.SEARCH_INDEX_RETURN_FIELDS,
+    SEARCH_INDEX_QUERY_OPTIONS: docsConfig.constants.SEARCH_INDEX_QUERY_OPTIONS,
   },
   trailingSlash: docsConfig.trailingSlash,
 };

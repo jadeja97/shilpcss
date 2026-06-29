@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.0.0-alpha.15
+
+### Patch Changes
+
+- fix: search index fields and size
+
 ## 1.0.0-alpha.14
 
 ### Minor Changes

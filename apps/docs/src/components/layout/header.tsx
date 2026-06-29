@@ -1,4 +1,4 @@
-import { contentBaseOptions, docsConfig } from "@docs";
+import { contentBaseOptions, contentConfig, docsConfig } from "@docs";
 import { MenuIcon, SearchIcon } from "@jadeja/docs/components/assets/icons";
 import { Button } from "@jadeja/docs/components/button";
 import { DialogRoot, DialogTrigger, DialogContent } from "@jadeja/docs/components/dialog";
@@ -134,7 +134,11 @@ const SearchPopup = (): ReturnType<typeof DialogRoot> => {
 
       <DialogContent hideCloseButton className="search-content">
         {/*  */}
-        <Search DEV={docsConfig.constants.DEV} {...contentBaseOptions.search} />
+        <Search
+          DEV={docsConfig.constants.DEV}
+          contentList={contentConfig.docs.list}
+          {...contentBaseOptions.search}
+        />
         {/*  */}
       </DialogContent>
     </DialogRoot>
